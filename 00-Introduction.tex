@@ -1,0 +1,133 @@
+\chapter*{Introduction}
+
+Algebraic $K$-Theory encompasses a variety of mathematical disciplines, natural
+settings, questions and tools, and thus also motivations. As an algebraic topologist
+I primarily use the motivation by chromatic homotopy theory. I refer the interested
+reader to \cite{Rog14} for a general introduction to the red-shift conjecture, while 
+focussing on the aspects which centrally motivate my thesis here.
+
+Since algebraic topology formed as an independent mathematical discipline, a major
+aspect of it is the study of invariants associated to topological spaces. The most prominent
+and easily defined of these invariants are the homotopy groups associated to a topological
+space. The higher homotopy groups, i.e., for $n\geq2$, 
+give a countable family of abelian groups associated to a space. These
+however suffer from the defect of being very hard to compute. Even more drastically,
+it is usually a very hard question to establish, if a homotopy group of some fixed degree
+is trivial or non-trivial for some given space, unless elementary arguments
+force its triviality.
+
+Much easier to compute, but harder to define are (singular) homology groups, defined by 
+a variety of constructions up to the 1950s, proved to coincide by an axiomatic approach by 
+Eilenberg and Steenrod in 1945. In the 1950s people found that there are more
+constructions satisfying all except one of the axioms, thus establishing topological
+$K$-theory and bordism as ``extraordinary'' homology theories. 
+
+The Atiyah-Hirzebruch spectral sequence in principle makes it possible to compute
+any homology theory on any space, given only its singular homology with $\Z$-coefficients
+as input. However, chromatic homotopy theory establishes
+that singular homology is the least complex of all homology theories. In particular,
+it gives a conceptual reason for the difficulties one encounters, when one tries to actually
+fully calculate the Atiyah-Hirzebruch spectral sequence for specific spaces. Cobordism is
+at the other extreme, having chromatic complexity $\infty$ in a conceptually satisfying sense. 
+
+In particular one could hope for an iterative approach to understanding invariants on a 
+topological space by starting with singular homology on this space, thus at complexity
+$0$, and then iterating from complexity $n$ to $n+1$. Chromatic
+red-shift as described for instance in \cite{Rog14} is the conjecture that one way to
+produce such intermediary theories of increasing complexity is given by 
+iterating algebraic $K$-theory on the associated spectra. 
+
+Suslin has established in 1984 that for any separably closed field $F$ its algebraic 
+$K$-theory completed at primes $p$ (other than its characteristic) is equivalent to
+topological complex $K$-theory. Thus the singular homology with coefficients in $F$
+being a theory of complexity $0$ is transformed into a theory of complexity $1$.
+By the results of Christian Ausoni, specifically the ones in \cite{AuKku} we know
+that $K(ku_p)$ is the spectrum associated to a cohomology theory of complexity $2$.
+In general chromatic red-shift predicts that this is part of a pattern, saying that
+algebraic $K$-theory raises chromatic complexity by one.
+
+This thesis is specifically concerned with the involutive structures present on these
+spectra. Singular homology arises as the Eilenberg-MacLane spectrum of a discrete
+rig category, while \cite{Ri2010} shows that on algebraic $K$-theory objects we always
+have an involution induced by transposing and inverting matrices. On complex $K$-theory
+this involution specialises to the natural involution induced by complex conjugation.
+One chromatic step higher this involution describes the operation on $2$ vector bundles
+\cite{BDR2004}, which conjugates each transitional vector bundle. On $K$-theory of
+complex $K$-theory we can describe this as the involution induced by transposition
+and inversion in both iterations of $K$-theory.
+
+In Chapter 1 I recall the most prominent combinatorial models for connective spectra given
+by ringlike categories, specifically bimonoidal and bipermutative categories, while in
+addition recalling the results of \cite{EM} delooping their classifying spaces. I rewrite
+the construction of \cite{EM} in such a way that I can easily generalise it in Chapter 3 to
+bicategories.
+
+In Chapter 2 I establish a multiplicative structure on a combinatorial model for modules
+over a bipermutative category as already studied additively by Ang\'elica Osorno in
+\cite{Os}. I tie in the multiplicative structure with her additive structure in a manner
+that makes this module bicategory a ringlike object again.
+
+In Chapter 3 -- the technical core of this thesis -- I set up a multiplicative delooping
+analogous to \cite{EM} for permutative bicategories, which generalises the one of \cite{Os},
+while allowing a multiplication to be induced by the tensor product defined in chapter 2. 
+
+In Chapter 4 I offer a few partial results, essentially summaries of known results in
+various papers, pertaining to the uniqueness of such structures. The delooping of a
+module category of a permutative category is sufficiently unique to fix the spectrum
+by minimal data as observed by May and Thomason in 1978 \cite{MT1978}. However, I was
+unfortunately unable to prove multiplicative uniqueness of this delooping, which would
+as a corollary imply that the multiplicative structure of chapter 3 is the same as the
+one obtained by iterating the construction of \cite{EM} twice. I do outline two
+arguments by which one might approach this conjectural uniqueness.
+
+Chapters 5 and 6 are concerned with the motivating calculational example $K(ku)$. In particular,
+since the calculations of \cite{AuKku} are done by trace methods, i.e., by computations along
+the natural map $K\rightarrow THH$, I recall the definition of topological Hochschild homology
+in chapter 5. Fixing conventions along the way, specifically how an involution on a ring spectrum
+induces one on its topological Hochschild homology, we find that the trace is compatible with
+the involutions defined in chapters 2 and 5. 
+
+Compare this to the introduction of Dundas \cite{D98}, where he states that the construction of the
+trace map in the context of \cite{D98} 
+is compatible with involutions induced by the appropriate functors. Thus the result in
+chapter 5 establishes that we have internalised the involution in chapter 2 on $K$-theory
+and in chapter 5 on topological Hochschild homology in a compatible way.
+
+Finally in Chapter 6 I retrace the calculations of \cite{AuKku} to the extent that I can
+establish the effects of the involution on $K(ku)$ on classes, which are not in the kernel
+of the trace map.
+
+\section*{Acknowledgements}
+Obviously such a thesis cannot be written in a social vacuum, so I want to take this opportunity
+to thank a few people.
+
+First and foremost obviously my advisor, Birgit Richter: In addition to creating a safety, from
+which I could explore the multiplicative delooping in chapters 2 and 3, she quite regularly helped
+me with indispensable advice when I became disoriented mathematically or socially.
+
+I gratefully acknowledge the funding and environment of the Research Training Group 1670. In addition
+to the fact that I was able to focus exclusively on my research in the first three years of my
+postgraduate studies, being a part of a big group of PhD students made many experiences seem less 
+lonely, which would have been frustrating otherwise. Furthermore being entrusted with the position
+of spokesperson for the PhD students I gained valuable insight in how to obtain a
+group opinion efficiently and also had an in-depth look at the process of application talks, which
+made them much more transparent, hence in particular less frightening to me.
+
+It was plain fortunate that in 2012 at the Arolla conference I had the opportunity to meet with and
+talk to Robert Bruner, who explained to me the Adams spectral sequence and how to effectively calculate
+with it so pleasantly and patiently that I still remember each minute of it fondly.
+Also I want to thank Christian Ausoni for giving me a nice reader's guide to his papers, which helped
+a lot in reading them correctly and efficiently, thus kickstarting my knowledge of $K(ku)$.
+
+This section could never be complete without mentioning Stephanie Ziegenhagen. I agree it
+was a perfect match, when our paths crossed in Algebraic Topology I, which is now 8 years ago. Since
+then we have been through so many things together, and experienced a lot of things so integrally 
+together that I could never imagine them without you. As this is probably the last thesis, in which
+we address acknowledgements to each other, I want to close the circle with: \emph{May the force of the
+universal property always save us from coordinates.} :)
+
+Finally I want to extend special thanks to people, who read the draft in various stages of completion:
+My parents for catching numerous errors and typos, Birgit Richter in particular for pruning the 
+nonsense I had written, Fabian Kirchner for his careful check of the mathematical prose, and finally
+Stephanie Ziegenhagen for her fail-safe instinct to find undefined and confusing parts, and attach
+the criticism down to the word or letter that causes the confusion.

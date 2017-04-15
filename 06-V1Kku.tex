@@ -1,0 +1,773 @@
+\chapter{The Involution on $V(1)_*K(ku_p)$}\label{calc}
+In this chapter we can finally use the results of all preceding
+chapters to revisit the calculations of Christian Ausoni to analyse
+them along the induced involutions - primarily the ones in \cite{AuTHH,AuKku}. 
+For this I go through many details of the 
+calculations and recall the ones, which I need for establishing
+the involution on classes in homology or homotopy groups. However
+I have written this chapter under the assumption that the reader
+has the sources \cite{AuTHH,AuKku} close.
+In particular the effect of the involution has clearer emphasis,
+when I consider the hard calculations of \cite{AuTHH,AuKku} as given.
+
+Inherent to the calculations of \cite{AuTHH,AuKku} is the restriction to
+odd primes, for a partial picture at $p=2$ see \cite{AnHL} computing the
+homotopy groups $\pi_*THH(\l)$ and $\pi_*THH(ko)$ locally at $2$.
+
+\section{The Involutions on $\ell$ and $ku$}
+\subsection*{Preliminaries}
+The model provided by algebraic 
+$K$-theory of an algebraic closure of a finite field $K(\barF_q)$,
+which comes with a ring map given by the Brauer lift $K(\barF_q)
+\rightarrow KU$, as well as the connective cover given by $H\MM_\CC
+=ku\rightarrow KU$ yield the same $E_\infty$-structure, when 
+completed at $p$ for which $q\in(\Z/p^2)^\times$ is a generator, by
+\cite{BaRi08}. 
+The homology theories in \cite{AuTHH,AuKku} are insensitive to 
+$p$-completion, because the involved homology theories are 
+$H\F_p$-local (in the sense of Bousfield-localisation), hence I
+switch between the models for $ku$ whenever convenient for a 
+clearer exposition. 
+
+Do note that by the homotopy limit involved in the definition of 
+topological cyclic homology and the fact that completion can for instance
+be described as a homotopy colimit we cannot expect 
+completion and cyclic homology to commute. 
+
+On $K$-theory we can
+trace the analogous failure back to the fact that a ring usually
+has fewer units than its $p$-completion, thus analysing $BGL(R_p^{\wedge})$
+and $BGL(R)_p^{\wedge}$ are usually two different problems. However 
+topological Hochschild homology does commute with colimits (given
+cofibrant spectra, as we assumed above \ref{cofibTHH}), thus as long as
+I rely on \cite{AuTHH} for the determination of $V(1)_*THH(ku)$ and do
+not refer to $TC(ku)$ and $K(ku)$, it is not ambiguous, if I do not
+specify, if $ku$ denotes its integral, $p$-local or $p$-completed 
+version.
+
+By the description of $ku$ given above \ref{ltolzeta} we know that
+at an odd prime $p$ the spectrum $ku$ has a direct summand $\ell$ 
+called the Adams summand, first identified
+by Adams through operations on vector bundles - see Lecture 4 of \cite{Ad69}. 
+The inclusion of fields
+$L\rightarrow L(\zeta_p)$ induces a map of $E_\infty$-ring spectra
+$i\colon K(L)\rightarrow K(L(\zeta_p)),$ and I fix these completed at
+$p$ as a model for the inclusion $i\colon \ell_p\rightarrow ku_p$ \ref{einfapprox}.
+
+By basic obstruction theory (cf. \cite[Proposition 3.1]{EKMM},
+\cite[p. 36, Lemma 2.12]{MayEinf})
+we can realise the map $ku\rightarrow H\Z = H(\pi_0ku)$ 
+as a map of $E_\infty$-ring spectra, as well as the map 
+$ku\rightarrow H\Z\rightarrow H\Z/p$. This induces in particular
+a map of $E_\infty$-ring spectra $\ell\rightarrow H\Z/p$, which by
+\cite[Lemma 16.8]{Ad74} realises the inclusion:
+\[H_*(\ell;\Z/p)=\Z/p[\xi_1,\xi_2,\ldots]\otimes E(\tau_2,\tau_3,\ldots)\]
+\[\phantom{blubbelblubbel}\rightarrow A_*=H_*(H\Z/p,\Z/p) = 
+\Z/p[\xi_1,\xi_2,\ldots]\otimes E(\tau_0,\tau_1,\ldots)\]
+of the indicated subalgebra of the dual Steenrod algebra at $p$
+(cf. for instance \cite[pp. 51-53]{Kochm}), with generators in degrees
+$|\xi_i|=2p^i-2$ and $|\tau_i|=2p^i-1$. Do note that the map $H\Z_p\rightarrow
+H\Z/p$ induces an injection on $H\Z/p$-homology as well 
+with image the full polynomial algebra, and all of the
+exterior algebra apart from $\tau_0$, i.e., the dual of the Bockstein
+element in the Steenrod-algebra, which is the ${H\F_p}_*$-Bockstein
+map.
+
+Since the map $\ell\rightarrow ku\rightarrow \Z$ can be realised on
+bipermutative categories as $\MM_L\rightarrow \MM_{L(\zeta_p)}\rightarrow 
+\mathbb{N}^\delta,$ with $\N=\N^\delta$ considered as a discrete bipermutative 
+category with its obvious rig structure, we see that the involutions
+are compatible as follows:
+\[\xymatrix{\ell\ar[d]^{\tau_\ell} \ar[r] & ku\ar[d]^{\tau_{ku}}\ar[r] 
+		& H\Z\ar@{=}[d]\\\ell\ar[r]&ku\ar[r]&H\Z,}\]
+independently of what involutions we chose compatibly on $ku$ and $\ell$.
+
+In particular we find that any involution on $\ell$ given by an involution
+on $\MM_L$ induces the identity on its homology:
+{\prop{Let $(T,t)\colon \MM_L\rightarrow \MM_L^\mu$ be an involution of
+	bipermutative categories with $H\MM_L=\ell,$ then the involution 
+	induced	on homology with $\Z/p$-coefficients is trivial.
+	\begin{proof}Let me repeat the core of the argument: If the 
+	involution arises on bipermutative categories, then we can map 
+	to the discrete rig $\mathbb{N},$ and this induces the 
+	monomorphism $H_*\ell\rightarrow H_*H\Z$. Since $\mathbb{N}$ is 
+	discrete it only supports the trivial involution.\end{proof}}}
+
+Recall \cite[Theorem 2.5]{AuTHH}: 
+{\thm{There is an isomorphism of $A_*$-comodule algebras: \[H_*(ku,\F_p) =
+	H_*(\ell,\F_p)\otimes P_{p-1}(x)\] with $x\in H_2(ku,\F_p)$ the 
+	Hurewicz-image of $u\in\pi_2ku$, where $P_{p-1}(x)$ denotes the 
+	polynomial algebra on $x$ truncated by $x^{p-1}.$ 
+
+	Furthermore $H_*\ell$ can be identified as the inclusion of $\Z/(p-1)$-
+	fixed points under the action by the Galois group of $L\rightarrow
+	L(\zeta_p)$, hence in particular we have: \[\ell\simeq ku^{h\Z/(p-1)}.\]
+
+	\begin{proof}Each of the statements is found on pp. 1268--1269 of 
+    \cite{AuTHH}. Compare also for the fixed point statement the corresponding
+    statements on $THH$ and $K$-theory on p. 1307 of \cite{AuTHH}. 
+    While the fixed point statement is
+	immediate from the homological fixed point spectral sequence (cf. for instance
+	\cite{BrRo05}) which collapses at $E^2$, because the relevant group homology
+	is acyclic, since the order of the group is a unit $p-1=-1\in\F_p^\times$ 
+    -- cf. \cite[p. 156]{Rot2009}. \end{proof}}}
+
+{\thm{\label{invku}
+	The involution on $H_*ku$ is completely determined by the effect on
+	$u\in\pi_2ku,$ thus also on its image under the Hurewicz map $x\in H_2(ku,\F_p)$.
+
+	Explicitly: For the map of commutative $\S$-algebras $\tau\colon ku\rightarrow ku$ 
+	induced	by strictifying $H\V_\CC$ and complex conjugation along the Quillen 
+	equivalence	of commutative and $E_\infty$-ring spectra (recalled in 
+	\ref{commeinf}), we get	\[\tau_*(u^n)=(-1)^nu^n.\]
+
+	Since on $\V_\CC$ complex conjugation and transposition-inversion agree, this
+	is also the effect of the involution induced by the identity. \begin{proof}
+	We have the canonical map $ku\rightarrow KU$, and by a classical result of Snaith \cite{Sn}
+	we know, that we can obtain $KU$ as the suspension spectrum of the infinite complex
+	projective space by inverting the Bott class $u\in \pi_2\Sigma^{\infty}_+\CC P^\infty.$
+	For a modernised account in motivic spectra compare Gepner-Snaith \cite{GSn}.
+
+	But this class arises as the suspension of $u\colon \S^2\rightarrow\CC P^\infty$ on
+	space level. In particular we can choose to realise it as the inclusion 
+	$\Sigma U(1)\rightarrow BU(1)\simeq \CC P^\infty,$ where complex conjugation evidently
+	acts on $\Sigma U(1)\cong \S^2$ by a reflection along one equator, hence has
+	degree $-1$.\end{proof}}}
+
+We have seen at \ref{Invandmultappr} that the involution induced \ref{indinvSP} 
+on $\ell$ is strictly equal to the identity. In particular for commutative models 
+inverting and transposing agrees with complex conjugation, thus I consider 
+the effect of complex conjugation as fundamental. 
+{\cor{Transposition-inversion induces the identity on $(H\F_p)_*\ell$, 
+	thus on $H\F_p$-homology of $ku$ it is given
+	as $x\mapsto -x$ and the identity on $H_*\ell$.	\begin{proof}
+	I already presented above that the fact that $\ell\rightarrow H\F_p$
+	induces a monomorphism on homology, forces any self-map on bipermutative
+	categories to be visible on $\mathbb{N}^\delta,$ thus trivial.
+	\end{proof}}}
+
+{\cor{\label{invkucoeff}Complex conjugation on $\pi_*ku=ku_*\cong \Z[u]$ induces the map:
+	$u^n\mapsto (-1)^nu^n$ by \ref{invku}. Thus for a prime $p\geq 3$ 
+	the map $\ell\rightarrow ku$ realising the inclusion 
+	$\Z_{(p)}[v]\mapsto\Z_{(p)}[u]$ with $v\mapsto u^{p-1},$ identifies 
+	the effect of conjugation on $\ell$ as the identity.}}
+
+Proceeding in following \cite{AuTHH} we consider topological Hochschild homology
+of $ku$ with coefficients in $H\Z_p,$ which is a $ku$-module by the canonical
+maps $ku\wedge H\Z_p\rightarrow H\Z_p\wedge H\Z_p\rightarrow H\Z_p$.
+
+{\thm[{\cite[pp. 1282--1287, Proposition 5.6]{AuTHH}}]{There is an isomorphism of $A_*$-comodule \label{hthhkuzp}
+	algebras \[H_*(THH(ku,H\Z_p),\F_p)= 
+	H_*(H\Z_p,\F_p)\otimes E([\sigma x],[\sigma \xi_1])\otimes P([y]).\]
+	with degrees $|\sigma x|=|x|+1=3$, $|\sigma\xi_1|=2p-2+1=2p-1$, and $|y|=2p$.
+
+	The B\"okstedt spectral sequence for $THH(ku,H\Z_p)$:
+	\[E^2=HH^{\F_p}(H_*(ku,\F_p),H_*(H\Z_p,\F_p))\Rightarrow H_*(THH(ku,H\Z_p);\F_p)\]
+	has $E^2$-term:
+	\[HH_*(H_*ku,H_*H\Z_p)\cong H_*H\Z_p\otimes E(\sigma x, \sigma \xi_1,\sigma \xi_2,\ldots)
+	\otimes \Gamma(y,\sigma \tau_2,\sigma \tau_3,\ldots),\]
+	where $\Gamma$ denotes the divided power algebra over $\F_p$ on the given generators.
+	The spectral sequence collapses at $E^{2p}$ and thus has $E^\infty$-term:
+	\[E^{2p}=E^\infty=H_*H\Z_p\otimes E(\sigma x,\sigma \xi_1)\otimes 
+	P_p(y,\sigma\tau_2,\sigma\tau_3,\ldots)\]
+	with multiplicative extensions $[y]^p=[\sigma\tau_2]$ and $[\sigma\tau_i]^p=[\sigma\tau_{i+1}]$.
+	\begin{proof}
+	This is all explicit in \cite{AuTHH} at the given pages.
+	\end{proof}}}
+
+{\rem{Note in particular that the divided power algebra $\Gamma(y)$ in $E^2$-terms
+	of the B\"okstedt spectral sequence actually gives rise to a polynomial
+	algebra in \ref{hthhkuzp}.}}
+
+For the Adams summand the analogous computational result was already published in 
+1991 by McClure and Staffeldt. In absence of the complications introduced by the
+truncated polynomial algebra $P_{p-1}(x)$ I can directly quote the result for 
+$THH(\ell)$.
+{\thm[{\cite[Proposition 4.2; p.22]{MS}, cf. also \cite[Theorem 5.9]{AuTHH}}]{For any prime $p\geq 3$ 
+    there is an isomorphism of $\F_p$-algebras:
+    \[H_*(THH(\ell),\F_p)=H_*(\ell,\F_p)\otimes E([\sigma\xi_1],[\sigma\xi_2])\otimes 
+    P([\sigma\tau_2]).\]}}
+
+Since the computation of $THH(\ell)$ involves fewer complications than
+the analogous one for $THH(ku)$ I can immediately determine the full effect
+of the involution here.
+{\prop{\label{invHell}
+	An endomorphism of $\ell$, which induces the identity on homology ${H\F_p}_*\ell$,
+	induces the identity on the tensor factor ${H\F_p}_*\ell$ of
+	${H\F_p}_*THH(\ell)$ as well. On the suspension classes
+	the homeomorphism $\Gamma$ induces the sign $-1$.
+	\begin{proof}It is easily seen that the tensor factor $(H\F_p)_*\ell$ 
+	stems from simplicial degree $0$, thus $\iota$ and $\Gamma$ are 
+	identities there. The suspended classes $[\sigma x]$ can be 
+	represented by classes $1\otimes x$ in the B\"okstedt spectral sequence. 
+	In particular we see that since these classes are of simplicial degree 
+	$1$, the simplicial	inversion is the identity, while the homeomorphism 
+	$\Gamma$ introduces	the sign of one transposition, thus $-1$.\end{proof}}}
+
+I opted to present these results before the calculational cornerstone of \cite{AuTHH},
+which is fundamental to Ausoni's calculations, hence also to mine. 
+In \cite{MS} the choice of $\ell$ as their object of focus facilitates the calculations
+performed by McClure and Staffeldt, particular the absence 
+of the truncated polynomial algebra in $H\F_p$-homology of $\ell$. 
+In \cite{AuTHH} Christian Ausoni traces the effect of this algebra in ${H\F_p}_*ku$
+on homology carefully, isolating its Hochschild homology in \cite[Proposition 3.3]{AuTHH}, 
+which I reduce here to isolating the acyclic resolution and the resultant cycles. More generally 
+for $k$ a commutative ring with unit the Hochschild homology of algebras $A=k[X]/f$ with $f$ a
+monic polynomial was quite generally calculated in \cite{GGRSV}, however I am following the
+exposition of Ausoni specialised to $f=X^n$ and $k=\F_p$. As far as I know the original
+source for this resolution is \cite[Section 3]{MN}.
+{\prop{Let $A=P_h(x)$ be the polynomial algebra truncated by the ideal $x^h$ over $k=\F_p$,
+	then there is an acyclic resolution of $A$ as an $A\otimes A^{op}=A^e$-module with
+    underlying graded module: \[X=A^e\otimes E(\sigma x)\otimes \Gamma(\tau)\]
+	with $A^e$ in resolution degree $0$, $\sigma x$ of degree $(1,|x|)$, $\tau$ of
+	degree $(2,h|x|)$.
+	For $h$ a unit in $\F_p$ the cycles in $A\otimes_{A^e}X$ consist of the 
+	$A$-submodule $\Gamma(\tau)\otimes\{\sigma x\}\oplus (\tau)\otimes\{x\}$
+	for $(\tau)\subset \Gamma(\tau)$ the ideal of positive divided powers in
+	$\Gamma(\tau).$\label{hhtrPol}
+	\begin{proof}This is all explicit in \cite[Proposition 3.3]{AuTHH}. Note that $X$ 
+	in fact describes a $\Z$-resolution of $\Z[x]/x^h$, 
+	identifying the cycles in $A\otimes_{A^e}X$ however is less clean 
+	for $k=\Z.$ \end{proof}}}
+
+{\prop{Consider on $A=P_h(x)$ the morphism of commutative $k=\F_p$-algebras given
+	by $x\mapsto -x.$ On generators in Hochschild homology it induces:
+	$x\mapsto -x, \sigma x\mapsto -\sigma x, \tau\mapsto \tau.$
+	\begin{proof} In the acyclic resolution given above with $A^e=P_h(x)\otimes 
+	P_h(y)$ we have	$d(\sigma x) = x-y, d(\tau)=\frac{x^h-y^h}{x-y}\sigma x$ 
+	\cite[Proposition 3.3]{AuTHH}. Thus a lift of the given map is given by 
+	$\sigma x\mapsto -\sigma x$ and $\tau\mapsto \tau,$ giving the claimed 
+	effect.\end{proof}}}
+
+The analogous consideration works immediately for ${H\F_p}_*THH(ku,H\Z_p).$
+{\thm{Complex conjugation on $ku$ induces the identity on the tensor factor
+	${H\F_p}_*(H\Z_p)\subset {H\F_p}_*(THH(ku,H\Z_p))
+	={H\F_p}_*H\Z_p\otimes E(\sigma x,\sigma \xi_1)\otimes P(\tau).$ 
+		
+	The involution induced by $THH(A,M)\rightarrow 
+	\widetilde{THH(A,M)}\rightarrow THH(A,M),$ with first map the anti-involution
+	composed with simplicial reversion, and second map the homeomorphism $\Gamma$
+	on realisations -- cf. \ref{THHiota} -- induces the following maps:
+	$\sigma x\mapsto \sigma x, \sigma \xi_1\mapsto -\sigma\xi_1, \tau\mapsto -\tau.$
+
+	In more detail: The map induced by $x\mapsto -x$ gives $\sigma x\mapsto -\sigma x$
+	and the identity on $\sigma\xi_1$ and $\tau$, while the homeomorphism $\Gamma$
+	induces a sign $-1$ on all three classes.
+	\label{invthhkuzp}
+	\begin{proof} We see in the resolution $X$ chosen above that $\iota$
+	can be represented as the identity, since it is also a resolution of $A$ 
+	as an $(A^e)^{op}=A^{\otimes2}$-module, since $A$ is commutative. 
+	Thus only $\Gamma$ introduces an additional effect as a sign dependent 
+	on resolution degree, which is $1$ for the suspensions, and $2$ for 
+	$\tau$, thus we get $-1$ in both cases \ref{Gammasign}.\end{proof}}}
+
+\section{Increasing Chromatic Complexity -- Reduction by $p$}
+As indicated I use the modules, which are easiest to describe, whenever
+possible. For the next calculational steps of \cite{AuTHH} I thus need
+to introduce ``mod $p$ homotopy''. The idea is quite simple, instead of
+considering the prime $p$ as a self-map on $H\Z$ or $H\Z_p$, we can
+consider it as a self-map of the sphere spectrum, giving the cofibre
+sequence of spectra:
+\[\xymatrix{\S\ar[r]^p&\S\ar[r]&V(0)\ar[r]&\Sigma\S.}\]
+In particular one could hope that $V(0)$ gives a better approximation
+to homotopy groups than $H\F_p$, thus its homology theory is
+usually called \emph{mod $p$ homotopy}. In other words the spectrum
+$V(0)$ is the two-cell spectrum $\S^0\cup_p \mathbb{D}^1=V(0)$.
+
+It is classical that the spectrum $V(0)$ at a prime $p\geq 3$ admits
+a multiplication, which is part of an $A_{p-1}$-structure, which
+cannot be extended to $A_p$. For $p=2$ we do not
+have a multiplication, while for $p=3$ the multiplication is 
+not associative even up to homotopy. For a good survey of
+this I refer to \cite{SchV0}. In particular in \cite[Theorem 2.5]{SchV0} we see the
+obstruction to extending the $A_{p-1}$-structure to an $A_p$-structure.
+
+The construction \cite[Definition 2.1]{SchV0} 
+works by introducing levels of extended powers 
+$D_nX=X^{\wedge n}\wedge_{\Sigma_n} {E\Sigma_n}_+$. As a consequence, 
+a coherent $M=\S^2\cup_p\mathbb{D}^3$-module structure as defined in 
+\cite[Definition 2.1]{SchV0} entails degrees of commutativity as well. Specifically in 
+\cite[Example 2.4]{SchV0} the ``tautological'' coherent module structure on 
+$V(0)$ is defined up to degree $p-1$. So for $p\geq 5$, the second
+extended power $D_2V(0)=V(0)^{\wedge 2}\wedge_{\Sigma_2}{E\Sigma_2}_+$ is part
+of the module structure. Thus the multiplication admits the following factorisation:
+\[\xymatrix{V(0)\wedge V(0)\ar[d]_\mu \ar[r]^{tw}& V(0)\wedge V(0)\ar[d]_\mu\\
+D_2V(0)\ar[r]^{(\_\wedge (12))} & D_2V(0),}\]
+where the transposition $(12)$ acts on the factor $E\Sigma_2$, and thus
+is canonically simplicially homotopic to the identity. Thus the multiplication
+on $V(0)$ is homotopy commutative for $p\geq 5$, by analogously considering
+the third extended power, which is also part of the module structure for
+$p\geq 5$, we get homotopy associativity as well.
+
+For the classical interpretations in particular of the obstruction class I
+defer to the references of \cite{SchV0}, in particular the three Toda 
+references, and the reference to Ravenel.
+
+\subsection{The Involution on $V(0)_*THH(ku,H\Z_p)$}
+Referring to \cite[Proposition 10.1]{AuTHH} I focus exclusively on $ku$ from
+here. The appropriate restriction for $\ell$ follows by the observation, that
+the Galois group acts by maps on coefficients of the approximating 
+bipermutative categories. In particular the action strictly commutes with
+the involution on $ku$, thus the induced involution for $\ell$ can be
+recovered by restricting to the submodule of fixed points under the action
+of the Galois group by \cite[Proposition 10.1]{AuTHH}.
+
+Introducing $V(0)$-coefficients makes the topological Hochschild homology
+of $H\Z_p$ easier to understand. By the equivalence $V(0)\wedge H\Z_p\simeq 
+H\F_p$ the resulting module admits an $\F_p$-algebra structure for all odd 
+primes $p\geq 3$.
+{\prop{\cite[Theorem 5.7]{AuTHH} For any prime $p\geq 3$ there is an isomorphism
+of $\F_p$-algebras \[V(0)_*THH(H\Z_p)\cong E(\lambda_1)\otimes P(\mu_1),\]
+with degrees $|\lambda_1|=2p-1$ and $|\mu_1|=2p$.
+Moreover the Hurewicz homomorphism is an injection
+\[V(0)_*THH(H\Z_p)\rightarrow (H\F_p)_*(V(0)\wedge THH(H\Z_p))\]
+with $\lambda_1\mapsto[\sigma\xi_1]$ and 
+$\mu_1\mapsto [\sigma\tau_1]-\tau_0[\sigma\xi_1].$}}
+
+The fact that the Hurewicz is an injection immediately yields the following corollary.
+{\cor{The involution induced on $V(0)_*THH(H\Z_p)$ by the identity as
+	in \ref{THHiota} is $\lambda_1\mapsto -\lambda_1$ and $\mu_1\mapsto -\mu_1$.
+	\begin{proof}Arguing as in the propositions for $\ell$ we identify the
+	claimed effects as the effect of $\iota$ and $\Gamma$ on suspension classes.
+	\end{proof}}}
+
+For $THH(ku,H\Z_p)$ the equivalence $V(0)\wedge H\Z_p\simeq H\F_p$ yields
+an $\F_p$-algebra structure on the mod $p$ homotopy for all $p\geq 3$, giving
+the result:
+{\prop{\cite[Theorem 6.8]{AuTHH} There is an isomorphism of $\F_p$-algebras
+for any prime $p\geq 3$:
+\[V(0)_*THH(ku,H\Z_p)\cong E(z,\lambda_1)\otimes P(\mu_1)\]
+with degrees $|z|=3, |\lambda_1|=2p-1$ and $|\mu_1|=2p.$
+
+The Hurewicz homomorphism is an injection
+\[V(0)_*THH(ku,H\Z_p)\rightarrow {H\F_p}_*(V(0)\wedge THH(ku,H\Z_p))\]
+with $z\mapsto [\sigma x], \lambda_1\mapsto [\sigma\xi_1],$ and
+$\mu_1\mapsto [\tau]-\tau_0[\sigma\xi_1]$.}}
+
+{\rem{Let me note in particular that the $0$th Postnikov section 
+	$j\colon ku\rightarrow H\Z_p$ induces a map of $H\Z_p$-algebras,
+	which on mod $p$ homotopy gives $j_*(\sigma x)=0, j_*(y)=\sigma\tau_1,$
+	and $j_*(\sigma\xi_1)=\sigma\xi_1$. Thus the only class we have 
+	not analysed with respect to the involution is $\sigma x$.}}
+
+{\cor{The involution on $V(0)_*THH(ku,H\Z_p)\cong E(z,\lambda_1)\otimes P(\mu_1)$
+	is given as follows: $z\mapsto z, \lambda_1\mapsto -\lambda_1, 
+	\mu_1\mapsto -\mu_1$. \label{v0thhkuzp}\begin{proof}
+	The Hurewicz homomorphism, as well as the map induced by $j\colon ku\rightarrow 
+	H\Z_p$ give monomorphisms in the degrees relevant to $\lambda_1$ and $\mu_1$,
+	giving the claim for them. For $z$ simply note that it is the mod $p$
+	reduction of the integral class $\sigma x$ considered before.
+	\end{proof}}}
+
+\section{Reducing by $\alpha_1\colon \Sigma^{2p-2}V(0)\rightarrow V(0)$}
+In \cite[Sections 7+8]{AuTHH} Ausoni proceeds to identify the mod $p$
+homotopy of $THH(ku)$ by considering a Bockstein spectral sequence
+associated to the Bott class $u\colon ku\rightarrow ku$. In mod $p$
+coefficients the resulting algebra $V(0)_*THH(ku)$ however has
+infinitely many generators and infinitely many relations for any
+presentation \cite[Corollary 7.11]{AuTHH}. Thus even for purely presentational
+reasons it is convenient to introduce one further reduction here.
+
+Recall that the obstruction to extending the $A_{p-1}$-structure on $V(0)$ to
+an $A_p$-structure is the Adams self-map usually called 
+$\alpha_1\colon \Sigma^{2p-2}V(0)\rightarrow V(0)$. In particular in the
+coherent module structures as considered in \cite{SchV0} it appears as a
+non-trivial obstruction to unitality of a non-existent $A_p$-structure on
+the Moore spectrum (cf. \cite[Theorem 2.5]{SchV0}).
+
+Consider the cofibre sequence defining $V(1)$:
+\[\xymatrix{\Sigma^{2p-2}V(0)\ar[r]^-{\alpha_1}& V(0)\ar[r]
+& V(1)\ar[r] & \Sigma^{2p-1}V(0).}\] Compare specifically to
+page 58 of \cite{Toda}. In particular \cite[Theorem 4.1]{Toda} fixes
+$V(1)$ as the unique (up to homotopy equivalence) spectrum with
+$4$ cells with attaching maps as indicated:
+$V(1)=(\S\cup_pC\S)\cup_{\alpha_1}C(\S^{2p-2}\cup_p C\S^{2p-2}).$
+It is usual to call its homology theory \emph{$V(1)$-homotopy}, 
+I do so as well in what follows.
+
+By considering $V(0)$ and $V(1)$ as part of a family of spectra
+$V(a)$ with inclusions $V(a)\rightarrow V(b)$ for $a<b$ Toda 
+identifies multiplicative pairings of the form $V(a)\wedge V(b)
+\rightarrow V(c)$ with $a,b\leq c$. In particular for $V(1)$ 
+included into $V(1\frac12),V(2\frac14),V(2\frac34),$ and $V(3)$,
+we find that the first three cases of \cite[Theorem 4.4]{Toda} give
+a multiplication on $V(1)$ for $p\geq 11, p=7$ and $p=5$ respectively.
+Furthermore \cite[Theorem 6.3]{Toda} gives in particular that for
+$p=3$ such a multiplication cannot exist, while \cite[Theorem 6.1]{Toda}
+explicitly establishes that a spectrum of the analogous type of
+$V(1)$ does not exist at $p=2$ at all. In particular since this
+consideration has naturally led us to primes with $p\geq 5$ we
+can apply \cite{Oka} to find that the obstruction to 
+homotopy-commutativity is always $2$-torsion, while the obstruction
+to homotopy-associativity is always $3$-torsion. Thus both vanish
+in the coefficients of $V(1)$.
+
+Since I wanted to introduce $V(1)$ as late as possible with respect
+to the calculations in \cite{AuTHH}, I only partially quoted the 
+result of \cite{MS} regarding $THH(\ell).$ Here it can thus serve to
+convince the reader that $V(1)$ simplifies the modules considerably.
+
+{\prop{(\cite{MS}, cf. \cite[Theorem 5.9]{AuTHH}) For any prime $p\geq 3$
+there is an isomorphism of $\F_p$-algebras:
+\[(H\F_p)_*(THH(\ell))\cong (H\F_p)_*\ell\otimes E(\sigma\xi_1,\sigma\xi_2)
+\otimes P(\sigma\tau_2).\]
+The $V(1)$-homotopy $V(1)_*THH(\ell)$ maps by an injective Hurewicz 
+homomorphism to $(H\F_p)_*(V(1)\wedge THH(\ell)),$ with image generated
+as an algebra by $[\sigma\xi_1],[\sigma\xi_2]$ and 
+$[\sigma\tau_2]-\tau_0[\sigma\xi_2]$, yielding an isomorphism of $\F_p$-algebras:
+\[V(1)_*THH(\ell)\cong E(\lambda_1,\lambda_2)\otimes P(\mu_2),\]
+with degrees $|\lambda_1|=2p-1, |\lambda_2|=2p^2-1,$ and $|\mu_2|=2p^2$, with
+generators defined as the preimages of $[\sigma\xi_1],[\sigma\xi_2]$ and 
+$[\sigma\tau_2]-\tau_0[\sigma\xi_2]$ respectively.}}
+
+In particular since the generators are preimages of suspension classes by an
+injective Hurewicz homomorphism, the involutions are determined by \ref{invHell},
+giving the following cleaner statement.
+{\cor{For the $V(1)$-homotopy of $THH(\ell)$: \label{v1thell}
+	\[V(1)_*THH(\ell)\cong E(\lambda_1,\lambda_2)\otimes P(\mu_2),\]
+	the homeomorphism $\Gamma$ (cf. \ref{simpoppTop}) induces a 
+	sign $-1$ on each generator. Thus
+	the induced involution \ref{THHiota} on $V(1)_*THH(\l)$ is given as:
+	$\lambda_1\mapsto -\lambda_1, \lambda_2\mapsto -\lambda_2,
+	\mu_2\mapsto -\mu_2.$}}
+
+\subsection{The Homology and $V(1)$-Homotopy of $THH(ku)$}
+People familiar with the computations in \cite{AuTHH} know that the
+algebras on homology ${H\F_p}_*THH(ku)$ and $V(1)_*THH(ku)$ contain  
+big subalgebras $\Omega_*$ and $\Xi_*$ respectively 
+on $(p-1)^2+1=p^2-2p$ generators with quite a few relations 
+- cf. \cite[Definition 9.9, Definition 9.13]{AuTHH}. Essentially this stems from the 
+truncated polynomial algebra in ${H\F_p}_*ku$ \cite[Proposition 2.3]{AuTHH}.
+
+In order to understand the involution on $H_*THH(ku)$ and $V(1)_*THH(ku)$
+however I do not need to display the relations, it suffices to understand
+the effect on the cycles 
+$(x)\otimes (\tau)\oplus (\sigma x)\otimes \Gamma(\tau)
+\rightarrow HH_*(P_{p-1}(x))$.
+
+To determine the involution on $V(1)_*THH(ku)$ we shall use the topological
+Hochschild homology of $ku$ with coefficients in $H\Z_p$, i.e., 
+$V(1)_*THH(ku,H\Z_p)$ as an anchor.
+{\lem{(\cite[p. 1305]{AuTHH})
+	The isomorphism on mod $p$ homotopy $V(0)_*THH(ku,H\Z_p)\cong 
+	E(z,\lambda_1)\otimes P(\mu_1)$ implies the algebra isomorphism:
+	\[V(1)_*THH(ku,H\Z_p)\cong E(z,\lambda_1,\varepsilon)\otimes 
+	P(\mu_1)\] with $\varepsilon$ of degree $2p-1$.	\begin{proof}
+	The Hurewicz from $V(0)_*THH(ku,H\Z_p)$
+	to ${H\F_p}_*(V(0)\wedge THH(ku,H\Z_p))$
+	is a monomorphism \cite[Theorem 6.8]{AuTHH}. So the Adams map $\alpha_1\colon 
+	\Sigma^{2p-2}V(0)\rightarrow V(0)$ induces the zero map on 
+	$V(0)_*THH(ku,H\Z_p)$, because it induces the trivial map
+	in $H\F_p$-homology. Thus the $V(1)$-homotopy of $THH(ku,H\Z_p)$
+	consists of two shifted copies of its mod $p$ homotopy, which
+	we can parametrise by a formal generator $\varepsilon$ 
+	of degree $2p-1$.\end{proof}}}
+
+{\prop{The induced involution \ref{THHiota} on $V(1)_*THH(ku,H\Z_p)$ is
+	given on generators as:
+	\[z\mapsto z, \lambda_1\mapsto -\lambda_1, \mu_1\mapsto -\mu_1,
+	\varepsilon\mapsto \varepsilon.\]
+	\begin{proof}
+	Since $\varepsilon$ in essence describes the connecting homomorphism
+	of the cofibre sequence:
+	\[\Sigma^\bullet V(0)\rightarrow V(0)\rightarrow V(1)\rightarrow 
+	\Sigma^\bullet V(0),\]
+	and thus acts on the coefficients it commutes with the involution induced
+	on $THH$. On the other elements the involution is the one given in 
+	\ref{v0thhkuzp}	\end{proof}}}
+
+As seen above I do not need to display the relations of the algebras 
+$\Xi_*$ and $\Omega_*$ defined in \cite[Definition 9.9, Definition 9.13]{AuTHH}, thus
+I use the following simplified description -- which amounts to ignoring
+the relations introduced by boundaries in the Hochschild complex.
+{\prop{The $P_{p-1}(u)$-algebras $\Xi_*$ and $\Theta_*$ admit
+	a surjection of the $P_{p-1}(u)$-module 
+	$\Gamma(\tau)\{\sigma u\}\oplus (\gamma_1\tau)\{u\}\oplus 
+	\F_p\otimes\{\mu_2\}$
+	with $(\gamma_1\tau)\subset \Gamma(\tau)$ the ideal of positive
+	divided powers in $\Gamma(\tau)$.
+
+	Specifically for $\Xi_*$ we assign 
+	$\gamma_i\tau\cdot\sigma u\mapsto \bar z_i$ and $\gamma_i\tau\cdot u
+	\mapsto \bar y_j$.
+	\begin{proof}
+	The generators of $\Xi_*$ and $\Omega_*$ arise from the $E^2$-term
+	of the B\"okstedt spectral sequence 
+	$HH_*({H\F_p}_*ku)\Rightarrow {H\F_p}_*THH(ku),$
+	which are images of the generators given by the inclusion
+	$HH_*(P_{p-1}(u))\rightarrow HH_*({H\F_p}_*ku).$ For Hochschild
+	homology of this truncated polynomial algebra we have determined
+	the claimed surjection in \ref{hhtrPol}. The class $\mu_2$ maps
+	to $[\sigma \tau_2]$ in ${H\F_p}_*THH(ku)$ and to the
+	class with the same name in $V(1)_*THH(ku)$.\end{proof}}}
+
+This description is sufficient to determine the effect of the maps
+defining the involution on $THH(ku)$. 
+
+{\thm{For the isomorphism of \cite[Proposition 9.10]{AuTHH} 
+	\[{H\F_p}_*THH(ku)\cong {H\F_p}_*\ell\otimes E([\sigma\xi_1])\otimes \Xi_*\]
+	and the analogous isomorphism in $V(1)$-homotopy of 
+	\cite[Theorem 9.15]{AuTHH}: $V(1)_*THH(ku)=E(\lambda_1)\otimes \Theta_*$
+	we can determine the involutions as follows.
+	On $\mu_2$ we have $\mu_2\mapsto -\mu_2$ as visible in 
+	$THH(\l)$ \ref{invHell},\ref{v1thell}.
+	On $a_i\in\Omega_*$ we have $a_i\mapsto (-1)^ia_i$, analogously on
+	$\bar z_i\in\Xi_*$: $\bar z_i\mapsto (-1)^i\bar z_i$.
+	For $b_i\in\Omega_*$ we have $b_i\mapsto (-1)^{i+1}b_i$, analogously
+	for $\bar y_i\in\Xi_*$: $\bar y_i\mapsto (-1)^{i+1}\bar y_i$.
+	\label{invTHHku}\begin{proof}
+	The classes $a_i$ and $\bar z_i$ arise as infinite cycles in the
+	B\"okstedt spectral sequence represented by the classes $\sigma x\gamma_i\tau$
+	giving the claim by Theorem \ref{invthhkuzp}. Analogously the classes $b_i$
+	and $\bar y_i$ are cycles associated to the classes $x\gamma_i\tau$ for
+	$i\geq 1$, thus giving the claim again by Theorem \ref{invthhkuzp}.
+	\end{proof}}}
+
+\section{Results on the Involution on $V(1)_*K(ku_p)$}
+Since the calculations in \cite{AuKku}, as well as \cite{AuKl1,AuKl2} rely
+on trace methods, my intended approach was to determine the involution
+on $K(ku_p)$ and $K(\l_p)$ by using the trace $tr\colon K\Rightarrow THH$. As
+shown above it commutes with the involutions \ref{trinv} defined
+on $K$ as in \ref{indinv} and on $THH$ as in \ref{THHiota}. A few of 
+the classes allow more direct approaches, so I prefer these for the 
+exposition below.
+
+From this point on I explicitly denote the completions at $p$ of $\l$ and $ku$.
+In particular since the computations in \cite{AuKl1,AuKku} rely partly on
+comparison to the integers, thus on the results of \cite{BHMtr} and more
+specifically \cite{BMTCZ} it would not be reasonable to expect global information
+given our limited state of knowledge about $K(\Z)$.
+Instead we rely on the computations for $K(\Z_p)$.
+
+\subsection{The Module $V(1)_*K(ku_p)$ and its Traces}
+For reference in the sections below I directly quote the main result
+of \cite{AuKku}. I examine a few classes individually below, so I 
+quote only the identification of the module given in \cite[Theorem 8.1]{AuKku}.
+{\thm{\cite[Theorem 8.1]{AuKku}}{There is an isomorphism of $P(b)$-modules
+\[\begin{aligned} \label{dasmonster}
+V(1)_*K(ku_p)\cong &P(b)\otimes E(\lambda_1,a_1)\\
+\oplus &P(b)\otimes E(\lambda_1)\otimes \F_p\{\sigma_n|~1\leq n\leq p-2\}\\
+\oplus &P(b)\otimes \F_p\{\partial\lambda_1,\partial b,
+	\partial a_1,\partial\lambda_1a_1\}\\
+\oplus &P(b)\otimes E(a_1)\otimes \F_p\{t^d\lambda_1|~0<d<p\}\\
+\oplus &P(b)\otimes E(\lambda_1)\otimes \F_p\{t^{p^2-p}\lambda_2\}\\
+\oplus &\F_p\{s\}.\end{aligned}\]}}
+
+With regard to the traces of the classes, I draw the following corollary,
+which is less precise than the determination in \cite[Theorem 8.1]{AuKku} 
+but sufficient for determining the involution on the first direct summand.
+{\cor{to \cite[Theorem 8.1]{AuKku}}{
+	In the direct sum decomposition above, the third to
+	sixth summand are contained in the kernel of the map induced
+	by the trace $V(1)_*K(ku_p)\rightarrow V(1)_*THH(ku_p).$
+
+	Furthermore the traces of the classes $\sigma_n$ are contained in
+	the $P_{p-1}(u)$-subalgebra of $V(1)_*THH(ku_p)$ generated
+	by $a_0\in V(1)_3THH(ku_p)$, while the traces of the first
+	summand are part of the $P_{p-1}(u)$-subalgebra generated by
+	$a_1,b_1,$ and $\lambda_1$.}}
+
+We can use basic linear algebra over $\F_p$ to actually find that
+the trace can be described as a direct sum of maps with ``orthogonal''
+images in low degrees. Again this follows directly from reading
+\cite[Theorem 8.1]{AuKku} and \cite[Theorem 9.15]{AuTHH} appropriately.
+{\cor{to \cite[Theorem 8.1]{AuKku}}{
+	The trace corresponds to a direct sum of maps with respect
+	to the direct sum decomposition of $V(1)_*K(ku_p)$ above
+	and the direct sum decomposition of $V(1)_*THH(ku_p)$ (as a 
+	$P_{p-1}(u)$-module) given
+	by the generators $\lambda_1,a_i,b_i,\mu_2$.
+
+	In particular, in low degrees it is injective on the classes
+	$\lambda_1,a_1$ of the first summand, with image having
+	trivial intersection with the other summands.}}
+
+\subsection{The Involution on $E(\lambda_1,a_1)\subset V(1)_*K(ku_p)$.}
+By the corollary above we only need to determine the involution on 
+$\lambda_1,$ and $a_1$ in $V(1)_*THH(ku)$, which implies we have
+the same effect on $V(1)_*K(ku_p)$ by injectivity in those degrees.
+So I isolate the part of \ref{invTHHku} relevant to $K(ku_p)$ here.
+
+{\thm{The involution on the $P(b)$-subalgebra \[E(\lambda_1,a_1)
+    \subset	V(1)_*K(ku_p)\] is given by $\lambda_1\mapsto -\lambda_1$ 
+    and	$a_1\mapsto -a_1$. \begin{proof} This follows directly
+    from the theorems on $V(1)_*THH(ku)$. Specifically recall
+    that $\lambda_1$ stems from the class of $\sigma\xi_1$ in
+    ${H\F_p}_*THH(H\Z_p)$ with $\xi_1$ the generator in the
+    dual of the Steenrod algebra. Thus the involution induced
+    by conjugation is trivial, $\Gamma$ induces a sign $-1$.
+
+    The class $a_1$ can be traced back to the class 
+    $\sigma x\gamma_1\tau=\sigma x\tau$ in the B\"okstedt spectral
+    sequence. The class $\sigma x$ has simplicial degree $1$, $\tau$
+    has simplicial degree $2$. The map induced by conjugation induces
+    a sign $-1$ on $\sigma x$ and the identity on $\tau$, the homeomorphism
+    $\Gamma$ induces a sign $-1$ on both, yielding the claim.\end{proof}}}
+
+{\rem{We have the involution determined on this full subalgebra after 
+	determining	the effect on $b$ as well below.}}
+
+\subsection{The Suspended Bott Classes $\sigma_n$}
+By restricting the isomorphism of \cite[Proposition 5.2]{AuKku} we get
+an inclusion identifying the classes $\sigma_n\in V(1)_*K(ku_p).$ In fact
+they are global, i.e., $\sigma_n\in V(1)_*K(ku).$
+
+Specifically they arise as follows: We have the inclusion 
+$BBU_\otimes\subset BGL_1ku,$ where the units of an $E_\infty$-ring spectrum
+are defined as the (homotopy) pullback:
+\[\xymatrix{
+GL_1A\ar[r]\ar[d]&\Omega^\infty A\ar[d]\\
+GL_1(\pi_0A)\ar[r]&\pi_0A,}\]
+which is a sufficient notion of ``units'' for our purposes. For $ku$ we have
+$GL_1\pi_0ku= GL_1\Z=\{\pm 1\}$, hence $GL_1ku=BU\times\{\pm1\}.$
+Restricting to the ``index'' $+1$, we get the
+inclusion $BBU\rightarrow BGL_1ku$. By delooping the
+topologically enriched permutative category on objects natural
+numbers with endomorphisms $GL_nku$ along the lines of \cite{EM}
+recalled in \ref{pcatneu} we get a model for $K$-theory of $ku$.
+In particular its underlying infinite loop space is the group completion:
+$\Omega B(\coprod_nBGL_nku)=\Omega^\infty K(ku).$ The canonical
+inclusion $GL_1ku\rightarrow \coprod_nGL_nku$ fits in the
+sequence of maps
+\[BBU\rightarrow BGL_1ku\rightarrow \coprod_nBGL_nku\rightarrow 
+\Omega^\infty K(ku).\]
+
+Considering units in a stricter setting, for instance
+with $ku$ as a symmetric ring spectrum, we can find a strictly
+associative model for $BU_\otimes$. Thus
+we have a one-point suspension category $\Sigma BU_\otimes$.
+Embed this into its free permutative category $\P\Sigma BU_\otimes
+= \coprod_n E\Sigma_n\times_{\Sigma_n}(\Sigma BU_\otimes)^n.$ The induced
+map of permutative categories $\P\Sigma BU_\otimes\rightarrow \coprod_nGL_nku$
+delooped as in \ref{pcatneu} induces a map:
+\[H\P\Sigma BU_\otimes\rightarrow H(\coprod_nGL_nku),\]
+which we can identify as
+\[\omega\colon \Sigma^\infty BBU_\otimes\rightarrow K(ku)\]
+as given in \cite[p. 627]{AuKku}.
+
+Trivially the map $BU\rightarrow BU\times \Z$ identifying $BU$ as a connected
+cover of $BU\times\Z$ is an isomorphism in positive degrees, thus we have classes
+$y_n\in\pi_{2n}BU$ for $n\geq 1$ which map to the powers of the Bott class $u^n$.
+
+Suspending these once gives classes $\sigma y_n\in\pi_{2n+1}\Sigma BU$ giving classes:
+\[\Sigma^\infty \S^{2n+1}\rightarrow \Sigma^\infty\Sigma BU\rightarrow
+\Sigma^\infty BBU\rightarrow K(ku).\]
+
+Call these $\sigma_n$ in agreement with \cite[Definition 3.2]{AuKku}.
+Then we have:
+{\prop{(cf. \cite[Proposition 5.2]{AuKku})
+	The classes $\sigma_n\in \pi_{2n+1}K(ku)$ are non-trivial for
+	$1\leq n\leq p-2$.}}
+
+{\rem{I have to concede that I am not certain about non-triviality 
+    for the higher $\sigma_n$, however the traces of the $\sigma_n$
+    are $u^{n-1}a_0$ by \cite[Theorem 8.1]{AuKku}. 
+	Thus one should probably consider the upper limit $p-2$ as an artefact 
+	of the relations for $\Theta_*$ and
+	$\Xi_*$ in $V(1)_*THH(ku)$. At least on the subspectrum
+	$\Sigma(ku)\rightarrow THH(ku)$ one can identify these globally in homotopy 
+	groups, thus in particular removing the bound $p-2$. However establishing
+    their non-triviality would entail 
+    non-trivial calculations in the homotopy groups of $THH(ku)$.}}
+
+We can identify the involution on these suspended classes as follows:
+{\thm{The involution on the classes $\sigma_n\in\pi_{2n+1}K(ku)$ for $n\geq 1$ 
+	is given as $\sigma_n\mapsto (-1)^{n+1}\sigma_n$. 
+	\begin{proof}
+	Consider part of the inclusion into $\Omega^\infty K(ku)$:
+	\[BBU\rightarrow BGL_1ku\rightarrow \coprod_nBGL_nku.\]
+	Then the classes of the $\sigma_n$ are given by $\Sigma \S^{2n}\rightarrow
+	BBU\rightarrow BGL_1ku$. Thus conjugation acts as it does on $u^n$,
+	giving a sign $(-1)^nu^n$. Transposition has no effect on $GL_1ku$.
+	Finally $\Gamma$ acts on simplicial degree $1$ here, thus reverses the
+	signs to give $(-1)^{n+1}\sigma_n.$	\end{proof}}}
+
+\subsection{The Higher Bott Class $b\in V(1)_{2p+2}K(ku)$}
+The class of major interest in $K(ku)$ is a class in degree $2p+2$ of
+the $V(1)$-homotopy of $K(ku)$, which is a non-trivial root of $v_2\in\pi_*V(1),$
+thus in particular establishing $K(ku)$ as the representing spectrum of
+a homology theory of chromatic type $2$.
+
+Moreover: By the calculations of Ausoni in \cite{AuKku}, in particular Theorem 8.1
+as recalled above in Theorem \ref{dasmonster}, we 
+know that apart from a sporadic class the module 
+$V(1)_*K(ku)$ is a free module over the polynomial
+algebra on $b$. 
+
+{\rem{To be consistent in denoting $H\F_p$-homology on the left, I refer
+    to classes in degree $n$ as $z\in H\F_{p,n}X$ in the following proposition.}}
+
+Recall the construction of the element $b$:
+{\prop{Consider the homology algebra of $\CC P^\infty\simeq K(\Z,2)$, which
+is a divided power algebra $\Gamma(y)\cong {H\F_p}_*K(\Z,2)$.
+
+Then in the spectral sequence in $H\F_p$-homology associated to the bar filtration of
+$K(\Z,3)=B(K(\Z,2))$ the class $y^{p-1}\otimes y$ is an infinite non-bounded cycle 
+of degree $(2,2p)$. By \cite[Lemma 2.3]{AuKku} we have in particular an
+exact sequence ${H\F_p}_{,5}(K(\Z,3))\rightarrow V(1)_{2p+2}(K(\Z,3))
+\rightarrow {H\F_p}_{,2p+2}(K(\Z,3))\rightarrow {H\F_p}_{,0}(K(\Z,3)).$
+Since ${H\F_p}_{,5}(K(\Z,3))=0$, and $(P^1)^*(\gamma_{p-1}(y))=0$ the
+last map and the first group are zero, so we have a unique class 
+$V(1)_{2p+2}K(\Z,3)$ which maps to the class of $y^{p-1}\otimes y$ by the
+Hurewicz $V(1)\rightarrow H\F_p$. Finally by considering the
+embedding $K(\Z,3)=BBU(1)\rightarrow BBU\rightarrow \coprod_nBGL_n(ku)$ as
+before we get the higher Bott element $b\in V(1)_{2p+2}K(ku)$.}}
+
+{\thm{The involution on the higher Bott element is trivial, specifically
+	the algebra map $ku\rightarrow ku$ induced by conjugation acts as
+	a sign $-1$, and the homeomorphism $\Gamma$ acts as a sign $-1$.
+	\begin{proof} By \cite[p. 623]{AuKku} we know 
+	$\Sigma K(\Z,2)\rightarrow B_2\rightarrow \Sigma^2(K(\Z,2)^{\wedge 2})$
+	induces an injective map in degree $2p+2$:
+	$V(1)_{2p+2}B_2\rightarrow V(1)_{2p+2}(\Sigma^2(K(\Z,2)^{\wedge 2}))$
+	with $B_2\subset K(\Z,3)$ the image of the $2$-skeleton.
+
+	In particular the map $B_2\rightarrow K(\Z,3)\rightarrow BBU
+	\rightarrow\coprod_nBGL_n(ku)$ again is a class associated to
+	$GL_1ku$, thus transposition has no effect. Furthermore it
+	is a class of simplicial degree $2$ by definition, thus $\Gamma$
+	acts as a sign $-1$. Finally we have to determine how complex
+	conjugation acts on $b$. For this consider the representative
+	of the bar spectral sequence $y^{p-1}\otimes y$. On homology
+	of $K(\Z,2)=BU(1)$ complex conjugation acts by a group homomorphism
+	on $U(1)$ as $y^n\mapsto (-1)^ny^n$.
+	In particular we get: $y^{p-1}\otimes y \mapsto (-1)^py^{p-1}\otimes y=-y^{p-1}\otimes y.$
+
+	In summary $\Gamma$ and the conjugation cancel out, which is visible
+	on $B_2$.\end{proof}}}
+
+\subsection{Summary of the Induced Involution}
+Here I want to summarise the above results. 
+Recall the isomorphism of \cite{AuKku}:
+\[\begin{aligned}
+V(1)_*K(ku_p)\cong &P(b)\otimes E(\lambda_1,a_1)\\
+\oplus &P(b)\otimes E(\lambda_1)\otimes \F_p\{\sigma_n|~1\leq n\leq p-2\}\\
+\oplus &P(b)\otimes \F_p\{\partial\lambda_1,\partial b,
+	\partial a_1,\partial\lambda_1a_1\}\\
+\oplus &P(b)\otimes E(a_1)\otimes \F_p\{t^d\lambda_1|~0<d<p\}\\
+\oplus &P(b)\otimes E(\lambda_1)\otimes \F_p\{t^{p^2-p}\lambda_2\}\\
+\oplus &\F_p\{s\}.\end{aligned}\]
+
+In the section above we have established that $b$ is invariant under the induced
+involution. In the first section we have determined the involution on $\lambda_1$ 
+and $a_1$ to each be given by a sign. In the second section we found that the
+involution induces $\sigma_n\mapsto (-1)^{n+1}\sigma_n$.
+\subsection{The $TC$-Classes}
+For the third to the sixth summand in the above decomposition,
+one would have to establish, if there is an involution on topological cyclic 
+homology, which is compatible with the cyclotomic trace. Specifically the classes 
+$t^d\lambda_1$ and $t^{p^2-p}\lambda_2$ are composites of the eponymous classes 
+$\lambda_i\in V(1)_*THH(ku)$ and powers of the classes $t\in H_*(\Z/p^n)\rightarrow H_*(\S^1)$ 
+arising from the homotopy fixed point spectral sequences from $THH$ to $TC$. In particular, 
+one would have to establish how the circle action on $THH$ behaves with respect to the involution. 
+
+Regrettably I have to say that this is beyond the scope of this thesis. In particular I cannot
+even offer a conjecture on what map the involution induces on the other summands. Specifically
+I do not know the effect of the involution on $\partial, s$ and $t$, which are each part
+of the remaining classes, and each most transparently appear in $V(1)_*TC(ku_p)$.
+
+I hope to get back to a full description of the involution on $V(1)_*K(ku_p)$ in future work.
+Most probably the description of an involution on $TC$ can be bypassed for
+this case, since the class $\partial$ is an artifact of $p$-adic completion,
+which is already present in $V(1)_*K(\Z_p)$, and the classes $t^d$ are
+visible in the homotopy fixed point spectral sequence for $THH(ku)^{h\S^1}$.

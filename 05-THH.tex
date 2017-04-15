@@ -1,0 +1,747 @@
+\chapter{$THH$ and the Trace Map}\label{THHundtr}
+Since my construction of the delooping of a bimonoidal bicategory 
+naturally yields a symmetric spectrum and I do not want to switch 
+contexts too much, I refer the reader to \cite{ShTHH} for Topological 
+Hochschild Homology in symmetric spectra, as well as
+\cite{AnR} for a careful study of the algebraic 
+structure present for nice input spectra. I also want to mention 
+the nicely model independent paper \cite{BFV}, which states 
+in general that $THH$ of an $E_n$-ring spectrum is an $E_{n-1}$-ring 
+spectrum by careful analysis of the involved operads. They do not 
+need to fix their context of a model category of spectra, since any 
+category tensored over topological spaces or simplicial sets will do, 
+and they all are.
+
+The generalisation of Hochschild homology to ring spectra by way of ``functors
+with smash products'' is due to B\"okstedt and part of a paper, which is
+notorious for its preprint-stage \cite{B1}. It is however highly influential, in particular,
+since B\"okstedt subsequently fully calculated $THH(\Z/p)$ as well as 
+$THH(\Z)$ in \cite{B2}, he provided the foundations for many subsequent 
+calculations of topological Hochschild homology.
+
+\section{$THH$ with Coefficients}
+The algebra $V(1)_*THH(ku)$ that Christian Ausoni describes in 
+\cite{AuTHH} is quite unwieldy --- in particular it is of good
+use to have descriptions of easier objects with clear relations
+to $THH(ku)$ the way he describes it in \cite{AuTHH}. 
+By introducing the appropriate analog of logarithmic structures 
+on ring spectra, Sagave and Schlichtkrull provided a localisation 
+sequence, which makes the extension $\ell\rightarrow ku$ tamely 
+ramified in a well-defined way \cite{SaSch14}. In particular, they 
+describe the algebra $V(1)_*THH(ku)$ as a square-zero extension 
+of the $V(1)$-homotopy of $THH^{log}(ku)$. However, since I 
+introduce $THH$ purely for analysis of $V(1)_*K(ku)$ by trace 
+methods along the lines of \cite{AuTHH,AuKku}, the introduction of 
+logarithmic structures and the resulting cofibre sequence on 
+topological Hochschild homology seems a drastic detour, which 
+I do not want to present here.
+
+Even before it was known that there are symmetric monoidal categories
+of spectra, people have studied $THH$ in that then hypothetical 
+category \cite{MS} or like B\"okstedt in auxiliary categories, which
+turned out to be equivalent to the model categories of spectra \cite{MMSS}. 
+In particular, given the construction of Hochschild homology 
+for discrete algebras as presented in \cite{Loday} for instance, 
+the generalisation to spectra is straightforward. 
+
+{\defn{\label{THHblubbAM}\cite[Definition IX.2.1]{EKMM}
+Given an associative $\S$-algebra $A$ with product $\mu\colon 
+A\wedge A\rightarrow A$ and unit $\eta\colon\S \rightarrow A$, and an
+$A$-bimodule $M$ with actions $M\wedge A \rightarrow M$ and
+$A\wedge M\rightarrow M$, which I denote by $\mu$ as well, let 
+$THH_\bullet(A,M)$ be the following simplicial spectrum: In degree $n$ 
+we have the $(n+1)$-fold smash product:\[THH_n(A,M):=M\wedge A^{\wedge 
+n},\]with face maps\[d_i\colon M\wedge A^{\wedge n}\rightarrow M\wedge
+A^{\wedge n-1}\]defined as\[d_i=\begin{cases}id^{\wedge i-1}\wedge\mu
+\wedge id^{\wedge n-i}&0\leq i\leq n\\(\mu\wedge id^{n-1})\circ t & 
+i=n+1,\end{cases}\]for $t$ the symmetry of the smash product that 
+exchanges factors as follows:\[\xymatrix{M\wedge A_1\wedge A_2\wedge
+\ldots\wedge A_n \ar[r]^-t& A_n\wedge M\wedge A_1\wedge A_2\wedge
+\ldots\wedge A_{n-1}.}\] The degeneracies are given by insertion of 
+units at all places after the module $M$: $s_i\colon M\wedge A^{\wedge
+n}\rightarrow M\wedge A^{\wedge n+1}$ for $0\leq i\leq n$:\[s_i=id^{i
++1}\wedge \eta \wedge id^{n-i},\] where I have notationally suppressed
+the unit isomorphism $A\cong \S\wedge A.$ Call this the simplicial 
+Hochschild spectrum of $A$ with coefficients in $M$.
+
+For $M$ the algebra itself we set $THH_\bullet(A):=THH_\bullet(A,A)$ and call the
+resulting simplicial spectrum the simplicial Hochschild spectrum of $A$.}}
+
+This construction can be defined for arbitrary $\S$-algebras $A$ and $A$-bimodules
+$M$. However, for it to be of topological significance, in particular for 
+$THH_\bullet(A,M)$ to be homotopy invariant, we impose a technical condition.
+
+{\rem{If the unit of the algebra $\S\rightarrow A$ is a cofibration in the
+    model structure on a chosen model category of spectra, and $A$ and $M$
+    are cofibrant $\S$-modules, the simplicial spectrum $THH_\bullet(A,M)$ 
+    is \emph{proper} \cite[Theorem VII.6.7]{EKMM}. This means that for each simplicial
+    degree $n$ the inclusion \[sTHH_n(A,M)\rightarrow THH_n(A,M)\] of $sTHH_n(A,M)$ the
+    image of all degeneracies with target degree $n$ is a cofibration \cite[p. 182]{EKMM}.
+
+    This in particular implies that a weak equivalence $M\rightarrow M'$ of
+    $A$-bimodules and a weak equivalence $A\rightarrow A'$ of algebras, with $M'$ and
+    $A'$ again cofibrant $\S$-modules with the unit $\S\rightarrow A'$ a cofibration,
+    gives rise to a levelwise weak equivalence $THH_\bullet(A,M)\rightarrow 
+    THH_\bullet(A',M')$, and since both spectra are proper this induces an
+    equivalence on the realisations as well.\label{cofibTHH}}}
+
+For a nicely short exposition of this compare to section 7 of \cite{BLPRZ}.
+
+{\defn{Let $A$ be an associative $\S$-algebra, which is a cofibrant
+$\S$-module, and for which the unit $\S\rightarrow A$ is a cofibration. Let
+furthermore $M$ be an $A$-bimodule, which is a cofibrant $\S$-module. The
+\emph{topological Hochschild homology} of $A$ with coefficients in $M$ 
+is defined as the realisation of the (proper) simplicial
+spectrum $THH_\bullet(A,M)$. To give this unambiguous meaning, understand
+this as the coend
+\[THH(A,M):=|THH_\bullet(A,M)|=\int^\Delta THH_q(A,M)\wedge (\Delta_q)_+,\]
+where we use the tensored structure of a model category of spectra
+over topological spaces to form $\_\wedge (\Delta_q)_+$ and then
+form the coend.
+
+Analogously, with $A=M$ define $THH(A):=|THH_\bullet(A)|=|THH_\bullet(A,A)|.$}}
+
+We care how multiplicative opposition affects this construction
+and find that it opposes the simplicial structure as expected.
+{\rem{For an associative $\S$-algebra $A$ denote its multiplicative opposition $A^\mu$.
+    In particular, I do not want to use the notation $A^{op}$, since this notation
+    implies the wrong idea for the Eilenberg-MacLane-spectrum of a bipermutative
+    (bi)category $H\C$: No opposition of morphisms is involved, only the symmetry
+    of the smash product in spectra.}}
+
+{\prop{(cf.\cite[5.2.1]{Loday}, \cite[Chapter 5]{L2011}) 
+For an $\S$-algebra $A$
+and an $A$-bimodule $M$ we see that simplicial
+opposition on the Hochschild spectrum is isomorphic to multiplicative opposition, i.e.
+\[\iota\colon THH_\bullet(A^\mu,M^\mu)\cong \widetilde{THH}_\bullet(A,M)\]
+where on the left we oppose the multiplication on $A$ and exchange
+the left- and right-action on $M$, while on the right we reverse
+the simplicial direction as in \ref{catoppnerv}, i.e., $\widetilde{THH}_\bullet(A,M)
+= THH_\bullet(A,M)\circ r$ for $r\colon \Delta\rightarrow \Delta$ the reversion
+functor. \begin{proof}
+The relevant isomorphism in discrete algebra reads 
+$m\otimes a_1\otimes\ldots\otimes a_n\mapsto  m\otimes a_n\otimes \ldots\otimes a_1.$ 
+This can be generalised to spectra by the appropriate twists of the smash product.\end{proof}}}
+
+The lemma \ref{simpoppTop} literally applies, because we used the 
+tensored structure over $\mathit{Top}$. This gives the following isomorphism
+of spectra: {\prop{We have the identification given by reversing
+the simplex coordinates in realisations:
+\[\Gamma\colon|\widetilde{THH(A)}|\rightarrow |THH(A)|.\]}}
+
+Given these two structural maps, we can easily induce an involution 
+on $THH$ of a ring spectrum with anti-involution.
+{\defn{\label{THHiota} Let $(A,\mu,\tau)$ be an associative $\S$-algebra with 
+anti-involution $\tau$, i.e., a self-inverse $\S$-algebra map:
+$\tau\colon (A,\mu)\rightarrow (A,\mu^{opp})$. Then we call the following 
+sequence of maps: \[\xymatrix{THH(A)\ar[r]^\tau & THH(A^\mu)
+\ar[r]^\iota & \widetilde{THH(A)} \ar[r]^\Gamma & THH(A)}\] the induced 
+involution of $\tau$ on $THH(A).$}}
+
+\section{The B\"okstedt Spectral Sequence}
+The B\"okstedt spectral sequence, calculating topological from algebraic
+Hochschild homology, is the essential tool B\"okstedt uses in \cite{B2}
+to calculate $THH(\Z)$ and $THH(\Z/p)$. For a published reference see 
+\cite[Theorem IX.2.9]{EKMM}.
+
+The induced maps of $\tau$ and $\iota$ are simplicial by the results
+before, so for the spectral sequence associated to the simplicial 
+filtration, which yields the B\"okstedt spectral sequence under 
+flatness assumptions, we can deduce the following result. 
+For technical convenience assume we have arranged for $THH_\bullet(A,M)$
+to be proper by the conditions mentioned above in Remark \ref{cofibTHH}.
+{\thm{Let $h$ be a generalised homology theory, then the simplicial 
+filtration of $|THH(A)|$ yields a spectral sequence \[E^1_{*,n}=
+C^{cell}_*(THH_n(A),THH_{n-1}(A),h_*)\Rightarrow h_*(THH(A)).\]If $h$ 
+satisfies the K\"unneth-formula on $A$, i.e., $h_*(A\wedge A)\cong 
+h_*(A)\otimes_{h_*(\S)} h_*(A)$, then we can identify the $E^2$-term 
+with the algebraic Hochschild-homology of $h_*(A)$, i.e.: \[E^2\cong 
+HH(h_*(A)).\]
+
+The induced involution given above is compatible with the simplicial
+filtration, thus induces a map of spectral sequences.
+In particular we find on $E^2$-terms: \[\xymatrix{HH(h_*A)
+\ar[r]^-\tau & HH(h_*(A^\mu)) = HH((h_*A)^\mu) \ar[r]^-{\iota} & 
+\widetilde{HH}(h_*A)\ar[r]^{\Gamma} & HH(h_*A).}\]}}
+
+{\rem{\label{Gammasign}
+Do note that $\tau$ and $\iota$ can be induced on the simplicial
+level, while $\Gamma$ is a map of chain complexes given by 
+introducing the adequate sign associated to the map 
+\[\Delta^n/\partial\Delta^n \rightarrow \Delta^n/\partial\Delta^n\]
+with $[t_0,t_1,\ldots,t_n]\mapsto [t_n,t_{n-1},\ldots,t_0],$
+which is given by the sign of the permutation that fully inverts
+the set $\{0,1,\ldots,n\}$, i.e.,\[(0~ n)(1~ n-1)\ldots (\floor*{\frac{n}2}
+\ceil*{\frac{n}2}),\] which is $(-1)^{\frac{n(n+1)}2}.$}}
+
+The B\"okstedt spectral sequence generalises to the case with 
+coefficients in a bimodule as well by the same filtration:
+{\thm{Let $h$ be a generalised homology theory, $A$ an associative
+$\S$-algebra, $M$ an $A$-bimodule; additionally assume that $h$ 
+satisfies the K\"unneth-isomorphisms $h_*(A\wedge M) = h_*(A)
+\otimes_{h_*(\S)}h_*(M),$ $h_*(M\wedge A)=h_*(M)\otimes_{h_*(\S)}h_*(A),$ and
+$h_*(A\wedge A)=h_*(A)\otimes_{h_*(\S)}h_*(A)$, then we have a B\"okstedt
+spectral sequence of the form: \[HH(h_*(A),h_*(M))\Rightarrow h_*(THH(A,M)).
+\] If additionally for $M_*=h_*(M)$ and $A_*=h_*(A)$ the algebra
+$A_*$ is projective over $k=h_*\S$ then we can understand the $E^2$-term
+as a derived functor: \[Tor^{A_*\otimes_k{A_*}^{op}}(M_*,A_*).\] }}
+
+{\rem{I have suppressed convergence discussions in spectral sequences,
+because the homology theories and spectra I consider only 
+give modules and algebras with non-negative grading, thus we have 
+strongly convergent first quadrant spectral sequences.}}
+
+\section{The Multiplicative Structure of the Involution}
+\subsection*{Structural Example: The Product for the Commutative Case}
+Most sources discuss the product on Hochschild homology for the chain
+complex associated to the simplicial module formed by the Hochschild
+complex (cf. \cite[Lemma 1.6.11]{Loday} or \cite[Theorem VIII.8.8]{McL}). 
+However this introduces the complications associated to dealing with
+the sum of shuffles in the Eilenberg-Zilber map, so I prefer the simplicial 
+structure of the product in algebraic modules as a template for spectra.
+
+{\rem{For $A$ a commutative $k$-algebra let $M,N$ be $A$-modules and 
+    consider the simplicial modules $C_n(M,A)=M\otimes A^{\otimes n}$ and
+    $C_n(N,A)= N\otimes A^{\otimes n}$. In general we have the pairing
+    $M\otimes A^{\otimes n}\otimes N\otimes A^{\otimes n} \rightarrow 
+    M\otimes N\otimes (A\otimes A)^{\otimes n},$ which is given by 
+    reordering the tensor factors according to the two-rail rail 
+    fence cipher, i.e., by pairing $M$ with $N$ and the $i$th $A$-factor
+    of the first $A^{\otimes n}$ with the $i$th $A$-factor in the second
+    $A^{\otimes n}$. This assembles to a simplicial isomorphism:
+    \[C_\bullet(M,A)\otimes C_\bullet(N,A)\rightarrow C_\bullet(M\otimes N,
+    A\otimes A).\]
+
+    Hochschild homology is a functor in the module variable for arbitrary maps
+    linear over the appropriate algebra. Furthermore it is a functor in the
+    algebra argument for algebra maps. For commutative $A$ we have that
+    $\mu\colon A\otimes A \rightarrow A$ is an $A$-linear map of $A$-modules 
+    as well as a map of $k$-algebras, thus for $M=N=A$ we get a map
+    \[C_\bullet(A,A)\otimes C_\bullet(A,A)\rightarrow C_\bullet(A\otimes A,
+    A\otimes A) \rightarrow C_\bullet(A,A).\]
+
+    Analogously, we can define for $A$ a commutative $\S$-algebra a pairing
+    of the simplicial spectrum $THH_\bullet A$ with itself as
+    \[THH_\bullet(A)\wedge THH_\bullet(A)\rightarrow THH_\bullet(A\wedge A)
+    \rightarrow THH_\bullet(A).\]
+
+    Since this map is simplicial, it is obviously compatible with the filtration
+    giving the B\"okstedt spectral sequence, and thus introduces the structure
+    of a spectral sequence of differential graded algebras.}}
+
+{\rem{To use \cite{BGT} I need to diverge into spectral categories, i.e., categories
+    enriched over a symmetric monoidal model category of spectra: 
+    The above discussion applies to spectral categories as follows. Consider 
+    two small spectral categories $\C,\D$, and set their smash product to be 
+    the category with objects $Ob\C\times Ob\D$ with smash-product on morphism spectra 
+    $\C\wedge \D((c_1,d_1),(c_2,d_2))=\C(c_1,c_2)\wedge\D(d_1,d_2).$ 
+
+    For a small spectral category with cofibrant morphism spectra $\C$ define
+    its simplicial Hochschild spectrum as (compare \cite[p. 73]{BGT2013}):
+    \[THH_q(\C):=\bigvee \C(c_{q-1},c_q)\wedge \C(c_{q-2},c_{q-1})\wedge 
+    \ldots\wedge \C(c_0,c_1)\wedge \C(c_q,c_0).\]
+    Take special note of the last factor, making it a ``circle of degree $q$'' in
+    $\C$. The analogous face- and degeneracy-maps make it a simplicial spectrum,
+    call its realisation the topological Hochschild homology of $\C$.
+
+    The indicated rail-fence shuffle above induces an isomorphism of simplicial 
+    spectra: \[THH_\bullet(\C)\wedge THH_\bullet(\D)\rightarrow THH(\C\wedge
+    \D),\] which by coherence of the symmetry of $\wedge$ in spectra is strongly 
+    symmetric monoidal in the sense that the following diagram strictly 
+    commutes: \[\xymatrix{THH_\bullet(\C)\wedge THH_\bullet(\D)\ar[r]
+    \ar[d]_{c_\wedge} & THH_\bullet(\C\wedge\D)\ar[d]^{c_\wedge}\\
+    THH_\bullet(\D)\wedge THH_\bullet(\C)\ar[r] & THH_\bullet(\D\wedge\C).}\]
+
+    Since realisation and smash product commute by naturality of the product
+    isomorphism $|X\times Y|\cong |X|\times|Y|$ in compactly generated Hausdorff 
+    spaces for $X,Y$ simplicial spaces, this descends to the same 
+    multifunctoriality after realisation.}}
+
+{\prop{Consider the category of small spectral categories $Cat_{Sp}$ enriched
+    over a chosen symmetric monoidal model category of spectra. By \cite{Tab}
+    we know that by cofibrantly replacing a small spectral category in the
+    model structure on $Cat_{Sp}$ we obtain a weakly equivalent small 
+    spectral category with cofibrant morphism spectra. 
+
+    On the category of small spectral categories with cofibrant morphism 
+    spectra consider topological Hochschild homology $THH_\bullet(\cdot).$
+    This is a strong symmetric monoidal and simplicially enriched functor
+    \[THH_\bullet(\cdot)\colon Cat_{Sp}\rightarrow sSp.\] In particular, 
+    it is a multifunctor by considering the multicategory-structures
+    induced by the symmetric monoidal products on $Cat_{Sp}$ and $sSp$.
+
+    By passing to realisations we get a strong symmetric monoidal and
+    simplicially enriched functor, hence a multifunctor: \[THH(\cdot)\colon
+    Cat_{Sp}\rightarrow Sp.\]
+
+    \begin{proof}The structure of a multifunctor on $THH$ is an elaboration on 
+    the transformation $THH(\C)\wedge THH(\D)\rightarrow THH(\C\wedge\D),$ which
+    is strictly symmetric, strictly unital, and coherently associative, hence 
+    yields a multifunctor of the described type.\end{proof}}}
+
+{\rem{I strongly recommend the preprint of Bj\o rn Ian Dundas establishing multifunctoriality
+    of topological cyclic homology as well, and moreover proving that the trace maps are
+    also natural transformations for these multifunctor-structures \cite{D2}.}}
+
+In absence of an explicit symmetric monoidal product on symmetric monoidal
+categories (cf. however \cite{GGN} for a monoidal structure on the $\infty$-category
+of symmetric monoidal categories) the authors in \cite{EM} describe a
+multicategory-structure on permutative categories instead, which has bipermutative
+categories as its $E_\infty$-monoids, and establish that the Eilenberg-MacLane spectrum
+of permutative categories (which \cite{EM} call ``$K$-theory'') can be
+given the structure of a multifunctor. Thus by the natural equivalence $K(H\R)=
+H(\M)$ established in \cite{BDRR2011} we can consider an
+induced multifunctor-structure on $H(\MM_{\_})= H\circ \MM_{\_}.$
+In particular, in absence of a comparison of the multiplicative structure
+I describe in chapter \ref{multbidel}, I refer to the $E_\infty$-structures induced
+by the multifunctor-structure as \textbf{the} $E_\infty$-structure. 
+
+I summarise the appropriate identifications of \cite{BDRR2011,BGT} in the following 
+theorem -- to summarise the known results.
+
+{\thm{The algebraic $K$-theory space $B\M$ of a permutative category $\R$ is naturally 
+    equivalent to the algebraic $K$-theory space of its associated Eilenberg-MacLane
+    spectrum $K(H\R)$ \cite{BDRR2011}. 
+
+    The algebraic $K$-theory functor from small spectral categories to 
+    spectra can be given the structure of a (symmetric) multifunctor in an 
+    essentially unique way \cite[Theorem 1.5]{BGT}.
+
+    There is an essentially unique natural transformation
+    of (symmetric) multifunctors $K\Rightarrow THH,$ which by \cite[Theorem 6.3]{BGT}
+    is the \emph{trace map} from algebraic $K$-theory to topological Hochschild
+    homology \cite[Theorem 1.9]{BGT}. Thus in particular we get a unique natural 
+    multiplicative map $K(H\R)\rightarrow THH(H\R)$ for Eilenberg-MacLane spectra.}}
+
+{\rem{As seen in \ref{conjun} I have to concede that I do not know if the uniqueness
+    of \cite{BGT} forces the $E_\infty$-structure of chapter \ref{multbidel} on $H(\M)$ 
+    to agree with the canonical structure on $K(H\R)$ asserted by
+    \cite{BGT}. If, however, one were able to prove that the Eilenberg-MacLane spectrum
+    functor admits an essentially unique multifunctor-structure, or more modestly
+    to produce $E_\infty$-equivalences $K(H\R)\rightarrow H\M$ and 
+    $H\M\rightarrow K(H\R)$, then either of these would imply that $H\M$ has 
+    the unique multifunctor-structure given by composition of
+    the unique structure on $K\colon Cat_{Sp}\rightarrow Sp$ and the conjecturally
+    unique structure on $H\colon PermCat\rightarrow Sp$, while the second approach
+    obviously directly gives the claimed equivalence.}}
+
+Since I introduce the trace map $K\rightarrow THH$ by its multiplicative
+universality as proven in \cite{BGT}, I want to emphasise the equivalence of 
+$E_\infty$ and commutative structures in most model categories of spectra.
+
+{\rem{\label{commeinf}
+    In orthogonal and symmetric spectra with their positive stable model
+    structure as well as in the category of $\S$-modules we have that commutative
+    ring spectra model all $E_\infty$-ring spectra -- \cite[Lemma 15.5]{MMSS} 
+    and also \cite[Theorem 5.1, Chapter III]{EKMM}. However, since I already use the
+    reference \cite{EM} often in preceding chapters, I follow the setup of their
+    Theorem 1.4; in particular I restrict to the case of symmetric and orthogonal
+    spectra in the positive stable model structure for this remark.
+
+    Considering the multicategory-structure on symmetric (or orthogonal) spectra 
+    induced by the smash-product, it is meaningful to speak of multifunctor-categories
+    $MFun(\mathbb{M},Sp^\Sigma),$ where we consider a simplicially enriched
+    multicategory $\mathbb{M}$ and symmetric spectra with their natural simplicial
+    mapping spaces. Given an enriched multifunctor $f\colon \mathbb{M}'\rightarrow
+    \mathbb{M}$ we have an induced restriction functor: \[f^*\colon 
+    MFun(\mathbb{M}',Sp^\Sigma)\rightarrow MFun(\mathbb{M},Sp^\Sigma)\]
+    by precomposition with $f$, which by \cite[Theorem 1.4]{EM} is the right adjoint
+    in a Quillen adjunction -- with the left-adjoint given by extension in the 
+    appropriate manner (cf. p.56 of \cite{EM}).
+
+    If $f$ is an equivalence of simplicially enriched multicategories, i.e., $\pi_0f$ is
+    an equivalence of ordinary $1$-categories, and for each set of objects we have a
+    weak equivalence of simplicial sets $M(a_1,\ldots,a_n;b)\rightarrow M'(fa_1,\ldots,fa_n;fb),$
+    then Theorem 1.4 of \cite{EM} furthermore yields that this adjunction is a Quillen equivalence 
+    (compare also \cite{Bergn1}). To my knowledge it has not been established that these
+    equivalences of multicategories are weak equivalences in a model structure on 
+    small multicategories, which preferably would extend the Bergner model structure 
+    on simplicially enriched categories.
+
+    When we consider the Barratt-Eccles operad $E\Sigma_*$ as a one-point 
+    multicategory and map it to the terminal multicategory $Com$, we have
+    an underlying isomorphism of (one-point) $1$-categories. Since each 
+    multimorphism-category
+    of $E\Sigma_*$ is equivalent to the one-point category we get a weak equivalence 
+    of its nerve to a point as well, giving a Quillen equivalence:
+    \[\xymatrix{\mathbb{P}\colon MFun(E\Sigma_*,Sp^\Sigma)\ar@<0.5ex>[r] & MFun(Com,Sp^\Sigma)
+    \ar@<0.5ex>[l] \colon U,}\] where I consider the functors given by extension and 
+    restriction as a prolongation functor $\mathbb{P}$ and a forgetful functor $U$. In particular
+    for a cofibrant $E_\infty$-ring spectrum $A$ in $Sp^\Sigma$ we have a natural $E_\infty$-map
+    $\eta\colon A\rightarrow UP(A)$ to a stably equivalent commutative symmetric ring 
+    spectrum.}}
+
+\subsection{The Opposite $E_\infty$-Structure}
+Following Section 9 of \cite{EM} define the following map of operads.
+{\defn{For each $k\geq 0$ set $r_k\colon \{1,\ldots,k\}\rightarrow \{1,\ldots,k\}$ to be $r_k(j)=k+1-j$, i.e.,
+the map consisting of only transpositions $(1~ k)$, $(2~ k-1)$ until the centre. In other words $r_k$ fully
+reverses the set $\{1,\ldots,k\}$.}}
+{\lem{The symmetric sequences $(\Sigma_n)_{n\in\mathbb{N}}$ and $(E\Sigma_n)_{n\in\mathbb{N}}$ of 
+categories, where $\Sigma_n$ is the discrete category on objects $\sigma\in\Sigma_n$, while $E\Sigma_n$
+is the translation category of $\Sigma_n$ with objects $\sigma\in\Sigma_n$ and a unique morphism between
+each pair of objects, form the associative and the Barratt-Eccles-operad.
+
+Both maps $op\colon \Sigma_*\rightarrow \Sigma_*$, $op\colon E\Sigma_*\rightarrow E\Sigma_*$ defined
+as $op(\sigma)=r_k\circ \sigma$ for $\sigma\in\Sigma_k$, and extended to a covariant functor in the unique
+way on $E\Sigma_*$, are maps of operads. Specifically, $op$ respects units, is equivariant with respect to the
+obvious right $\Sigma_*$-action by functors, and preserves multicomposition, i.e., block sum followed by
+permutation of blocks.
+\begin{proof}
+The claim is explicit after Definition 9.1.11 of \cite{EM}, however, the proof is ``left to the reader''. Since
+in particular the compatibility with multicompositions can be confusing, I want to elaborate on that.
+
+Unitality of $op$ is obvious, since $r_1=id_{\{1\}}$. Equivariance is obvious as well, since we defined
+$op$ by a left-action and the equivariance-condition involves the right-action of $\Sigma_n$ on itself.
+
+For compatibility with multicompositions I first reduce the condition we have
+to show drastically:
+For $\Theta$ the multicomposition on $\Sigma_*$ and $E\Sigma_*$ we can
+reduce an expression $\Theta(r_n\circ \sigma_n; r_{k_1}\circ \sigma_{k_1},\ldots, r_{k_n}\circ \sigma_{k_n})$
+by using the right-$\Sigma_*$-action on the resulting product:
+$\Theta(r_n\circ \sigma_n; r_{k_1}\circ \sigma_{k_1},\ldots, r_{k_n}\circ \sigma_{k_n})
+= \Theta(r_n\circ\sigma_n; r_{k_1},\ldots,r_{k_n}).(\sigma_{k_1}\oplus\ldots\oplus\sigma_{k_n}).$
+Thus we can, without loss of generality, consider a multiproduct $\Theta(r_n\circ\sigma_n; r_{k_1},\ldots,r_{k_n})$.
+But by the ``inner'' equivariance condition on an operad, we can replace $\sigma_n$ on the left by
+the appropriate permutation on the right, giving an expression $\Theta(r_n;r_{l_1},\ldots,r_{l_n})$.
+As the final reduction, note that by multiassociativity of the multicomposition $\Theta$ it suffices
+to show $\Theta(r_2;r_n,r_m)=r_{n+m},$ which yields the higher compatibilities by an easy induction.
+
+Note that $\Theta(r_2;\sigma_n,\sigma_m)=\chi^+_{n,m}\circ(\sigma_n\oplus \sigma_m)$, for $\chi^+_{n,m}$
+the symmetry of the sum in $\mathrm{Fin}$ and $\sigma_i\in\Sigma_i$. Thus we have to show 
+$\chi^+_{n,m}\circ(r_n\oplus r_m)=r_{n+m}.$ This is an easy calculation, recall 
+\[\chi^+_{n,m}(i)=\begin{cases}i+m,~ & 1\leq i\leq n,\\ i-n,~ & n+1\leq i\leq n+m,\end{cases}\]
+and for convenience \[(r_n\oplus r_m)(i)=\begin{cases}r_n(i),~&1\leq i\leq n,\\r_m(i-n)+n,~&n+1\leq i\leq n+m.\end{cases}\]
+The block sum trivially preserves the condition on $i$, thus the composite $\varphi:=\chi^+_{n,m}\circ(r_n\oplus r_m)$
+is given by
+\[\varphi(i)=\chi^+_{n,m}\circ(r_n\oplus r_m)(i)=\begin{cases}r_n(i)+m,~&1\leq i\leq n\\r_m(i-n),~&n+1\leq i\leq n+m.\end{cases}\]
+Clearly we have $\varphi(1)=r_n(1)+m = n+m$ and $\varphi(n+m) = r_m(m) = 1$, so $\varphi=(1 ~n+m)\circ \bar\varphi$ and
+$\bar\varphi$ is of the form $\Theta(r_2;r_{n-1},r_{m-1})$, so we are done by induction.\end{proof}}}
+
+In particular we can define what the opposite algebra for an associative and an $E_\infty$-algebra are,
+when we restrict to $E\Sigma_*$ as the $E_\infty$-operad.
+{\defn{An associative algebra in spectra determines and is determined by a 
+multifunctor $\Sigma_*\rightarrow Sp$, which sends the unique object of the
+multicategory $\Sigma_*$ to the algebra. In particular, we define its opposite
+algebra as the composition $\Sigma_*\rightarrow \Sigma_*\rightarrow Sp$ with 
+the first map being the opposition $op$ above. This multifunctor determines
+and is determined by the algebra with opposed multiplication, which is associative
+if and only if the original multiplication is associative.
+
+Analogously an $E_\infty$-algebra in spectra is a multifunctor $E\Sigma_*\rightarrow Sp,$
+which is simplicially enriched with respect to the usual simplicial structure on spectra
+and $E\Sigma_*$ made simplicial by arity-wise application of the nerve. Since $op$ is
+in particular a map of sets in each arity, it extends uniquely to a functor $E(op)\colon
+E\Sigma_*\rightarrow E\Sigma_*$ in each arity, thus to a simplicially enriched multifunctor.
+The opposite $E_\infty$-algebra is given by precomposition with $E(op)$.
+
+In particular the underlying associative algebra of an $E\Sigma_*$-algebra is given by
+restriction along $\Sigma_*\rightarrow E\Sigma_*$ the inclusion of objects, and the underlying
+associative algebra of the opposed $E_\infty$-structure is the opposed associative algebra.}}
+
+We can thus define what an anti-involution on an $E\Sigma_*$-spectrum is.
+{\defn{An anti-involution $\tau\colon A\rightarrow A$ for $A$ an $E\Sigma_*$-algebra is an
+$E\Sigma_*$-map with respect to the $E\Sigma_*$-structure on the source, and the opposed
+$E\Sigma_*$-structure on the target, with $\tau^2=\id$.}}
+
+{\rem{Recall the Quillen-equivalence of $E_\infty$-ring spectra and commutative ring
+spectra for instance in the positive stable model structure on symmetric spectra \cite{EM,MMSS},
+or the model structure on $\S$-modules as exhibited in \cite{EKMM}. With the notation as in
+Remark \ref{commeinf} we find that for $A$ a 
+cofibrant $E\Sigma_*$-algebra the prolonged involution $\mathbb{P}\tau\colon \mathbb{P}A\rightarrow\mathbb{P}A^\mu$
+is a map of commutative spectra. Since $\mathbb{P}(A^\mu)=\mathbb{P}(A)^\mu=\mathbb{P}A$ by
+strict commutativity, we find that $\mathbb{P}\tau$ is a self-inverse algebra map of
+commutative algebras, which by $\mathbb{P}(A)^\mu=\mathbb{P}A$ becomes an endomorphism.}}
+
+\subsection{Induced Multiplications on $THH$ and the Involution}
+I introduced the trace by its multiplicative universality as proven in \cite{BGT}, thus
+we need to see that the induced involution of \ref{THHiota} opposes multiplication to find
+that the trace map commutes with the involutions on $K$-theory and topological Hochschild 
+homology.
+
+The identification $N\C^{op}=\widetilde{N\C}$ extends to the cyclic nerve defining
+$THH$ as we see above, and is strictly symmetric monoidal.
+{\prop{The natural isomorphism
+    \[\iota\colon THH(A^\mu,M^\mu)\rightarrow \widetilde{THH(A,M)}\]
+    is strictly symmetric monoidal with respect to the smash product.
+    \begin{proof}
+    The rail-fence isomorphism indicated above and $\iota$
+    are instances of the symmetry of the smash product, 
+    thus the coherence of the smash-symmetry yields the claim.\end{proof}}}
+
+The natural homeomorphism $\Gamma$ is symmetric monoidal as well.
+{\prop{The natural homeomorphism $\Gamma\colon |\cdot|\Rightarrow |\widetilde{~\cdot~}|$ is
+    symmetric monoidal with respect to cartesian as well as smash-product.
+    \begin{proof} This is a bit easier to see by considering the symmetric
+    monoidal structure of realisation oplax, i.e., $|X\times Y|\cong |X|\times |Y|$. The
+    natural map in this case is given by realisation of $pr_X$ and $pr_Y$ respectively.
+    In particular it is induced on simplicial objects. The natural transformation
+    $\Gamma$, however, operates on the realisation coordinates, thus the transformations
+    strictly commute.\end{proof}}}
+
+These propositions assemble to the following:
+{\thm{For an $E_\infty$-ring spectrum $A$ with anti-involution $T\colon (A,\mu)
+\rightarrow (A,\mu^{opp})$, consider the internal involution induced on $THH$ by
+\[\xymatrix{  THH(A)\ar[r]^-T & THH(A^\mu)\ar[r]^\iota & \widetilde{THH(A)} 
+\ar[r]^\Gamma &THH(A).}\] This is a natural $E_\infty$-map with respect to the
+induced $E_\infty$-structure on the source and the opposed $E_\infty$-structure
+on the target $THH(A)$.
+\begin{proof} This is just assembling the last three propositions, where we have
+analysed each of the maps individually. In particular, the multiplicative opposition
+induced from $T$ is not changed by $\iota$ and $\Gamma,$ thus follows the claim.\end{proof}}}
+
+We can reuse \cite{BGT} to establish that the trace map commutes with the induced
+involutions. {\thm{The unique natural transformation of (simplicially) enriched 
+    multifunctors $tr\colon K\Rightarrow THH$ commutes with the involution on $K$ induced
+    as in \ref{indinvSP} and induced on $THH$ as above.\label{trinv}\begin{proof} In the diagram
+    \[\xymatrix{K(A) \ar[d]^{T_*}\ar[r] & THH(A)\\ K(A)\ar[r] & THH(A)\ar[u]^{T_*}}\]
+    both the upper horizontal map as well as the map given by composing
+    the induced involutions with the trace give an $E_\infty$-map $K(A)\rightarrow 
+    THH(A)$. The first $E_\infty$-structure is directly asserted by \cite{BGT}, 
+    the second follows from the fact, that the $E_\infty$-structure
+    is opposed twice by the respective involutions. Thus by uniqueness of the
+    multiplicative trace \cite{BGT} we get that the threefold composite describes
+    the trace as well.\end{proof}}}
+
+{\rem{With just a conjectural identification of the $E_\infty$-structures 
+on $H(\MM(H\R))$ and $H(\M)$ the reference to \ref{indinvSP} in the theorem
+is more informal than I intended. Formally, one could, however, set up exactly the same
+procedure I describe in chapter \ref{multbidel} to establish that the involution
+opposes the $E_\infty$-structure on $H(\MM(H\R))$ as well. This amounts
+to mostly rewriting \cite{EM} the way I describe in \ref{pcatneu} but 
+explicitly establishing the multiplicative structure for topologically
+enriched permutative categories the way I do for bicategories in chapter
+\ref{multbidel}. This is not an immediate specialisation of chapter \ref{multbidel},
+because I implicitly assume discrete sets of $1$-cells in this thesis, 
+but I expect no essential difficulties in generalising chapter \ref{multbidel} 
+to bicategories with morphism categories internal to topological spaces.}}
+
+{\rem{I think, the calculations in chapter \ref{calc} are more easily readable if I
+declare for the reader how I think about the three maps involved in inducing
+the involution on $THH,$ and the analogous sequence on $K$-theory \ref{indinvSP}, i.e.
+the classifying spaces of the bicategory of matrices:
+\[\xymatrix{THH(A)\ar[r]^-T & THH(A^\mu)\ar[r]^\iota & \widetilde{THH(A)} 
+\ar[r]^\Gamma &THH(A),}\]
+\[\xymatrix{B\M \ar[r]^{T} & 
+        B\mathcal{M}(\mathcal{R}^\mu) \ar[r]^{(\cdot)^t}  
+        & B\mathcal{M}(\R)^{op_1} \ar[r]^{\Gamma} & B\M.}\]
+In both cases we directly induce a multiplicatively opposing map using
+the involution. The transposition on matrices and the map $\iota$ 
+allow to identify the simplices in the
+nerve of the multiplicative opposition with simplices in the simplicially
+opposed nerve. Finally $\Gamma$, in both cases, modifies the simplices
+in the realisation by a map of degree $\pm 1$ only depending on the
+simplicial degree of the simplex, which internalises the involution.
+
+In summary: $\Gamma\circ\iota$ as well as $\Gamma \circ (\cdot)^t$ consist
+of degrees and a preferred identification of simplices, thus are usually
+easily analysed.}}
+
+\section{A Useful Subspectrum of $THH$}
+In section 3 of \cite{MS} the authors identify a simplicial subspectrum of
+$THH_\bullet(A)$ which is naturally included for any $A$. Since then the
+functor homology interpretations of Hochschild homology (cf. for instance
+\cite{Loday,PRi}) via the Loday functor $\mathcal{L}(A,M)\colon \Fi\rightarrow 
+k\mathrm{-Mod}$ have been established, providing a nicely clean, natural
+interpretation of this subspectrum. I want to elaborate on this in this
+section.
+
+This section deserves an emphasised \emph{special 
+acknowledgement}:
+Since Stephanie Ziegenhagen and I have been close ever since our own
+modest beginnings in Algebraic Topology, I have also observed her
+conception of her thesis \cite{Z} in quite some detail. If I had not
+been a test-case for numerous ``functor co*homology''-talks provided 
+in her own trademark-clarity, I am quite sure I would never have 
+understood and probably not even bothered to understand that context.
+Thus the essential clarifications in this section rest firmly on her
+shoulders.
+
+\subsection*{Non-Commutative Sets}
+The existence of the subspectrum identified in \cite[Section 3]{MS} 
+does not depend on any additional structure on an associative ring 
+spectrum $A$. In particular, it is not relevant if $A$ happens to be 
+commutative or not. 
+
+To properly identify the simplicial topological 
+Hochschild homology spectrum for an associative algebra object 
+however, one obviously needs to keep track of the order with respect 
+to which one multiplies. The category of non-commutative sets $\Fia$ 
+does just that. I follow the exposition in the sections 1.2-1.4 in 
+\cite{PRi}, but instead immediately consider pointed sets, 
+called $\Gamma(as)$ in \cite{PRi}.
+
+{\defn{(cf. \cite[Section 1.2]{PRi})\label{fiass}
+    The category $\Fia$ has objects pointed finite sets $n_+=\{*,1,\ldots,n\}$,
+    and morphisms pointed maps $f\colon n_+\rightarrow m_+$ with chosen total
+    orderings on the fibres $f^{-1}j$ for every $j\in m_+$ (including the
+    basepoint). For maps composable in finite pointed sets, i.e., $f\colon n_+\rightarrow m_+$, 
+    $g\colon m_+\rightarrow l_+$ the underlying map is the composite in finite
+    sets $gf$ with total orderings on the fibres given as indicated by:
+    \[(gf)^{-1}i=f^{-1}g^{-1}i=\coprod_{j\in g^{-1}i} f^{-1}j.\]
+    Explicitly, the ordering of elements $j\in g^{-1}i$ provides an ordering
+    of the summands, while each summand is ordered with the order chosen for $f$.}}
+
+{\lem{\cite[Lemma 1.1]{PRi}\label{dec}
+    Any morphism $f\colon n_+\rightarrow m_+$ in $\Fia$ has a unique decomposition 
+    $\Delta_f\circ \sigma_f,$ where $\Delta_f\colon n_+\rightarrow m_+$ is
+    order-preserving and pointed, and $\sigma_f\colon n_+\rightarrow n_+$ is 
+    a bijection, usually not pointed.
+    \begin{proof}The proof of \cite{PRi} is for the unpointed case, so I want
+    to retrace the decomposition for pointed maps. Given a map $f\colon n_+
+    \rightarrow m_+$ we find a unique order-preserving map $\Delta_f$ isomorphic 
+    to it over $m_+$, i.e., with 
+    \[\xymatrix{n_+\ar[r]^f \ar[d]_{\sigma_f}& m_+\\ n_+.\ar[ur]_{\Delta_f}}\]
+    More explicitly $\Delta_f$ is the unique order-preserving map with the same
+    fibre-cardinalities as $f$, i.e., $|\Delta_f^{-1}\{i\}|=|f^{-1}\{i\}|$ for 
+    every $i\in m_+$. In particular there is a unique bijection 
+    $n_+\rightarrow n_+$ which makes the fibres of $f$ into intervals in 
+    $n_+$ while order preserving on the fibres. The total ordering chosen 
+    on the fibres of $f$ then fixes a unique fibre-wise 
+    bijection $n_+\rightarrow n_+$ of the order induced by $f$ to the order
+    induced by the total order on $n_+$. The composite is the unique bijection
+    $\sigma_f$.
+
+    In particular we find that $\sigma_f$ is pointed if and only if the base-point
+    is minimal in the chosen order of $f^{-1}\{*\}.$\end{proof}}}
+
+{\rem{Since $\sigma_f$ is not pointed in general the
+    decomposition is not internal to pointed sets. However, the bijection 
+    necessarily still satisfies $\sigma_f(*)\in\Delta_f^{-1}(*),$ because 
+    the composite is a pointed map.}}
+
+This category makes it possible to define a Loday functor 
+$\mathcal{L}(A,M)\colon \Fia\rightarrow Sp$ for an associative $\S$-algebra
+$A$ and $A$-bimodule $M$. I want to specifically elaborate on the
+dependence of $\mathcal{L}$ on the symmetric monoidal structure with
+respect to which it is defined. Hence I consider a general symmetric
+monoidal category $(\C,\otimes,\mathbbm{1},c_\otimes)$ an associative
+$\otimes$-algebra $A$ in $\C$ and an $A$-bimodule $M$, keeping the
+designations usual for monoids and bimodules in $(Sp,\wedge,\S,c_{\wedge}).$
+
+{\defn{(cf. \cite[Section 1.3]{PRi})\label{Lod}
+    The Loday functor $\mathcal{L}(A,M)\colon \Fia\rightarrow \C$ is given on
+    objects as $n_+\mapsto M\otimes A^{\otimes n}$. For a morphism $f\colon 
+    n_+\rightarrow m_+$ consider its unique decomposition $f=\sigma\circ \delta$.
+    Then $\sigma$ describes a unique symmetry of the monoidal structure:
+    \[c_\sigma\colon M\otimes A^{\otimes n} \rightarrow 
+    A^{\otimes |f^{-1}\{*\}< *|}\otimes M \otimes A^{\otimes |f^{-1}\{*\}> *|}
+    \otimes A^{\otimes |f^{-1}\{1\}|}\otimes\ldots \otimes A^{\otimes |f^{-1}\{m\}|}.\]
+    From this reordered object we consider the map
+    \[A^{\otimes |f^{-1}\{*\}< *|}\otimes M \otimes A^{\otimes |f^{-1}\{*\}> *|}
+    \otimes A^{\otimes |f^{-1}\{1\}|}\otimes\ldots \otimes A^{\otimes |f^{-1}\{m\}|}
+    \rightarrow M\otimes A^{\otimes m},\]
+    composed of the left- and right-action of $A$ on $M$, i.e., 
+    $A^{\otimes |f^{-1}\{*\}< *|}\otimes M \otimes A^{\otimes |f^{-1}\{*\}> *|}
+    \rightarrow M$ and $|f^{-1}i|$-fold
+    products $A^{\otimes |f^{-1}\{i\}|}\rightarrow A$. Call this map $\delta_*,$
+    then define $f_*=\delta_*\circ c_\sigma.$ This makes $\mathcal{L}(A,M)$ a
+    functor by uniqueness of the decomposition \ref{dec}.}}
+
+To relate this functor to the simplicial topological Hochschild homology spectrum
+I need to elaborate on the simplicial circle a bit more. More specifically, we need to
+know that it is in fact a simplicial associative pointed set. 
+
+{\prop{(cf. \cite[Section 1.4]{PRi})\label{ptdassS1}
+    Recall the simplicial set $\Delta_1=\Delta(\_,[1])$ with its boundary 
+    $\partial\Delta^1$ identified as the constant maps $f\colon [n]\rightarrow [1].$
+    The quotient $\S^1=\Delta_1/\partial\Delta_1$ is a pointed simplicial set by 
+    \ref{pointedS1}, which can be promoted to a pointed associative simplicial
+    set $\S^1_{As}\colon \Delta^{op}\rightarrow \Fia$.}}
+
+Given an associative $\S^1$, we can interpret topological Hochschild homology
+for associative algebras. Recall the spectral
+Loday functor for an associative $\S$-algebra $A$ and $A$-bimodule $M$:
+\[\mathcal{L}(A,M)\colon \Fia\rightarrow Sp.\]
+More generally for an associative algebra and bimodule in a 
+symmetric monoidal category $(\C,\otimes,\mathbbm{1},c_\otimes)$ with
+the assignment on objects: $\mathcal{L}(A,M)(n_+)=M\otimes A^{\otimes n}$.
+The total order on the fibres precisely makes this a well-defined functor
+for associative (as opposed to commutative) objects. We can easily identify
+the simplicial Hochschild spectrum of $A$ with coefficients in $M$ 
+as the composite of the Loday functor $\mathcal{L}(A,M)\colon \Fia\rightarrow Sp$
+with the pointed associative circle \ref{ptdassS1}: $\S^1_{As}\colon \Delta^{op}
+\rightarrow \Fia$.
+
+{\prop{(cf. \cite[p. 213]{Loday}) The composite:
+    \[\xymatrix{\Delta^{op}\ar[r]^-{\S^1_{As}}&\Fia\ar[rr]^-{{\mathcal{L}}(A,M)}&&Sp}\]
+    is strictly equal to the simplicial Hochschild spectrum of $A$ with
+    coefficients in $M$ as defined in \ref{THHblubbAM}. In particular, the
+    identification is natural in maps of algebras and bimodules.
+    \begin{proof}Objectwise the identification is clear, the example above 
+    should convince the reader that I fixed the choices of orderings and 
+    basepoints in \ref{ptdassS1} just so that one can identify the face 
+    maps and degeneracies in the standard complex easily with the maps 
+    induced on the pointed associative circle.\end{proof}}}
+
+With these considerations in place we can find that the subspectrum
+identified in \cite[Section 3]{MS} is inherent to the Loday-functor.
+
+{\prop{\cite[Section 3]{MS}
+    Let $A$ be an associative algebra, and $M$ an $A$-bimodule with
+     a map of $A$-bimodules
+    $A\rightarrow M.$ In particular both have a fixed unit map from 
+    the sphere spectrum $\S\rightarrow A \rightarrow M.$
+
+    Then we have two factorisations of the identity at $M$:
+    \[\xymatrix{M\cong M\wedge\S\ar[rr]\ar[d]&& M\wedge A \ar[d]\\
+    M\vee A \ar[r]& M\vee M=(M\wedge\S)\vee(\S\wedge M)\ar[r]& M,}\] 
+    with the analogous factorisations 
+    holding for the left-module action and the algebra structure of $A$. 
+
+    Thus in particular for $A$ an $\S$-algebra, and $M$ an $A$-algebra, 
+    we can define the Loday-functor with respect to coproducts
+    $\L^\vee(A,M)(n_+)=M\vee A^{\vee n}$. By universal property of the
+    coproduct to describe a map $\L^\vee(A,M)(n_+)=M\vee A^{\vee n}
+    \rightarrow M\wedge A^{\wedge n}=\L(A,M)(n_+),$ we need to describe
+    it on each summand. Thus for $M$ consider $M\cong M\wedge \S^{\wedge n}
+    \rightarrow M\wedge A^{\wedge n},$ while the $i$th $A$-summand is
+    mapped to the $i$th smash factor by the analogous description.
+
+    The factorisation above gives that this is a natural transformation 
+    \[\L^\vee(A,M)\Rightarrow \L(A,M),\]
+    which is moreover natural in the algebra $A$ and the $A$-algebra $M$
+    appropriately.}}
+
+{\prop{(cf. \cite[Lemma 3.3]{MS}) The coproduct Loday-functor on an 
+    $\S$-algebra $A$, and an $A$-algebra $M$, evaluated on the 
+    associative circle is naturally isomorphic to the simplicial 
+    spectrum $M\vee ((\S^1)\wedge A)$, for $\S^1=\Delta_1/\partial\Delta_1$ 
+    the simplicial circle. 
+
+    In particular, the geometric realisation of the natural transformation 
+    above yields a natural map: \[|\L^\vee(A,M)(\S^1_{As})|=|M\vee 
+    ((\S^1)\wedge A)| = M\vee \Sigma A \rightarrow THH(A,M).\]}}
+
+I used the description of topological Hochschild homology as a Loday
+functor on the associative circle to facilitate the following identification:
+{\thm{The Loday functor evaluated on the opposite associative 
+    circle $\S^1_{As}\circ r\colon \Delta^{op}\rightarrow \Fia$ 
+    is naturally isomorphic to the Loday functor on
+    the opposite algebra and opposed bimodule:
+    \[\L(A,M)(\S^1_{As}\circ r)\cong \L(A^\mu,M^\mu)(\S^1_{As}).\]
+    In particular, for $M$ an $A$-algebra, the natural transformation
+    \[\L^\vee(A,M)\Rightarrow \L(A,M),\]
+    commutes with this isomorphism, as does its geometric realisation.}}
+
+We can draw the following corollary, which I use repeatedly in the following chapter.
+To not confuse opposition of module actions with opposition of multiplications I only
+assume an appropriate map $A\rightarrow M,$ which we need for the map $\L^\vee(A,M)\rightarrow \L(A,M)$.
+{\thm{Given an associative $\S$-algebra $A$ with anti-involution 
+    $T\colon A\rightarrow A^\mu$, and an left- and right-$A$-linear map 
+    $A\rightarrow M$ we have the following commutative diagram:
+    \[\xymatrix{ M\vee \Sigma A\ar[d]\ar[r]&M\vee \Sigma A\ar[d]\ar[r]
+    \rruppertwocell<10>^{1\vee(-1)}{\omit}& M\vee \widetilde{\Sigma} A\ar[d]\ar[r] 
+    & M\vee \Sigma A\ar[d]\\  THH(A,M)\ar[r]^{(T,\id_M)}&THH(A^\mu,M^\mu)\ar[r]^\iota 
+    &|\widetilde{THH(A,M)}|\ar[r]^\Gamma &THH(A,M).}\]
+
+    More explicitly: The bimodule includes at simplicial degree $0$, thus each of the lower
+    three maps restricts to the identity. The suspended algebra is the realisation of the
+    simplicial spectrum $\S^1\wedge A,$ hence includes at degree $1$, so that $\iota$ and
+    $\Gamma$ together induce a sign.}}
+
+{\rem{I want to place the appropriate emphasis on this subspectrum. Despite the fact that these
+    are the ``obvious'' classes in $THH(A,M)$, they are usually not trivial. Instead one can
+    usually use the suspension $\Sigma A\rightarrow THH(A,M)$, inducing a map 
+    $h_*A\rightarrow h_{*+1}THH(A,M)$, and multiplicative structures on $THH$ to exhaust 
+    the classes of interest. Good examples of this are \cite{MS} and \cite{AuTHH}, the second
+    of which we study in detail in the next chapter.}}

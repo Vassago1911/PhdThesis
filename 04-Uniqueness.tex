@@ -1,0 +1,352 @@
+\chapter{Partial Uniqueness Results} \label{conjun}
+Evidently, I am interested if the multiplication on the delooping 
+I describe in chapter \ref{multbidel} describes a new structure or the 
+known $E_\infty$-structure on the $K$-theory of an $E_\infty$-ring 
+spectrum. 
+
+Given this I can avoid the complicated constructions of the 
+trace map described for example in \cite{BHMtr, S tr} (compare also 
+\cite{DGM12}). By \cite{BGT2013} there is an essentially unique
+map of symmetric multifunctors from $K$-theory to any other 
+(symmetric) multifunctor $F$ that satisfies $F(\S)=\S$. For
+topological Hochschild homology the equality $THH(\S)=\S$ is
+immediate from the definitions, thus there is a unique $E_\infty$-map
+$K\rightarrow THH,$ which by \cite[Theorem 1.9]{BGT2013} is the trace map.
+Specifically the essential uniqueness proven in \cite{BGT2013} entails
+that the trace map is a point in the space of $E_\infty$-maps $K\rightarrow THH$,
+which is contractible.
+
+However, for the multiplicative uniqueness I have to concede conjecture
+status, while the additive uniqueness, i.e., the fact that there is
+essentially only one delooping of the nerve of a symmetric monoidal 
+category by its $E_\infty$-structure is classical \cite{MT1978}, 
+which can be rephrased nicely with the results of \cite{GGN}.
+
+\section*{Convention: The Language of $\infty$-Categories}
+To conveniently state and prove results about uniqueness of 
+$E_\infty$-structures we evidently need some organisational
+language in which to compare them. As shown in \cite{EM} 
+multicategories can be used in absence of 
+symmetric monoidal structures on a category to define
+operad-structures. However, comparison theorems in this setting seem 
+too restrictive to expect. Since $E_\infty$-structures
+are a coherently weakened notion of commutativity, we would
+not expect different $E_\infty$-structures from potentially
+different $E_\infty$-operads to be comparable by strict 
+multifunctors. This would probably prove to be even worse for
+general operads. 
+
+Given the recent popularisation of $(\infty,1)$-categories for instance
+by \cite{Bergn1, Bergn2, Joyal,JoyT,Lu1,Lu2} 
+advancing the theory of quasi-categories as a convenient model for 
+$(\infty,1)$-categories, the authors have made such comparison results easier
+to state and prove in a satisfactory manner. Hence following my
+principal sources \cite{GGN,BGT2013} for the uniqueness results
+I use the language of $(\infty,1)$-categories, and refer to 
+specific results about quasi-categories in \cite{Lu1, Lu2} where 
+I need them. 
+For a nice survey I specifically recommend \cite{Bergn2} and 
+an accompanying talk \cite{Bergn3}.
+
+\section{Uniqueness of the Spectrum $\R\mapsto H\R$}
+I can directly (partially) quote this result from 
+\cite{GGN} with the only alteration that, as in \cite{BDRR2011},
+I refer to the associated spectrum of a permutative category 
+$\C$ as its Eilenberg-MacLane-spectrum $H\C$, for instance given
+by the delooping of \cite{EM}.
+{\thm[First part of Prop. 8.2. in \cite{GGN}]{The 
+Eilenberg-MacLane-spectrum functor $H\colon \SymMonCat \rightarrow Sp$ 
+is lax symmetric monoidal.}}
+
+This statement does not obviously incorporate $\infty$-categories. Their
+use is implicit in the symmetric monoidal structure on $\SymMonCat$, which
+probably does not exist, when we consider $\SymMonCat$ as a $1$-category 
+with objects small symmetric monoidal $1$-categories and symmetric 
+monoidal functors as morphisms -- cf. \cite{K} for a specific
+construction of a product on symmetric monoidal categories with strictly
+symmetric monoidal functors, which fails to have a unit object, and
+does not produce bimonoidal/bipermutative categories as its monoids.
+However, if we relax to considering $\SymMonCat$ as a $2$-category with
+the same objects and $1$-cells, but additionally monoidal natural 
+transformations as $2$-cells, we can see in \cite{Schm} that $\SymMonCat$
+does in fact support the structure of a ``symmetric monoidal bicategory''. 
+But his construction has the wrong ($E_\infty$) monoids, thus at most
+serves as a proof that $\SymMonCat$ can equipped with a symmetric monoidal
+bicategory structure at all. 
+
+I strongly conjecture that a symmetric monoidal product on the 
+bicategory of symmetric monoidal categories with the right monoids can 
+be constructed:	Specifically the construction of a ``classifying 
+pseudofunctor'' as in \ref{BCfunctor}, which for $(\C,+)$ symmetric 
+monoidal gives a pseudofunctor $B\C\colon \Fi\rightarrow Cat$. The 
+additive Grothendieck construction as in \ref{c+} is the Grothendieck 
+construction over this functor. When we restrict $B\C$ to the source 
+category with just surjections $\Ep$ however, the Grothendieck 
+construction $\C^{+,epi}$  over this functor admits a natural adjunction 
+\[\xymatrix{\C^{+,epi} \ar@<0.5ex>[r] & \ar@<0.5ex>[l] \C}\]
+and thus the classifying spaces are homotopy equivalent. 
+We can easily consider the product $B\C\times B\D$, and the Grothendieck
+construction over this functor yields a candidate for a ``smash product''
+of permutative categories. However I do not know, which of the specific
+``averaging'' processes described by the Grothendieck construction 
+yields the most convenient smash product. We could consider the
+product $B\C\times B\D$ and pull back by the diagonal $\Fi\rightarrow
+\Fi\times\Fi$. Alternatively we could directly consider the Grothendieck
+construction restricted to $\Ep\times\Ep$. Since this becomes unwieldy 
+quite fast, I have not established the properties this product might have.
+I am quite sure it is unital and associative ``up to adjunction'', symmetric
+up to isomorphism, however, one would have to establish the appropriate
+coherences of adjunctions and isomorphisms.
+
+The theorem quoted above reframes the results in
+\cite{EM} that the associated Eilenberg-MacLane-spectrum is a symmetric
+multifunctor from permutative categories to spectra, where in
+\cite{EM} the multicategory-structure is precisely the concession needed
+for the fact that the $1$-category of symmetric monoidal categories 
+(probably) does not support a symmetric monoidal product.
+
+The results of \cite{GGN} make it unnecessary to construct a symmetric
+monoidal product on $\SymMonCat$ on the $2$-categorical level.
+
+Recall from \cite{Lu2,GGN} that given an $\infty$-category, we have naturally
+associated to it its category of pointed objects $\C_*$, its category
+of $E_\infty$-monoids $\mathrm{Mon}_{E_\infty}\C$, modelled as $\Gamma$-objects
+in $\C$, its category of grouplike $E_\infty$-monoids $\mathrm{Grp}_{E_\infty}\C$,
+and its stabilisation, for instance given as the category of spectrum objects
+in $\C$, denoted $Sp(\C)$. Moreover, each pointed object $c\in\C$ gives rise to a free $E_\infty$-monoid $hc$
+given by $hc(n_+)=c^{\times n}$ with the evident maps induced by pointed maps in $\Fi=\Gamma$.
+Group completion provides a free grouplike object associated to an arbitrary
+$E_\infty$-monoid in the sense that it is a left-adjoint to the forgetful
+functor in the opposite direction. Finally, a grouplike $\Gamma$-object gives
+rise to an associated spectrum for instance by insertion of simplicial spheres 
+$\S^n$ (cf. \ref{insertS1}).
+
+{\thm[Theorem 5.1 \cite{GGN}]{Let $\C^\otimes$ be a closed symmetric
+monoidal presentable $\infty$-category $\C$. The 
+$\infty$-categories $\C_*$, $\mathrm{Mon}_{E_\infty}\C$, $\mathrm{Grp}_{E_\infty}\C$, 
+$Sp(\C)$ all admit closed symmetric monoidal structures, which are uniquely
+determined by the requirement that the respective free functors from $\C$
+are symmetric monoidal. Moreover each of the functors \[\C_*\rightarrow 
+\mathrm{Mon}_{E_\infty}\C\rightarrow \mathrm{Grp}_{E_\infty}\C\rightarrow 
+Sp(\C)\] uniquely extends to a symmetric monoidal functor.}}
+
+By \cite{GGN} the $\infty$-category of symmetric monoidal categories
+thus has a symmetric monoidal $\infty$-category-structure by the following 
+argument of Theorem 5.1 in \cite{GGN} specialised for $\C$ the $\infty$-category of 
+$1$-categories with cartesian product as its closed symmetric monoidal structure.
+The $\infty$-category of symmetric monoidal categories is identified 
+as a smashing $\infty$-localisation with the $E_\infty$-monoids 
+in spaces $\mathrm{Mon}_{E_\infty}(Top)$ \cite[Theorem 4.6]{GGN}. So they get 
+\[\SymMonCat=\mathrm{Mon}_{E_\infty}(Cat_1)\simeq Cat_1\otimes 
+\mathrm{Mon}_{E_\infty}(Top),\] 
+where $\otimes$ denotes the tensor-product of presentable $\infty$-categories as
+defined in \cite{Lu2}. Hence arguing the same way as for Bousfield
+localisations of symmetric monoidal model categories, one only has to establish
+that $\_\otimes \mathrm{Mon}_{E_\infty}(Top)$ respects local equivalences with
+respect to $\mathrm{Mon}_{E_\infty}$. This is trivial for a smashing localisation 
+in $\infty$-categories, because of the equivalence 
+$\_\otimes \mathrm{Mon}_{E_\infty}(Top)\otimes 
+\mathrm{Mon}_{E_\infty}(Top) \simeq \_\otimes \mathrm{Mon}_{E_\infty}(Top),$ 
+which makes the smashing functor idempotent up to a chosen coherent
+equivalence, hence a localisation. The 
+equivalence $\mathrm{Mon}_{E_\infty}(\mathrm{Mon}_{E_\infty}(\_))\simeq \mathrm{Mon}_{E_\infty}(\_)$
+is just an elaboration on the Eckmann-Hilton-argument, two 
+compositions which are homomorphisms with respect to each other and 
+have neutral elements are equal.
+
+Replace in \cite[p. 19]{GGN} the expression ``algebraic $K$-theory'' with 
+``Eilenberg-MacLane spectrum''; this 
+identifies the Eilenberg-MacLane spectrum functor as the composition of functors
+\[\xymatrix{\SymMonCat \ar[r]^{(\cdot)^{iso}} &\SymMonCat 
+\ar[r]^{N(\cdot)} & \mathrm{Mon}_{E_\infty}(\mathcal{T})
+\ar[r] & \mathrm{Grp}_{E_\infty}(\mathcal{T}) \ar[r] & Sp,}\]
+for $\mathcal{T}$ some $\infty$-category of spaces
+and $Sp$ modelled by any model category
+of spectra as seen in \cite{MMSS} or directly by stabilisation of
+an $\infty$-category of spaces as in \cite[Section 1.4.3]{Lu2}.
+Additionally by \cite[p. 624]{Lu2} the $\infty$-category
+$Sp$ admits an essentially unique (i.e., parametrised by a contractible
+Kan complex) symmetric monoidal structure characterised by \begin{itemize}
+\item[1.] $Sp\times Sp\rightarrow Sp$ preserves colimits in each argument,
+\item[2.] the unit is the sphere spectrum $\S$. \end{itemize}
+Even more drastically, we have by \cite[Corollary 6.3.2.19]{Lu2} that each
+stable presentable $\infty$-category $\C$ with a symmetric monoidal product,
+which preserves colimits in each argument, admits a unique (up to 
+contractible choice) symmetric monoidal functor $Sp\rightarrow \C$ (in particular
+pointed $\S\rightarrow 1_\C$), which preserves small colimits.
+
+Thus $Sp$ is not only equipped with a unique symmetric monoidal structure, but
+it is initial among stable presentable $\infty$-categories with
+a symmetric monoidal product preserving colimits. Hence $Sp$ is unique 
+with these properties.
+
+Returning to the Eilenberg-MacLane spectrum we find that the functors
+\[\xymatrix{\mathrm{Mon}_{E_\infty}(sSet) \ar[r] & \mathrm{Grp}_{E_\infty}(sSet) 
+\ar[r] & Sp,}\] are uniquely symmetric monoidal by \cite[Theorem 5.1]{GGN}, 
+thus we can reduce multiplicative uniqueness to the claim \[\xymatrix{\SymMonCat 
+\ar[r]^{(\cdot)^{iso}} &\SymMonCat \ar[r]^{N(\cdot)} & 
+\mathrm{Mon}_{E_\infty}(sSet),}\] is uniquely symmetric monoidal. Passing
+from a category to its maximal subgroupoid $(\cdot)^{iso}$ is 
+strictly symmetric monoidal on the level of $1$-categories, and it is the unique 
+such structure on $\infty$-categories by \cite[Corollary 5.5 (i)]{GGN} 
+on the subdiagram for $\C = Cat_1$ the $\infty$-category of small $1$-categories 
+with cartesian product as symmetric monoidal structure and $\D = Gpd$ the 
+$\infty$-category of small $1$-groupoids with the same symmetric monoidal structure:
+\[\xymatrix{Cat_1\ar[d]_{(\cdot)^{iso}}\ar[r] & \mathrm{Mon}_{E_\infty}Cat_1
+\ar@{-->}[d]\\Gpd \ar[r] & \mathrm{Mon}_{E_\infty}Gpd.}\]
+Here the corollary precisely says that the unique symmetric monoidal structure
+given on $\mathrm{Mon}_{E_\infty}\C$ for a symmetric monoidal $\infty$-category
+$\C$ allows a unique symmetric monoidal extension of the dashed arrow in the diagram.
+(Compare however Warning 5.2 in \cite{GGN}: The $E_\infty$-monoids are defined
+with respect to the cartesian product. Their monoidal 
+product is the extension of a potentially different monoidal structure on $\C$.)
+The identification $\mathrm{Mon}_{E_\infty}Cat_1 = \SymMonCat$ gives uniqueness
+for $(\cdot)^{iso}$.
+
+The same argument for $\C = Gpd$ and $\D=sSet$ yields the unique extension of the
+nerve $N(\cdot)$ to a symmetric monoidal functor, because the nerve is strictly
+product-preserving, hence extends uniquely to a symmetric monoidal functor on
+the respective $E_\infty$-monoids. Since the Eilenberg-MacLane spectrum $H\C$ has
+zero-level $H\C(\S^0)=N\C,$ we find that it is this unique extension.
+
+Thus by these arguments we get the following classical (cf. \cite{MT1978}) theorem:
+{\thm{There is a unique functor extending the classifying space construction
+    $|N\cdot|\colon Cat_1\rightarrow Top$ to their $E_\infty$-monoids, thus
+    inducing a commutative diagram, where the horizontal arrows are the
+    respective free functors: \[\xymatrix{ Cat_1\ar[d]_{|N\cdot|}\ar[r]& 
+    Mon_{E_\infty}(Cat_1)\ar@{=}[r]\ar[d]&\SymMonCat\\Top \ar[r]&Mon_{E_\infty}(Top)
+    \ar@{=}[r]&Top^\Gamma.}\]}}
+
+Note that the equality below is by definition, while the equality above is the
+identification of symmetric monoidal $1$-categories with $\Gamma$-objects in $1$-categories,
+which can be found originally in \cite{Th1,Th2}.
+
+\section{Conjectural Multiplicative Uniqueness}
+The theorems of \cite{GGN} establish the functor $H$ as the unique
+functor from symmetric monoidal groupoids to connective spectra with the
+group completion property as classically identified in \cite{MT1978}. 
+
+Apart from the claim in \cite{May2009} on page 321 in a footnote ``I now have 
+a sketch proof that looks convincing.'' I could not find a result immediately 
+stating the fact that the constructions in \cite{EM,May2009,GGN} each produce the 
+same $E_\infty$-structure on $H\R$. Unfortunately I could not prove 
+this uniqueness, i.e., that the multifunctor-structure 
+of \cite{EM} is essentially the only multifunctor-structure on $H(\cdot)$. I suspect
+the essential uniqueness can analogously to \cite{BGT,BGT2013,GGN} be specified to
+say the space of multifunctor-structures on $H(\cdot)$ is actually contractible.
+
+The following elaboration on \cite[p. 19]{GGN} would identify ``my'' 
+$E_\infty$-structure on $H\M$, as described in the previous chapter, 
+with the $E_\infty$-structure on the Eilenberg-MacLane spectrum 
+of the category of matrices with coefficients in the Eilenberg-MacLane
+spectrum $H(\MM(H\R))$ given by using \cite{EM} twice.
+
+In the sequence
+\[\xymatrix{\SymMonCat \ar[r]^{(\cdot)^{iso}} &\SymMonCat 
+\ar[r]^{N(\cdot)} & \mathrm{Mon}_{E_\infty}(\mathcal{T})
+\ar[r] & \mathrm{Grp}_{E_\infty}(\mathcal{T}) \ar[r] & Sp,}\]
+the first, third and fourth functor admit unique multifunctor-structures by \cite{GGN}. 
+
+Thus the appropriate conjecture establishing multiplicative uniqueness of $H$ is:
+{\conj{The passage from symmetric monoidal categories to $\Gamma$-spaces has a unique 
+    multifunctor-structure.}}
+
+I have tried two avenues, which can probably be made to work:
+Given the symmetric monoidal structures on $\Gamma$-spaces, and the
+unique symmetric monoidal structure on $\SymMonCat$ extending the product on $Cat$
+asserted by \cite{GGN}, one should be able to make the identification 
+of $Mon_{E_\infty}(N\cdot)\colon \SymMonCat\rightarrow Mon_{E_\infty}(sSet)$ 
+as the tensor-unit in a symmetric monoidal sub-$\infty$-category of the functors 
+$Fun(\SymMonCat,Mon_{E_\infty}(sSet))$, but I simply do not know how to approach
+finding the appropriate subcategory systematically.
+
+Furthermore each nerve $N$ is defined as a right adjoint.
+Specifically choose a cosimplicial category. Then functors from this
+category associate a simplical object to categories. Considering 
+instead $Ex^2\circ N$ one can promote this to the right adjoint
+in a Quillen equivalence of categories with the Thomason model 
+structure to simplicial sets in the Kan model structure \cite{Th3}.
+
+But the symmetric monoidality established in \cite{GGN} is canonical only for 
+left-adjoint functors, thus the nerve is not easily a 
+canonical extension. This might feel trivial, but since the canonical 
+structures in \cite{GGN} are established by specific 
+left-adjoint functors, their compatibility with 
+right-adjoints is not straight-forward.
+
+This is parallel to the transfer of model structures: Presentable $\infty$-categories 
+are nerves of combinatorial simplicial model categories. In particular these 
+are cofibrantly generated with generating (trivial) cofibrations satisfying 
+compactness with respect to their category. The dual notion of 
+``cosmall/cocompact'' turns out to be too trivial. For instance 
+in $Sets$ the only cosmall objects are the empty set and any one-point-set. 
+Thus most categories of the type ``sets with structure'' do not have many candidates for 
+generating (trivial) fibrations, much less a model structure determined by them. 
+On presentable categories we see this on objects: The opposite of a presentable
+category is not presentable in general.
+
+In conclusion: The first avenue is quite ambitious, since in particular it
+yields a comparison of the $E_\infty$-structures produced by \cite{EM,May2009,GGN}.
+
+The modest approach runs into a similar problem, 
+i.e., a map in the ``wrong'' direction. In principle it 
+should not be too hard to produce an $E_\infty$-map of symmetric 
+spectra $H(\M)\rightarrow H(\MM(H\R))$ with the $E_\infty$-structures of chapter \ref{multbidel} 
+and \cite{EM}. I modelled the delooping in chapter \ref{multbidel} explicitly 
+as a careful generalisation of \cite{EM}. It would be 
+conceptual to pass through strictification to $2$-categories:
+The canonical monoidality map of strictification
+is an inclusion $(\C\times\D)^{st}\rightarrow \C^{st}\times\D^{st}$ given by
+including words of pairs to pairs of words of equal length. It
+is an equivalence. Any inverse would need to be 
+coherently associative and symmetric with respect to the product, which
+is not possible without introducing an adequate 
+tricategory-structure on permutative bicategories. 
+This hinges on the fact that the canonical map is only pseudonatural, 
+and the anchor equivalence $\C^{st}\rightarrow \C$ is only lax 
+monoidal up to an invertible transformation. 
+
+Consider instead strictification by Yoneda embedding into $Fun(\C^{op},Cat)$. 
+This produces a similar problem in addition to several new ones. Canonically we get a
+map in the wrong direction. One could try to resolve this by a Day-type
+convolution, but this introduces new problems. What is a small
+diagram over which to take the colimit? In addition the target 
+$2$-category as well as the source tricategory make a variety
+of lax colimits conceivable. Finally given a Day-type convolution, 
+does it make the Yoneda-embedding an appropriate multifunctor?
+
+Another problem, which I assume is much simpler to resolve, is the fact
+that strictification cannot respect the functor-strictnesses of
+addition and tensor product the way I axiomatised it for permutative and
+symmetric monoidal bicategories. Thus even if one could pass to a 
+bimonoidally equivalent $2$-category, the result would not have addition
+and tensor product given by strict $2$-functors. Thus some clever 
+construction of an equivalent $2$-category, for which these functors are
+strict would yield a canonical map to the construction of \cite{EM}, but I did not 
+find such a $2$-category. So here the essential question is how a 
+bipermutative bicategory can strictify to a bipermutative $2$-category, 
+thus a particular example of a simplicially enriched bipermutative 
+$1$-category suited to the machine of \cite{EM}.
+
+Finally, I want to state a guess, why these problems arise: 
+$K$-theory constructions involve passing to categories of isomorphisms first. 
+By \cite[Proposition 8.14]{GGN} there is a structural reason for this: 
+Group completion adds objectwise monoidal inverses,
+but consequently turns every morphism into an equivalence by an Eckmann-Hilton-type argument.
+I have not found a good way to impose
+invertibility of morphisms productively, but it has to enter in an essential way.
+
+Furthermore this seems to conflict heavily with the principal example $\M$. There the equivalence
+$1$-cells are automatically isomorphisms, since the $2$-cells are only products
+of isomorphisms. For instance for $Ob\R = \mathbb{N}$ we only get permutation
+matrices as equivalence $1$-cells, which only incorporates the endomorphism-objects 
+$\R(0,0)$ and $\R(1,1)$ as $2$-cells. This ``delooping'' does not
+satisfy the comparison of \cite{BDRR2011}, i.e., it does not deloop the appropriate
+space in order to be equivalent to $K(H\R)$. I have no idea how to resolve this
+conflict. I have to concede however
+that the conflict might be my illusion, and \cite[Proposition 8.14]{GGN} only enforces
+isomorphism $2$-cells in $\M,$ which is consistent with the assumption in
+\cite{BDRR2011}. In particular this perspective makes the assumption in
+\cite{BDRR2011} that each translation functor $X\oplus\_$ be a faithful functor
+appear as an inessential peculiarity of the Grayson-Quillen-completion,
+while discarding all non-invertible morphisms is essential to the construction.

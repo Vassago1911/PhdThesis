@@ -1,0 +1,335 @@
+\documentclass[12pt,bibliography=totoc,final]{scrbook} %11pt+=oneside
+\usepackage{a4} \linespread{1.2} \usepackage[all,2cell]{xy} \UseAllTwocells
+\usepackage{stmaryrd}\usepackage{bbm} %defines \mathbbm, thus \mathbbm{1}
+\usepackage{amsmath,amssymb,amsfonts,amsthm} \usepackage[english]{babel} \usepackage[final]{hyperref} \usepackage{mathtools}
+%\usepackage{fancyhdr} \usepackage{lscape}
+
+\newtheorem{thm}{Theorem}[section] \newtheorem{lem}[thm]{Lemma} \newtheorem{prop}[thm]{Proposition} \newtheorem{cor}[thm]{Corollary} \theoremstyle{definition}
+\newtheorem{Remi}[thm]{Reminder} \newtheorem{rem}[thm]{Remark} \newtheorem{defn}[thm]{Definition} \newtheorem{ex}[thm]{Example} \newtheorem{conj}[thm]{Conjecture}
+\def\div{\mathrm{div}} \def\mod{\mathrm{mod}} \def\Ob{\mathrm{Ob}} \def\A{\mathcal{A}} \def\C{\mathcal{C}} \def\D{\mathcal{D}} \def\V{\mathcal{V}} \def\K{\mathcal{K}}
+\def\l{\ell} \def\L{\mathcal{L}} \def\R{\mathcal{R}} \def\RR{\mathbb{R}} \def\M{\mathcal{M}(\mathcal{R})} \def\MM{\mathcal{M}} \def\CC{\mathbb{C}} \def\fC{\mathfrak{C}}
+\def\P{\mathbb{P}} \def\S{\mathbb{S}} \def\H{\mathbb{H}} \def\E{\mathbb{E}} \def\F{\mathbb{F}} \def\Aix{A_+\downarrow\mathrm{Fin}_+} \def\Bix{B_+\downarrow\mathrm{Fin}_+}
+\def\Fi{\mathrm{Fin}_+} \def\Fia{\mathrm{Fin^{As}_{+}}} \def\Ep{\mathrm{Epi}_+} \def\barF{\overline{\mathbb{F}}}
+\def\cp{\boxempty} \DeclareMathOperator{\id}{id} \DeclareMathOperator{\im}{im} \DeclareMathOperator{\sk}{sk} \DeclareMathOperator{\cosk}{cosk} 
+\DeclareMathOperator{\colim}{colim} \DeclareMathOperator{\const}{const} \DeclareMathOperator{\hocolim}{hocolim} \DeclareMathOperator{\holim}{holim}
+\renewcommand{\S}{\ensuremath{\mathbb{S}}} \newcommand{\Z}{\ensuremath{\mathbb{Z}}} \newcommand{\N}{\ensuremath{\mathbb{N}}} 
+\newcommand{\SymMonCat}{\mathcal{S}\mathrm{ym}\mathcal{M}\mathrm{on}\mathcal{C}\mathrm{at}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil} \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\def\arxiv#1{\href{http://arxiv.org/abs/#1}{\texttt{arxiv:#1}}} \def\arxivold#1{\href{http://arxiv.org/abs/math/#1}{\texttt{arxiv:#1}}}
+
+
+\newcommand*{\titleGP}{\begingroup % Create the command for including the title page in the document
+\thispagestyle{empty}\clearpage\thispagestyle{empty}\clearpage
+
+\begin{center} % Center all text
+\vspace*{\baselineskip} % White space at the top of the page
+
+\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal line
+\rule{\textwidth}{0.4pt}\\[\baselineskip] % Thin horizontal line
+
+{\LARGE MULTIPLICATIVE STRUCTURES\\ AND INVOLUTIONS ON \\[0.3\baselineskip] ALGEBRAIC $K$--THEORY}\\[\baselineskip] % Title
+
+\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal line
+\rule{\textwidth}{1.6pt}\\[\baselineskip] % Thick horizontal line
+
+{{\scshape % Small caps
+Dissertation with the aim of achieving a doctoral degree
+at the \\ Faculty of Mathematics, Informatics and Natural Sciences,
+Department of Mathematics \\% Tagline(s) or further description
+of Universit{\"a}t Hamburg \vfill}
+Submitted by: Marc Lange \\ 
+{2015} in Hamburg}
+
+\end{center}
+\endgroup}
+
+\date{\the\day.\the\month.\the\year}
+
+\begin{document}
+\pagestyle{empty}\titleGP \null\newpage \null\vfill Als Dissertation angenommen vom Fachbereich \\
+Mathematik der Universit\"at Hamburg\\[2em] aufgrund der Gutachten von Prof. Dr. Birgit Richter\\
+\phantom{aufgrund der Gutachten} und Prof. Dr. Bj\o rn Ian Dundas.\\[2em]
+
+Hamburg, den 24.7.2015 \\
+Datum der Disputation: 26.6.2015 \newpage\clearpage \par\vspace*{.35\textheight}{\centering To Cedric\par} \newpage
+\include{00-Introduction} \tableofcontents\thispagestyle{empty} \addtocontents{toc}{\protect\thispagestyle{empty}}  %unterdrueckt Seitenzahlen im Toc
+
+\include{01-Monoidal} \include{02-MultBicat} \include{03-Deloop} 
+\include{04-Uniqueness} \include{05-THH} \include{06-V1Kku} \clearpage \begin{thebibliography}{9999999}
+\bibitem[Ad1]{Ad74} J. Adams, \emph{Stable Homotopy and Generalised Homology,} Univ. of Chicago Press, 1974, Reissued Edition 1995 
+\bibitem[Ad2]{Ad69} J. Adams, \emph{Lectures on Generalised Cohomology,} Lec. Notes Math. \textbf{99}, 1969
+\bibitem[AnHL]{AnHL} V. Angeltveit, M. Hill, T. Lawson, \emph{The Topological
+Hochschild Homology of $\l$ and $ko$}, Am. J. Math. \textbf{132}(2), 2010, \arxiv{0710.4368}
+\bibitem[AnR]{AnR} V. Angeltveit, J. Rognes, \emph{Hopf Algebra Structure on Topological 
+Hochschild Homology}, Algebr. Geom. Topol. \textbf{5}, 2005, 1223–-1290, \arxivold{0502195}
+\bibitem[A-Kku]{AuKku} C. Ausoni, \emph{On the Algebraic $K$-Theory of the Complex $K$-Theory 
+Spectrum}, Inventiones mathematicae \textbf{180}(3), 2010, 611--668, \arxiv{0902.2334}
+\bibitem[A-THH]{AuTHH} C. Ausoni \emph{Topological Hochschild Homology of Connective Complex 
+$K$-Theory}, Am. J. Math. \textbf{127}(6), 2005, 1261--1313 %notarxiv
+\bibitem[AR1]{AuQku} C. Ausoni, J. Rognes, \emph{Rational Algebraic $K$-Theory of 
+Topological $K$-Theory}, Geom. Topol. \textbf{16}, 2012, 2037--2065, \arxiv{0708.2160}
+\bibitem[AR2]{AuKl1} C. Ausoni, J. Rognes, \emph{Algebraic $K$-Theory of Topological $K$-Theory,}
+Acta Math. \textbf{188}, 2002, 1--39
+\bibitem[AR3]{AuKl2} C. Ausoni, J. Rognes, \emph{Algebraic $K$-Theory of the First Morava
+$K$-Theory,} J. Eur. Math. Soc. \textbf{14}, 2011, 1041--1079, \arxiv{1006.3413}
+\bibitem[ADR]{ADR} C. Ausoni, B. Dundas, J. Rognes, \emph{ Divisibility of the Dirac Magnetic 
+Monopole as a Two-Vector Bundle over the Three-Sphere,} Doc. Math. \textbf{13}, 2008, 795--801
+\bibitem[BDR]{BDR2004} N. Baas, B. Dundas, J. Rognes, \emph{Two-Vector Bundles and Forms of 
+Elliptic Cohomology}, {London Mathematical Society Lecture Note Series
+\textbf{308}}, 2004, 18--44, \arxivold{0306027}
+\bibitem[BDRR1]{BDRR2011} N. Baas, B. Dundas, B. Richter, J. Rognes, \emph{Stable Bundles over 
+Rig Categories}, {Journal of Topology \textbf{4}(3)}, 2011, 
+623--640, \arxiv{0909.1742}
+\bibitem[BDRR2]{BDRR2013} N. Baas, B. Dundas, B. Richter, J. Rognes, \emph{Ring Completion of 
+Rig Categories}, {Journal f{\"u}r die reine und angewandte Mathematik 
+(Crelles Journal) \textbf{674}}, 2013, 43--80, \arxiv{0706.0531}
+\bibitem[BR1]{BaRi05} A. Baker, B. Richter, \emph{$\Gamma$-Cohomology of Rings of Numerical
+Polynomials and $E_\infty$-Structures on $K$-Theory}, Comment. Math. Helv.
+\textbf{80} (4), 2005, 691--723, \arxivold{0304473}
+\bibitem[BR2]{BaRi08} A. Baker, B. Richter, \emph{Uniqueness of {$E_\infty$}-Structures for
+Connective Covers}, Proc. Amer. Math. Soc. \textbf{136}, (2008), 707--714, \arxivold{0506422}
+\bibitem[Ba]{Bar} C. Barwick, \emph{Multiplicative Structures on Algebraic $K$-Theory}, 
+preprint \arxiv{1304.4867}, (2013)
+\bibitem[Ben]{Bena} J. B\'enabou, \emph{Introduction to Bicategories}, in Reports of the Midwest
+Category Seminar, Springer Berlin, 1967
+\bibitem[Ber1]{Bergn1} J. Bergner, \emph{A Model Category Structure on the Category of Simplicial
+Categories}, Trans. Amer. Math. Soc. \textbf{359}, 2007, 2043--2058, \arxivold{0406507}
+\bibitem[Ber2]{Bergn2} J. Bergner, \emph{A Survey of $(\infty,1)$-Categories}, \arxivold{0610239}
+\bibitem[Ber3]{Bergn3} J. Bergner, \emph{Models for Homotopical Higher Categories}, Talk at
+the MSRI (Jan. 2014), \href{https://www.youtube.com/watch?v=q8J0bbaZnRM}{https://www.youtube.com/watch?v=q8J0bbaZnRM}
+\bibitem[BGT1]{BGT2013} A. Blumberg, D. Gepner, G. Tabuada, \emph{A Universal Characterization
+of Higher Algebraic $K$-theory}, {Geometry and Topology \textbf{17}}, 
+2013, 733--838, \arxiv{1001.2282}
+\bibitem[BGT2]{BGT} A. Blumberg, D. Gepner, G. Tabuada, \emph{Uniqueness of the 
+Multiplicative Cyclotomic Trace}, to appear in Advances in Mathematics, \arxiv{1103.3923}, (2012)
+\bibitem[BV]{BV} J. Boardman, R. Vogt, \emph{Homotopy Invariant Algebraic Structures on Topological
+Spaces,} Springer Verlag Berlin, 1973
+\bibitem[BLPRZ]{BLPRZ} I. Bobkova, A. Lindenstrauss, K. Poirier, B. Richter, I. Zakharevich,
+\emph{On the Higher Topological Hochschild Homology of $\F_p$ and Commutative $\F_p$-Group
+Algebras,} Proceedings of the BIRS workshop \emph{WIT: Women in Topology}, 2014
+\bibitem[B1]{B1} M. B\"okstedt, \emph{Topological Hochschild Homology,} Unpublished
+\bibitem[B2]{B2} M. B\"okstedt, \emph{The Topological Hochschild Homology of $\Z$ and $\Z/p$},
+Unpublished
+\bibitem[BM]{BMTCZ} M. B\"okstedt, I. Madsen, \emph{Topological Cyclic Homology of the
+Integers,} Ast\'erisque \textbf{226}, 1994, 57--143
+\bibitem[BHM]{BHMtr} M. B\"okstedt, W. Hsiang, I. Madsen, \emph{The Cyclotomic Trace and 
+Algebraic $K$-Theory of Spaces}, Inventiones mathematicae \textbf{111}(1), 1993, 465--539 %noarxiv
+\bibitem[BFV]{BFV} M. Brun, Z. Fiedorowicz, R. Vogt, \emph{On the Multiplicative 
+Structure of Topological Hochschild Homology}, Algebraic \& Geometric 
+Topology \textbf{7}, 2007, 1633–-1650, \arxivold{0410367}
+\bibitem[BrRo]{BrRo05} R. Bruner, J. Rognes, \emph{Differentials in the Homological Homotopy Fixed
+Point Spectral Sequence,} Alg. Geom. Topol. \textbf{5}, 2005, 653--690, \arxivold{0406081}
+\bibitem[CCG]{CCG2010} P. Carrasco, A. Cegarra, A. Garz\'on, \emph{Nerves and Classifying 
+Spaces for Bicategories}, Algebraic and Geometric Topology \textbf{10} 
+(1), 2010, 219--274, \arxiv{0903.5058}
+\bibitem[D1]{D98} B. Dundas, \emph{The Cyclotomic Trace for Symmetric Monoidal Categories,}
+Geometry and Topology \AA rhus 1998, Contemp. Math. \textbf{258}, 2000, AMS, 121--143
+\bibitem[D2]{D2} B. Dundas, \emph{The Cyclotomic Trace Preserves Operad Actions,} 2014, preprint
+\bibitem[DGM]{DGM12} B. Dundas, T. Goodwillie, R. McCarthy, \emph{The Local Structure of 
+Algebraic $K$-Theory}, Springer London, 2012 %noarxiv
+%\bibitem[DK]{DK} W. Dwyer, D. Kan, \emph{Function Complexes in Homotopical Algebra},
+%Topology \textbf{19}, 1980, 427--440
+\bibitem[EKMM]{EKMM} A. Elmendorf, I. Kriz, M. Mandell, J.P. May, \emph{Rings, Modules,
+and Algebras in Stable Homotopy Theory}, AMS Surveys and Monographs \textbf{47}, 1995
+\bibitem[EM]{EM} A. Elmendorf, M. Mandell, \emph{Rings, Modules, and Algebras in 
+Infinite Loop Space Theory}, Adv. Math. \textbf{205}, 2006, 163--228, \arxivold{0403403}
+\bibitem[Gau\ss]{Gauss} C.F. Gau\ss, \emph{Disquisitiones Arithmeticae}, 
+1801, Latin \href{http://edoc.hu-berlin.de/ebind/hdok2/h284\_gauss\_1801/pdf/h284\_gauss\_1801.pdf}{
+http://edoc.hu-berlin.de/ebind/hdok2/h284\_gauss\_1801/pdf/h284\_gauss\_1801.pdf},\\ English
+revised translation 1986, Springer New York 
+\bibitem[GGN]{GGN} D. Gepner, M. Groth, T. Nikolaus, \emph{Universality of Multiplicative
+Infinite Loop Space Machines}, preprint, \arxiv{1305.4550}
+\bibitem[GSn]{GSn} D. Gepner, V. Snaith, \emph{Motivic Spectra Representing Cobordism and $K$-Theory,}
+Documenta Math. \textbf{14}, 2009, 359--396, \arxiv{0712.2817}
+\bibitem[GHOsT]{GHOsT} P. Goerss, M. Hopkins, \emph{Moduli Spaces of Commutative Ring Spectra,}
+London Math. Soc. Lecture Notes \textbf{315}, 2004, 151--200
+\bibitem[GJ]{GJ} P. Goerss, J. Jardine, \emph{Simplicial Homotopy Theory}, Birkh{\"a}user Basel, 2009 reprint %noarxiv
+\bibitem[GGRSV]{GGRSV} Jo. Guccione, Ju. Guccione, M. Redondo, A. Solotar, O. Villamayor,
+\emph{Cyclic Homology of Algebras with One Generator,} $K$-Theory \textbf{5}, 1991, 51--69
+\bibitem[GJOs]{GJOs} N. Gurski, N. Johnson, A. Osorno, \emph{$K$-Theory for
+$2$-Categories}, preprint, \arxiv{1503.07824}
+%\bibitem[GPS]{GPS} R. Gordon, A. Power, R. Street, \emph{Coherence for Tricategories,} Mem. Amer. Math. Soc. \textbf{117} 
+%(558), 1995
+%\bibitem[GS]{GSch} P. Goerss, K. Schemmerhorn, \emph{Model Categories and Simplicial Methods,}
+%Contemp. Math. \textbf{436}, 2077, 3--49, \arxivold{0609537}
+\bibitem[J]{Joyal} A. Joyal, \emph{Quasi-Categories and Kan Complexes}, 
+J. Pure Appl. Algebra \textbf{175}, 2002, 207--222 %noarxiv
+\bibitem[JT]{JoyT} A. Joyal, M. Tierney, \emph{Quasi-Categories vs. Segal Spaces},
+Contemp. Math. \textbf{431}, 2007, 277--326, \arxivold{0607820}
+\bibitem[KV]{KV} M. Kapranov, V. Voevodsky, \emph{Braided Monoidal $2$-Categories
+and Manin-Schechtman Higher Braid Groups,} J. Pure Appl. Algebra \textbf{92}, 1994, 241--267
+\bibitem[Ko]{Kochm} S. Kochman, \emph{Bordism, Stable Homotopy and Adams Spectral Sequences,} Fields Institute Monographs, AMS, 1996
+\bibitem[K]{K} H. K\"onig, \emph{The Segal Model as a Ring Completion and a Tensor 
+Product of Permutative Categories}, PhD thesis, 2011, 
+\href{http://ediss.sub.uni-hamburg.de/volltexte/2011/5032}{http://ediss.sub.uni-hamburg.de/volltexte/2011/5032}
+\bibitem[LP]{LP2008} S. Lack, S. Paoli, \emph{2-Nerves for Bicategories},
+{Journal of $K$-theory \textbf{38(2)}}, 2008, 153--175, \arxivold{0607271}
+\bibitem[Lan]{L2011} M. Lange, \emph{Examples of Involutions on Algebraic $K$-Theory of
+Bimonoidal Categories}, 2011, Diploma Thesis, available at\\
+\href{http://www.math.uni-hamburg.de/home/richter/DA-Lange.pdf}{http://www.math.uni-hamburg.de/home/richter/DA-Lange.pdf}
+\bibitem[Lap]{Lap} M. Laplaza, \emph{Coherence for Categories with Associativity, 
+Commutativity and Distributivity}, Bull. AMS \textbf{78}, 1972, 220--222 %noarxiv
+%\bibitem[Law]{Law} T. Lawson, \emph{Commutative $\Gamma$-Rings do not Model All 
+%Commutative Ring Spectra}, Homology, Homotopy \& Applications \textbf{11.2}, 2009, 189--194, %noarxiv
+\bibitem[Le]{Lei} T. Leinster, \emph{Basic Bicategories}, \arxivold{9810017}, 1998
+\bibitem[Lo]{Loday} J.-L. Loday, \emph{Cyclic Homology}, Grundlehren \textbf{301}, Springer, 1992 %noarxiv
+\bibitem[Lu1]{Lu1} J. Lurie, \emph{Higher Topos Theory}, Princeton University Press 
+\textbf{170}, 2009, \arxivold{0608040}
+\bibitem[Lu2]{Lu2} J. Lurie, \emph{Higher Algebra}, (August 2012) Preprint at\\ 
+\href{http://www.math.harvard.edu/\textasciitilde lurie/papers/higheralgebra.pdf}{
+http://www.math.harvard.edu/\textasciitilde lurie/papers/higheralgebra.pdf}
+\bibitem[Lu]{LuStab} J. Lurie, \emph{Stable Infinity Categories}, \arxivold{0608228}
+\bibitem[McL]{McL} S. Mac Lane, \emph{Homology,} 1995 reprint of the 1975 edition
+\bibitem[MMSS]{MMSS} M. Mandell, J.P. May, S. Schwede, B. Shipley \emph{Model Categories of
+Diagram Spectra}, Proceedings of the London Mathematical Society, \textbf{82}(2), 2001, 441--512 %noarxiv
+\bibitem[MN]{MN} T. Masuda, T. Natsume, \emph{Cyclic Cohomology of Certain Affine Schemes,}
+Publ. RIMS, Kyoto Univ. \textbf{21}, 1985, 1261--1279
+\bibitem[May{$E_\infty$}]{MayEinf} J.P. May, \emph{$E_\infty$-ring spaces and $E_\infty$-ring spectra}, Lect. Notes Math. \textbf{577}, Springer Heidelberg, 1977 
+\bibitem[May1]{MaySoat} J.P. May, \emph{Simplicial objects in algebraic topology}, Chicago Lect. in Math., Univ. Chicago Press, 1967
+\bibitem[May2]{May2009} J.P. May, \emph{The Construction of $E_\infty$-Ring Spaces from 
+Bipermutative Categories}, Geometry \& Topology Monographs \textbf{16}, 2009, 283--330, \arxiv{0903.2818}
+\bibitem[MT]{MT1978} J.P. May, R. Thomason, \emph{The Uniqueness of Infinite Loop Space 
+Machines}, {Journal of Topology \textbf{17}(3)}, 1978, 205--224%noarxiv
+\bibitem[MSm]{MSm} J. McClure, J. Smith, \emph{Operads and Cosimplicial Objects: An Introduction,} 2004, \arxivold{0402117}
+\bibitem[MS]{MS} J. McClure, R. Staffeldt, \emph{On the Topological Hochschild Homology
+of} $bu$ I, Am. J. Math., 1993, 1--45 %noarxiv
+\bibitem[MT]{MT} M. Mimura, H. Toda, \emph{Topology of Lie Groups I}, Transl. of Math. Mon. AMS, 2000
+\bibitem[Oka]{Oka} S. Oka, \emph{Multiplicative Structure of Finite Ring Spectra and Stable
+Homotopy of Spheres,} Alg. Top. \AA rhus 1982, Lecture Notes in Math. \textbf{1051}, 1984, 418--441
+\bibitem[Os]{Os} A. Osorno, \emph{Spectra Associated to Symmetric Monoidal
+Bicategories}, Algebraic and Geometric Topology, \textbf{12}(1), 2012, 307--342, \arxiv{1005.2227}
+\bibitem[PR]{PRi} T. Pirashvili, B. Richter, \emph{Hochschild and Cyclic Homology via Functor Homology,} 
+$K$-Theory \textbf{25} (1), 2002, 39--49 %noarxiv
+\bibitem[Q1]{Q1971} D. Quillen, \emph{The Adams Conjecture}, {Journal of Topology \textbf{10}(1)}, 1971, 67--80 %noarxiv
+\bibitem[Q2]{Q1972} D. Quillen, \emph{On the Cohomology and $K$-theory of the General Linear 
+Groups over a Finite Field}, {Annals of Mathematics}, 1972, 552--586 %noarxiv
+\bibitem[Q3]{Q1973} D. Quillen, \emph{Higher algebraic $K$-theory: I}, {Higher $K$-theories}, 1973, 85--147 %noarxiv
+\bibitem[R]{Ri2010} B. Richter, \emph{An Involution on the $K$-theory of Bimonoidal 
+Categories with Anti-Involution}, Algebraic and Geometric Topology \textbf{10}, (2010), 315--342, \arxiv{0804.0401}
+\bibitem[Ro]{Rog14} J. Rognes, \emph{Chromatic Redshift,} \arxiv{1403.4838}
+\bibitem[RSS]{RSS14} J. Rognes, S. Sagave, C. Schlichtkrull, \emph{Logarithmic Topological 
+Hochschild Homology of Topological $K$-Theory Spectra}, preprint, \arxiv{1410.2170}, (2014)
+\bibitem[Ros]{Ros1994} J. Rosenberg, \emph{Algebraic $K$-Theory and its Applications}, 1994 %noarxiv
+\bibitem[Rot]{Rot2009} J. Rotman, \emph{An Introduction to Homological Algebra}, Springer New York, second edition 2009
+\bibitem[Ru]{Rudy} Y. Rudyak, \emph{On Thom Spectra, Orientability, and Cobordism}, Springer Berlin Heidelberg, 1998
+\bibitem[SaS]{SaSch14} S. Sagave, C. Schlichtkrull, \emph{Localization Sequences for
+Logarithmic Topological Hochschild Homology}, preprint, \arxiv{1402.1317}, (2014) 
+\bibitem[S]{S tr} C. Schlichtkrull, \emph{The Cyclotomic Trace for Symmetric Ring 
+Spectra}, Geometry \& Topology Monographs \textbf{16}, 2009, 545--592, \arxiv{0903.3495}
+\bibitem[Schm]{Schm} V. Schmitt, \emph{Tensor Product of Symmetric Monoidal Categories}, 2007, \arxiv{0711.0324}
+\bibitem[SP]{SP09} C. Schommer-Pries, \emph{The Classification of Two-Dimensional Extended Topological Field Theories,}
+PhD thesis, UC Berkeley 2009, \arxiv{1112.1000}
+\bibitem[Schw1]{SchV0} S. Schwede, \emph{The Stable Homotopy Category is Rigid,} Ann. Math. \textbf{166}, 2007, 837--863
+\bibitem[Schw2]{SchSym} S. Schwede, \emph{An untitled book project about symmetric spectra (version 2012)}, 
+\href{http://www.math.uni-bonn.de/people/schwede/SymSpec.pdf}{http://www.math.uni-bonn.de/people/schwede/SymSpec.pdf}
+\bibitem[Se]{Seg} G. Segal, \emph{Categories and Cohomology Theories}, Topology \textbf{13}(3), 1974, 293--312 %noarxiv
+\bibitem[Se]{Serre} J.-P. Serre, \emph{Linear Representations of Finite Groups}, Springer New York, 1977%noarxiv
+\bibitem[Sh]{ShTHH} B. Shipley, \emph{Symmetric Ring Spectra and Topological Hochschild 
+homology}, $K$-Theory \textbf{19}(2), 2000, 155-–183, \arxivold{9801079}
+\bibitem[Sn]{Sn} V. Snaith, \emph{Algebraic Cobordism And $K$-Theory,} Mem. Amer. Math. Soc. \textbf{221}, 1979
+\bibitem[Str1]{Str} R. Street, \emph{Categorical Structures}, in Handbook of Algebra \textbf{1},
+ed. M. Hazewinkel, Elsevier, 1996
+\bibitem[Str2]{Str2} R. Street, \emph{The Algebra of Oriented Simplexes}, J. Pure Appl Alg. \textbf{49}(3), 1987, 283--335
+\bibitem[Sw]{Sw} R. Switzer, \emph{Algebraic Topology - Homology and Homotopy}, Classics in Math., 
+Springer Berlin Heidelberg, 2002 reprint %noarxiv
+\bibitem[Tab]{Tab} G. Tabuada, \emph{Homotopy Theory of Spectral Categories}, Adv. Math.
+\textbf{221(4)}, 2009, 1122--1143, \arxiv{0801.4524}
+\bibitem[Th1]{Th1} R. Thomason, \emph{Symmetric Monoidal Categories Model All Connective 
+Spectra}, Theory and Applications of Categories \textbf{1.5}, 1995, 78--118 %noarxiv
+\bibitem[Th2]{Th2} R. Thomason, \emph{Homotopy Colimits in the Category of Small 
+Categories}, Math. Proc. Cambridge Philos. Soc. \textbf{85.1}, 1979, 91--109 %noarxiv
+\bibitem[Th3]{Th3} R. Thomason, \emph{$Cat$ as a Closed Model Category,} Cahiers Topologie G\'eom.
+Diff\'erentielle \textbf{21}(3), 1980, 305--324
+\bibitem[Toda]{Toda} H. Toda, \emph{On Spectra Realising Exterior Parts of the Steenrod Algebra,}
+Topology \textbf{10}, 1971, 53--65
+\bibitem[W]{WeiK} C. Weibel, \emph{The $K$-Book: An Introduction to Algebraic $K$-Theory},
+Graduate Studies in Math. \textbf{145}, AMS, 2013
+\bibitem[Z]{Z} S. Ziegenhagen, \emph{$E_n$-Cohomology as Functor Cohomology and
+Additional Structures,} PhD thesis, 2014, \href{http://ediss.sub.uni-hamburg.de/volltexte/2014/6950}{
+http://ediss.sub.uni-hamburg.de/volltexte/2014/6950}
+\end{thebibliography}
+
+\section*{Summary}\pagestyle{empty}
+In this thesis I investigate the interaction of multiplicative and involutive structures
+on algebraic $K$-theory of $E_\infty$-ring spectra. Algebraic $K$-theory is 
+associated classically to discrete rings by a definition of Quillen \cite{Q1973} with
+preceding approaches by Grothendieck, Bass and Milnor, who defined $K_0R$, $K_1R$ and $K_2R$ respectively.
+Quillen identified algebraic $K$-theory as the homotopy groups of a space naturally associated
+to a ring, unifying the first three definitions, and providing a
+definition of $K_nR$ for all natural numbers. One approach to computations is the generalisation
+of $K$-theory to more ringlike objects, yielding more induced structures
+on $K$-theory, for instance multiplicative structures as described in \cite{EM,GGN,BGT,May2009} and 
+involutions as defined in \cite{Ri2010}.
+
+Driven by the main example, algebraic $K$-theory of the connective complex $K$-theory spectrum $ku$, and
+building on the computations of Christian Ausoni in \cite{AuKku,AuTHH}, I focus on the induced multiplicative
+structure on $K(ku)$ in chapters 1 to 3. Building on the delooping of permutative bicategories as developed
+by Ang\'elica Osorno in \cite{Os}, I exhibit a tensor product on a bicategory of matrices $\M$ associated
+to a bipermutative category $\R$ in chapter 2. By modifying 
+the delooping of Osorno in chapter 3 I find an induced $E_\infty$-ring spectrum structure on $K(ku)$ by
+identifying this spectrum as the Eilenberg-MacLane-spectrum associated to the bicategory of matrices
+over finite-dimensional complex vector spaces. The involution as defined in \cite{Ri2010} easily
+generalises to this setting, so I can exhibit the interaction of the involution with the multiplication
+easily.
+
+Since the calculations in \cite{AuKku,AuTHH} rely on trace methods, i.e., are obtained by careful
+comparison of $K(ku)$ to topological Hochschild homology $THH(ku)$ along the trace map, I can use
+the compatibility of the trace map with the multiplicative structures defined on both as a universal
+property by the results of \cite{BGT2013,BGT}. This in particular implies that the trace map is
+compatible with the involution defined on $K$-theory as in \cite{Ri2010} and on topological
+Hochschild homology analogous to \cite{Loday}, giving the main result of chapter 5.
+
+Finally in chapter 6 I investigate the involution on mod $(p,v_1)$ homotopy groups of $K(ku)$ as 
+calculated in \cite{AuKku}. Specifically there is a subalgebra of $V(1)_*K(ku)$, which can be
+understood purely in terms of the trace map $K(ku)\rightarrow THH(ku)$, and there are special
+classes $\sigma_n$ as well as the ``higher Bott element'' $b$. For all of these I describe
+the effect induced by complex conjugation on $ku$, and thus the induced involution on 
+algebraic $K$-theory on $V(1)_*K(ku)$. 
+
+\section*{Zusammenfassung}
+In dieser Dissertation untersuche ich Multiplikationen und Involutionen auf algebraischer
+$K$-Theorie von $E_\infty$-Ringspektren. Klassisch ist algebraische $K$-Theorie
+eine Invariante diskreter Ringe definiert von Quillen in \cite{Q1973}. Quillen
+vereinheitlicht Definitionen von Grothendieck, Bass und Milnor der Gruppen $K_iR$ f\"ur
+$i=0,1,2$ in dieser Reihenfolge. Er definiert algebraische $K$-Theorie als Homotopiegruppen
+eines nat\"urlich zu einem Ring $R$ assoziierten Raumes $BGL(R)^+$. Diese Definition vereinheitlicht
+zugleich die vorher genannten Definitionen und gibt eine Definition f\"ur alle
+nat\"urlichen Zahlen. Ein Zugang zu Berechnungen ist die Verallgemeinerung
+von $K$-Theorie auf ringartige Objekte, was insbesondere Aufschluss gibt \"uber
+induzierte Strukturen auf $K$-Theorie wie etwa Multiplikationen \cite{EM,GGN,BGT,May2009}
+und Involutionen \cite{Ri2010}.
+
+In den Kapiteln 1 bis 3 untersuche ich die multiplikative Struktur von $K(ku)$, die
+durch die Identifikation entlang \cite{BDRR2011} als Delooping einer Bikategorie von 
+Matrizen $\M$ induziert wird.
+Genauer definiere ich in Kapitel 2 ein Tensorprodukt, das eine Multiplikation auf
+$\M$ induziert, die sich mit der additiven Struktur, die Ang\'elica Osorno \cite{Os}
+definiert, vertr\"agt. In Kapitel 3 beschreibe ich eine Variante ihres Deloopings
+\cite{Os}, die durch das Tensorprodukt die Struktur eines $E_\infty$-Ringspektrums erh\"alt. 
+Die von Birgit Richter in \cite{Ri2010} beschriebene Involution l\"asst sich
+auf $\M$ erweitern, und wir erhalten, dass die Involution diese Multiplikation opponiert.
+
+Die Berechnungen der mod $(p,v_1)$ Homotopiegruppen von Christian Ausoni in \cite{AuKku,AuTHH} basieren
+grundlegend auf Spurmethoden, also einem sorgsamen Vergleich algebraischer $K$-Theorie mit topologischer
+Hochschildhomologie. Die vergleichende Abbildung ist die Spur $K(ku)\rightarrow THH(ku)$, die ich 
+mithilfe der Resultate aus \cite{BGT2013,BGT} als die universelle multiplikative nat\"urliche
+Transformation $K\Rightarrow THH$ in Kapitel 5 definieren kann. Aus dieser Universalit\"at folgt
+das Hauptresultat von Kapitel 5, dass sich die Spurabbildung auch mit der induzierten
+Involution auf $K$-Theorie wie in \cite{Ri2010} beschrieben und der auf topologischer 
+Hochschildhomologie zu der in \cite{Loday} analogen Involution vertr\"agt.
+
+In Kapitel 6 untersuche ich die Involution auf mod $(p,v_1)$ Homotopiegruppen von $K(ku)$, wie sie aus
+der Berechnung von \cite{AuKku} hervorgehen. Es gibt eine Unteralgebra in $V(1)_*K(ku)$, die sich vollst\"andig
+\"uber die Spur in $V(1)_*THH(ku)$ verstehen l\"asst, sowie spezielle Elemente $\sigma_n$ und das
+``h\"ohere Bott-Element'' $b$ in diesem Modul. F\"ur diese Klassen beschreibe ich die 
+Involution auf $V(1)_*K(ku)$.
+
+\newpage
+\section*{Publications/Publikationen}
+I have not published anything based on this thesis.\\
+Es gibt keine Ver\"offentlichungen, die aus dieser Arbeit hervorgegangen sind.
+
+\section*{Eidesstattliche Versicherung} Ich versichere an Eides statt, dass ich die Arbeit selbstst\"andig verfasst und 
+keine anderen als die angegebenen Hilfsmittel und Quellen benutzt habe.\\[10ex]\flushright$\overline{\mathtt{Marc~Lange,}~
+~~~~ \mathtt{Hamburg, ~24.7.2015}}$\end{document}
+\grid

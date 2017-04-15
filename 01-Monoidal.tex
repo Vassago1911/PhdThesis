@@ -1,0 +1,1848 @@
+\chapter{Permutative Categories and Connective Spectra}
+\pagestyle{headings} 
+This chapter is just a summary of known techniques to combinatorially
+model (connective) spectra by permutative categories. In particular
+until \ref{pcatneu} there is nothing original in this chapter. 
+The examples are borrowed from \cite[pp. 160-167]{MayEinf} and 
+\cite[pp. 337+338]{Ri2010}. However I deviate quite a bit
+from May's notation. Furthermore I want to warn the reader that I am 
+close to an erroneous sequence of lemmas in \cite{MayEinf} 
+(VI.2.3, VI.2.6, VI.4.4) (cf. \cite[p. 321]{May2009}). 
+
+The claimed result in \cite{MayEinf} can be stated informally as: 
+Bipermutative categories yield maximally homotopy commutative ring-spectra. 
+The error is combinatorial, in how the multiplication and 
+addition ought to interact, governed by the notion of an 
+``operad pair''. But the claimed ``operad pair'' in \cite{MayEinf} is
+not an operad pair as defined there. The result still holds \cite{May2009} 
+(and its accompanying papers), \cite{EM}, but the techniques employed differ 
+quite a bit from the planned proof in \cite{MayEinf}.
+
+\section{Delooping Permutative Categories}
+Permutative categories seen through a modern eye are a categorified
+version of abelian groups with just as much strictness as generality
+would allow - compare the classical strictification result \ref{strict1}.
+{\defn{A \textbf{permutative category} $(\A,+,0,c_+)$ is a category $\A$ 
+together with a functor $+\colon \A\times\A\rightarrow \A$, a strict 
+additive unit $0\in\A$, and a twist natural transformation (for $T\colon \A\times\A\rightarrow
+\A\times\A$ the exchange of factors):
+\[c_+\colon (+\circ T)\Rightarrow +,\] satisfying the following 
+conditions:\begin{enumerate}\item $+$ is strictly associative:
+\[+\circ (+\times id)=+\circ (id\times +),\]
+\item The unit $0$ is a strict unit for $+$:\[0+\_=\_+0=id_\A,\]
+\item The twist is trivial at $0$: For every object $a\in\A$ we have the
+identity \[c_+=id: a=0+a\rightarrow a+0=a,\]
+which is natural in $a$.
+\item The twist is its own inverse: For every two objects $a,b\in \A$ we 
+have the commutative diagram:
+\[\xymatrix{a+b\ar[dr]_{c_+} \ar@=[rr]&& a+b \\& b+a.\ar[ur]_{c_+}}\]
+\item The twist is associative: For each triple of objects $a,b,c\in\A$
+we have the commutative diagrams:
+\[\begin{array}{cc}\xymatrix{a+b+c\ar[r]^{c_+}\ar[dr]_{id+c_+} & c+a+b\\
+& a+c+b\ar[u]_{c_++id},}~~~
+\xymatrix{a+b+c\ar[r]^{c_+}\ar[dr]_{c_++id} & b+c+a\\
+& b+a+c\ar[u]_{id+c_+}.}\end{array}\]\end{enumerate}}}
+
+I have no need in this thesis for the most general symmetric monoidal 
+categories given for instance by module categories. Nonetheless the 
+following statement shows that the structure of permutative 
+categories is sufficiently general:
+
+{\thm{\label{strict1} For any symmetric monoidal category 
+$\C$ there is a symmetrically monoidally 
+equivalent permutative category $Str(\C)$ with a natural
+equivalence $Str(\C)\rightarrow \C$.}}
+
+There are many ways to obtain this result. A brute force way is to
+consider words in objects, have the empty word be the strict unit, and
+add in morphisms accordingly 
+\cite[Prop VI.3.2,cf. pp.155-157]{MayEinf}. This proof has as a 
+corollary that a small symmetric monoidal category of cardinality 
+$\aleph$ yields a permutative category of size smaller than 
+$\aleph^\omega$ (for $\omega=|\N|$). In particular the theorem stays 
+true with ``small'' added in everywhere.
+
+The high-tech way to show this result is given by the Yoneda Lemma
+in bicategories \cite[2.3]{Lei}. One considers a monoidal category 
+$\C$ as a one-point bicategory $\Sigma\C$, embeds it into the equivalent 
+one-point 2-category given by the essential image of the Yoneda 
+embedding \[Y\colon \Sigma\C \rightarrow Fun(\Sigma\C^{op},Cat_1)\]
+and the symmetry just comes along. Then sizes are limited by the
+bicategorical Yoneda Lemma.
+
+Regarding enrichments we find that a
+topological, simplicial, etc. symmetric monoidal category strictifies to a 
+permutative category of the same kind.
+
+\subsection{Bimonoidal Categories} Since this thesis is about 
+multiplicative structures, I want to introduce the types of 
+multiplication on permutative categories right away. Furthermore, I 
+prove a convenient lemma, so that I do not have to bore the 
+reader with pages of coherence diagrams. The following two concepts 
+are directly copied from \cite{EM} for instance, although a look into
+\cite{MayEinf} shows that at least the $E_\infty$-version (i.e., 
+bipermutative categories) was known to be a fruitful concept for much 
+longer. Like the concept of permutative categories these concepts
+are strictified versions of general ringlike objects in $1$-categories.
+Laplaza has shown in 1972 \cite{Lap} that the analogous strictification
+result to \ref{strict1} above holds for these structures. Thus the
+following definitions represent no loss of generality.
+
+{\defn{\label{bim1}A \textbf{ring category} $(\R,+,\cdot,0,1,c_+)$ is given by a 
+permutative structure $(\R,+,0,c_+)$ and a strictly associative and 
+strictly unital monoidal structure $(\R,\cdot,1)$, which interact by 
+two natural isomorphisms: \[\lambda \colon ab+ab'
+\rightarrow a(b+b'),~~ \rho \colon ab+a'b\rightarrow (a+a')b,\]
+ such that the following properties hold:
+ \begin{enumerate} \item $0$ is a strict zero for multiplication $\cdot$:
+\[0\cdot a = a\cdot 0 = 0~~~\forall a\in \R,\]
+\item $+$-associativity of distributors:
+\[\lambda\circ(\lambda+ \id)=\lambda\circ(\id+ \lambda),~~
+\rho\circ(\rho+ \id)=(\id+ \rho)\circ \rho,\]
+\item additive symmetry of distributors:
+\[(c_+ \cdot \id)\circ\lambda = \lambda\circ c_+,~~
+(\id \cdot c_+)\circ\rho = \rho\circ c_+,\]
+\item $\cdot $-associativity of distributors:
+\[\lambda = (\id\cdot \lambda)\circ\lambda,~~
+\rho = (\rho \cdot \id)\circ\rho,\]
+\item middle $\cdot$-associativity of distributors:
+\[(\id\cdot \rho)\circ\lambda=(\lambda\cdot \id)\circ\rho,\]
+\item mixed associativity of distributors:
+\[\lambda\circ(\rho+\rho)= \rho\circ(\lambda+\lambda)
+	\circ(\id+c_++\id).\]\end{enumerate}}}
+
+It is nice to have a multiplicative structure on any given object, but
+it is genuinely hard to produce ring categories, which are not also 
+commutative up to some degree or an infinity of degrees. In particular,
+I do not investigate plain ring categories in this thesis. So I define 
+the $E_\infty$-multiplicative version next, also directly following 
+\cite{MayEinf,EM}, but explicitly with no strictness assumptions on
+either distributor. This type of category is the central object of study
+in the first three chapters.
+
+{\defn{A \textbf{bipermutative category} $(\R,+,\cdot,0,1,c_+,c_\cdot)$ is a 
+ring category, where the multiplicative category $(\R,\cdot,1)$ is 
+also permutative with twist $c_\cdot$, and where the distributors are 
+interrelated via the multiplicative twist as follows:
+\[\xymatrix{ab+ab'\ar[r]^{\lambda} \ar[d]^{c_\cdot+c_\cdot} & a(b+b') 
+						\ar[d]^{c_\cdot}\\
+ba+b'a \ar[r]^{\rho} & (b+b')a.}\]}}
+
+{\rem{\label{IsoIsoIso} Do note that although I am following 
+\cite{EM} as well, I want the distributivity transformations to be 
+isomorphisms! This is essential in defining the bicategory of matrices
+in Chapter \ref{modulbicat}. 
+
+I do not fix either distributor to be the identity intentionally: 
+Since I want to investigate multiplicative structures 
+interacting with involutions, having both distributors general 
+isomorphisms not forced to be identities, makes it meaningful to speak 
+of the multiplicatively opposite bimonoidal/bipermutative category.}}
+
+\subsection{Bipermutative Structures on Finite Sets}
+As an illustration that bipermutative categories are natural 
+things to consider, I give a lemma which applies in a variety of 
+cases, where the category is a skeletal version of some category 
+with coproducts and products (or tensor products). I have denoted the
+following lemma analogous to the second monoidal structure being the
+product. However, I want to explicitly emphasise that I do not assume
+$\pi$ to be a product-functor or the unit $*\in\C$ to be terminal.
+
+{\lem{\label{bipermallthethings} Let $\C$ be a small category with 
+coproducts, which is furthermore a permutative closed category with
+monoidal structure \[\pi\colon \C\times\C\rightarrow \C,\] 
+which is strictly associative and has unit $*\in\C$. Assume $\pi$ has a
+right adjoint: \[Hom(-,-)\colon \C^{op}\times\C\rightarrow 
+\C.\] Assume furthermore a chosen functor representing coproducts:
+\[\sqcup\colon \C\times \C \rightarrow \C,\] which is strictly 
+associative, and a chosen representative $\emptyset$ for the
+initial object, thus the unit for $\sqcup$.
+
+Then this can be endowed with unique natural transformations 
+$c_\sqcup,c_\pi,\lambda,\rho$, such that the resulting tuple 
+$(\C,\sqcup,\pi, \emptyset,*,c_\sqcup,c_\pi)$ is a bipermutative 
+category.
+
+\begin{proof} The proof is just a repeated application of universal 
+properties. Because $\pi(-,c)$ has a right adjoint, it commutes with 
+coproducts, in particular we have $\pi(\emptyset,c)=\emptyset, ~~
+\forall c\in\C$. Consider the additive symmetry: For $T\colon \C\times
+\C\rightarrow \C\times \C$ the symmetry of the product on categories
+both $\sqcup$ and $\sqcup\circ T$ represent a coproduct-functor on $\C$, 
+hence by the universal property of the coproduct, we get a unique natural 
+transformation \[c_\sqcup\colon \sqcup\circ T\Rightarrow \sqcup.\]
+By uniqueness of the natural isomorphism $c\sqcup d\rightarrow c\sqcup d$, for
+every pair $c,d\in\C$, we also get that $c_\sqcup$ is a 
+symmetry: \[id_{\sqcup}=c_\sqcup^2\colon \sqcup = 
+\sqcup\circ T^2\Rightarrow \sqcup.\]
+The other natural isomorphisms are constructed much the same way.
+
+For the interaction of the natural isomorphisms consider for
+instance the relation $\lambda=c_\pi\circ\rho\circ(c_\pi\sqcup c_\pi)$.
+Both are natural isomorphisms between the functors:
+\[\sqcup\circ (\pi\times\pi)\circ (id\times T\times id)
+\circ (\Delta\times id) \Rightarrow \pi\circ (id\times \sqcup),\]
+hence again by uniqueness of those natural isomorphisms we have 
+equality. Every other diagram commutes by the same reasoning.
+\end{proof}}}
+
+This lemma illustrates well, why ring categories which are just
+associative but admit no multiplicative symmetries, are a bit
+harder to come by. The easy (closed) monoidal constructions usually
+come from symmetric universal properties: product, tensor product, 
+smash product, etc.. What follows are the prototypical examples 
+which provide the structural morphisms in my examples of interest.
+
+{\ex{\label{Fin} In everything ringlike that follows, the category 
+with objects the non-negative integers $\{\mathbf{n}=\{1,\ldots,n\}|~~
+n\in\N_0\}$ and with 
+morphisms the symmetric groups $\Sigma_*(\textbf{n},\textbf{n}) = 
+\Sigma_n$, i.e., $\Sigma_* = \coprod_n \Sigma_n$, features 
+prominently. In particular categories and bicategories of the 
+form ``free modules over $\R$'' have their 
+structural natural transformations given by permutations.
+
+Define the following functors: \[+,\cdot\colon \Sigma_*\times\Sigma_*
+\rightarrow \Sigma_*\] on objects: \[\textbf{n}+\textbf{m} := \{1,\ldots,n+m\}, 
+\textbf{n}\cdot \textbf{m} := \{1,\ldots,nm\},\]
+and more interestingly on morphisms: \[(f+g)(i):=\begin{cases} f(i), ~~
+& i\leq n,\\ g(i-n)+n, ~~& i\geq n+1, \end{cases}~~~ \mathrm{for~~} 
+f\in \Sigma_n, g\in\Sigma_m,\] and  \[(fg)((i-1)m+j) := (f(i)-1)m+g(j) 
+~~~ (i=1,\ldots,n; j=1,\ldots m).\] Note that this implicitly fixes a 
+choice of bijections $n\times m\rightarrow nm$, in this case given by 
+$(i,j) \mapsto (i-1)m + j$. Two easy calculations show that $+$ and 
+$\cdot$ defined this way are strictly associative. To use Lemma
+\ref{bipermallthethings} we need to exhibit $+$ as representing 
+coproducts, so consider the embedding \[\Sigma_* \rightarrow \mathrm{Fin}.\]
+That is, we embed the skeletal category of finite sets and
+bijections into the skeletal category of finite sets and all maps.
+Together with the canonical injections $\textbf{n}\rightarrow \textbf{n}+\textbf{m}$
+and $\textbf{m}\rightarrow \textbf{n}+\textbf{m}$, which are part of the
+category $\mathrm{Fin}$, we have that $+$ represents coproducts.
+Hence $\mathrm{Fin}$ is a bipermutative category by Lemma \ref{bipermallthethings}.
+The structural maps we get are all isomorphisms, so restricting to
+$\Sigma_*$ again makes $\Sigma_*$ a bipermutative category. Furthermore
+we can restrict to its subcategory on all objects with just epimorphisms
+and get the bipermutative category $\mathrm{Epi}$. Also we can restrict
+to the subcategory on all objects with just injections to get the bipermutative
+category $\mathrm{Inj}$.
+
+The induced additive symmetry $c_+\colon n+m\rightarrow m+n$ is given 
+by: \[c_+(i) :=\begin{cases}i+m, ~~& i\leq n,\\ i-n, ~~&n+1\leq i,
+	\end{cases}\] and we have the multiplicative symmetry $c_\cdot
+\colon nm \rightarrow mn$ given by:\[c_\cdot((i-1)m+j) = (j-1)n + i.\]
+
+Recall that the distributivity transformations of bipermutative 
+categories determine each other \[\xymatrix{ab+ac\ar[r]^{\lambda} 
+\ar[d]_{c+c} & a(b+c) \ar[d]^c\\ ba+ca\ar[r]^\rho & (b+c)a.}\]
+May shows in full generality \cite[p. 155, Proposition 3.5]{MayEinf} that one
+can always strictify one distributivity to be the identity. For finite
+sets this corresponds to ordering a product of finite sets either 
+lexicographically or anti-lexicographically. This way we find for 
+general bipermutative categories two one-sidedly strict cases:
+\[\lambda = id \Rightarrow \rho_{b,c;a} = c_{a,b+c}\circ 
+(c_{b,a}+c_{c,a}),\] \[\rho = id \Rightarrow \lambda_{a;b,c} 
+= c_{b+c,a}\circ (c_{a,b}+c_{a,c}).\] The choice of bijection for 
+products considered above forces $\lambda=id$ and a non-trivial right 
+distributivity, so the first case. This makes $\Sigma_*$ into a 
+bipermutative category. The opposite choice with $\rho=id$ is given
+for instance in \cite[p. 161, Example 5.1]{MayEinf}.}}
+
+{\ex{\label{Finp}We can just repeat the argument above to find 
+the pointed analogues of the above categories, hence we get 
+$\mathrm{Inj}_+,\Ep,\Fi$. For definiteness let me reemphasise 
+the bipermutative structure on these categories:
+
+The coproduct (for $\mathrm{Inj}_+$) is the pointed sum, hence 
+we can define a strictly associative functor representing it by:
+\[ \mathbf{n}_++\mathbf{m}_+:= \mathbf{n}_+\vee \mathbf{m}_+ = 
+(\mathbf{n}+\mathbf{m})_+,\] with the obvious extension to morphisms.
+
+Fixing a choice of associative bijections $\bar\omega_{n,m}\colon
+\mathbf{n}\times \mathbf{m}\rightarrow \mathbf{nm}$ induces associative 
+bijections for the smash product by: \[\mathbf{n}_+\wedge \mathbf{m}_+ 
+= (\mathbf{n}\times \mathbf{m})_+ \rightarrow (\mathbf{nm})_+ = \mathbf{nm}_+.\]
+
+Hence the symmetries and distributors are given by adjunction of 
+basepoints to the relevant morphisms above. In other words, given 
+the bijections $\omega$, I fix the pointed structures such that
+\[(\cdot)_+ \colon \mathrm{Fin}\rightarrow \mathrm{Fin}_+\]
+becomes a strictly bipermutative functor with respect to disjoint
+union and pointed sum, and cartesian product and smash product.}}
+
+\subsection{Bicategories - Notation for this thesis}
+In \ref{pcatneu} I use functors between bicategories with non-trivial
+coherence 2-cells, so I fix the notations and conventions for 
+bicategories here.
+{\defn{A small \textbf{bicategory} with strict identities $\C$ is given by 
+a set of objects $\C_0=Ob\C$, a set of 1-categories $\C_1=Mor\C$, 
+and the following maps:\begin{itemize}
+\item source and target \[s,t\colon \C_1\rightarrow \C_0,\]
+where we call objects $a,b\in\C_1$ with $t(a)=s(b)$ composable,
+\item identity objects \[\id_\_\colon \C_0\rightarrow \C_1,\]
+with $s\circ \id_\_ = t\circ \id_\_=id_{\C_0},$
+\item a composition functor \[\boxempty\colon \C_1\times_{\C_0}\C_1
+\rightarrow \C_1,\]where the pullback is to be understood as 
+\emph{composable pairs} in the sense described above,
+\item a natural associativity isomorphism
+\[\alpha\colon (\_\boxempty\_)\circ(\_\boxempty\_\times id_{\C_1})
+\Rightarrow (\_\boxempty\_)\circ(id_{\C_1}\times\_\boxempty\_).\]
+\end{itemize}These satisfy:\begin{itemize}
+\item The identity 1-cells are strict units, i.e., we have strict equalities
+of functors ($\C_0\times\C_1\rightarrow \C_1$ or $\C_1\times\C_0
+\rightarrow \C_1$ respectively):\[(\_\cp\_)\circ (\id_{\_}\times 
+id_{\C_1}) =(\_\cp\_)\circ (id_{\C_1}\times \id_{\_})=pr_{\C_1},\]
+where $pr_{\C_1}$ denotes the respective projection onto the $\C_1$-factor.
+\item The transformation $\alpha$ is the identity, if any factor is
+$\id_\_$. \item The transformation $\alpha$ satisfies Mac Lane's 
+pentagon identity, i.e., we have a unique associator on fourfold 
+$\cp$-composites, hence by induction on composites of arbitrary 
+length.\end{itemize}}}
+
+{\rem{Most of the definition is standard apart from the fact that for
+this thesis I can get away with strict identities, so I took them as 
+part of the definition.
+
+For clarity: I stick to the convention that the associator always
+transforms expressions with left-biased bracketing $(ab)c$ into
+expressions with right-biased bracketing $a(bc)$.
+
+Further notation: I will refer to morphisms in (the disjoint union of)
+the categories $\C_1$ as 2-cells, and refer to them globally as $\C_2$.
+Furthermore I denote the component of $\C_1$, which is $(s,t)$-over 
+objects $a,b\in\C_0$ as $\C_1(a,b)=:\C(a,b),$ i.e., the full subcategories 
+of $\C_1$ with objects: \[\C(a,b)_0 = \{f\in\C_1| s(f)=a \mathrm{~and~} 
+t(f)=b\}.\] Moreover I will always refer to the objects of the bicategory
+as objects, the objects of the morphism categories as 1-cells, thus in particular
+I refrain from calling 1-cells ``objects'' of their respective morphism categories.
+
+I only stick to the notation $\cp$ here to stress the 
+difference between the composition functor and composition in $\C_1$. 
+In the example of interest $\M$ the 1-cells are given by matrices, and
+hence the composition functor $\cp$ is matrix multiplication, which I
+denote by $\cdot$ or drop from notation altogether, while the 
+composition of 2-cells is just composition in a product $1$-category,
+so I refer to that as $\circ$.
+Also just for this section I denote identity $1$-cells by $\id_a$ to 
+stress that they are usually in fact natural basepoints for the
+categories $\C(a,a)$, but usually are not defined as maps of the 
+type $x\mapsto x$. Again in $\M$ these are the identity matrices, but
+the way these matrices represent ``linear maps of modules'' is at the
+very least not obvious. After this section I trust the context is
+sufficient to infer which type of identities I refer to.}}
+
+{\ex{A category enriched in categories, i.e., a 2-category, is a 
+bicategory with $\alpha=id$. In particular, every 1-category is a
+bicategory with discrete morphism categories and hence trivial
+associator as well.
+
+\label{sigmasymmmon}
+Any monoidal category $(\C,\otimes,1)$ can be 
+understood as a one-point bicategory $\Sigma\C$: set 
+$\Sigma\C_0=\{*\}$ and $\Sigma\C_1
+=\Sigma\C(*,*)=\C$. Composition is given by $\otimes$,
+the associator hence by the associator for $\otimes$.
+
+Conversely the endomorphism category of any object $a\in\A_0$ in a
+bicategory $\A$ yields the monoidal category $\A(a,a)$, occasionally
+denoted by $\Omega_a\A$. In particular we have the trivial equality
+\[\Omega_*\Sigma(\C,\otimes)=(\C,\otimes),\]
+and for each object $a\in\A_0$ the strict inclusion functor
+\[\eta_a\colon \Sigma\Omega_a\A=\Sigma\A(a,a)\rightarrow \A\]
+with $\eta_a(*)=a.$}}
+
+Given two bicategories there are adequate 1-cells between them, but
+the designations in the literature vary quite a bit - specifically 
+compare the classical ``Introduction to Bicategories'' of B\'enabou 
+\cite{Bena} with the more recent overview in \cite{CCG2010}. On
+pages 9 and 10 of \cite{CCG2010} the authors provide an excellent 
+dictionary of the common terms for morphisms. A more detailed
+exposition can be found in Ross Street's ``Categorical Structures'' 
+\cite{Str}, in particular section 9. Furthermore its references are
+a nice guide to the literature up to 1993.
+
+I fix my notation here, and only define the types of functors
+that appear in this thesis.
+
+{\defn{\label{pseudo} For two bicategories $\C,\D$ a 
+\textbf{pseudofunctor} $F\colon \C\rightarrow \D$ consists of the 
+following maps: \begin{itemize} \item A map on objects $F_0\colon\C_0
+\rightarrow\D_0.$\item For each pair of objects $a,b\in\C_0$ a functor
+\[F_1\colon \C(a,b)\rightarrow\C(F_0a,F_0b),\] that is pointed at 
+identities, i.e., for every $a\in\C_0$: \[F_1(\id_a)=\id_{F_0a}.\] 
+\item For each triple of objects $a,b,c\in\C_0$ a natural isomorphism, 
+which I refer to as \emph{compositor 2-cell}, \[F_2\colon (\_ 
+\cp_{\D} \_)(F_1\times F_1)\Rightarrow F_1\times (\_ \cp_{\C} \_),\] 
+which is trivial at identities, i.e., $F_2=id_{pr_{\D_1}}$ at: 
+\[pr_{\D_1}= (\_ \cp_{\D}\_)\circ
+(F_1\times F_1)\circ(id_{\C_1}\times\id_\_)\Rightarrow F_1\circ(
+\_\cp_{\C}\_)\circ(id_{\C_1}\times\id_\_)=pr_{\D_1},\] and similarly
+for the other argument.\end{itemize}The compositor satisfies 
+associativity, i.e., for every composable triple $f,g,h$ of $1$-cells 
+in $\C_1$ the diagram \[\xymatrix{(F_1f\cp_{\D} F_1g)\cp_{\D} F_1h 
+\ar[d]_{\alpha_\D} \ar[rr]^{F_2\cp_{\D}id_{\D_1}} && F_1(f\cp_{\C}g)
+\cp_{\D}F_1h\ar[r]^{F_2} &F_1((f\cp_{\C}g)\cp_{\C}h) 
+\ar[d]^{F_1(\alpha_\C)}\\F_1f\cp_{\D}(F_1g\cp_{\D}F_1h) 
+\ar[rr]_{id_{\D_1}\cp_{\D}F_2}&&F_1f\cp_{\D}(F_1(g\cp_{\C}h)) 
+\ar[r]_{F_2}&F_1(f\cp_{\C}(g\cp_{\C}h))}\]commutes.
+
+A pseudofunctor is called strict, if furthermore $F_2=id$ as
+morphisms in $\D_1$, i.e., $F_1(fg)=F_1fF_1g$ and $F_1\alpha=\alpha$ 
+and for every pair of composable 1-cells $f,g\in\C_1$ we have \[F_2=
+id_{F_1(fg)}\colon F_1f\cp_\D F_1g \Rightarrow F_1(f\cp_\C g).\]}}
+
+{\rem{Occassionally -- cf. \cite[pp. 9--10]{CCG2010} --
+one refers to pseudofunctors as \emph{strong normal} functors, where strong
+refers to the fact that the involved $2$-cell is an isomorphism and
+normality refers to strictly fixing identity $1$-cells, which I carry
+through this thesis as a permanently standing assumption.
+
+For emphasis I occassionally refer to functors, which strictly respect
+identity $1$-cells and composition of $1$-cells, as \emph{strict normal}
+functors. \label{strictn}}}
+
+{\rem{I only study bicategories arising from 
+``finitely generated free module''-constructions, and thus by 
+standard assumptions for $K$-theory only consider isomorphism 
+subcategories of permutative $1$-categories. For a clarifying mathematical
+reason to restrict to isomorphisms see in particular 
+\cite[Proposition 8.14]{GGN}. Since I can restrict to exclusively
+isomorphism $2$-cells, I have no need for less rigid functors between 
+bicategories.}}
+
+Pseudofunctors satisfy a preservation property on $1$-cells, 
+which (op)lax functors of bicategories do not satisfy in general.
+{\prop{A pseudofunctor $F\colon \C\rightarrow\D$
+sends equivalence $1$-cells of $\C$ to equivalences in $\D$. In 
+particular, isomorphism $1$-cells in $\C$ are sent to equivalences
+in $\D$.\begin{proof} Let $f\colon a\rightarrow b$ be an equivalence
+in $\C$, i.e., there is a $1$-cell $g\colon b\rightarrow a$ and 
+isomorphism $2$-cells $\varepsilon\colon gf\Rightarrow \id_a,$
+$\eta\colon \id_b \Rightarrow fg$. Then $Ff$ is an equivalence
+inverted by $Fg$ by the following diagrams:
+\[\begin{array}{lcr}{\xymatrix{\rrlowertwocell<-7>_{\id}{<-3.5>~F_2}
+\rruppertwocell<1>^{F(gf)}{<1.5>~~F(\varepsilon)}
+\rrcompositemap<7>_{Fg}^{Ff}{\omit}&&}}
+&\mathrm{~and~}&{{\xymatrix{\rruppertwocell<9>^{\id}{<2>~~~F_2^{-1}}
+\rrlowertwocell<2>_{<-0.25>F(fg)}{<-2.5>~~F(\eta)}
+\rrcompositemap<-7>_{Ff}^{Fg}{\omit}&&.}}}\\\end{array}\]
+Hence we need the compositor two-cell and its inverse, and find that
+$Ff$ is an equivalence. In particular, if $F$ is not a strict functor,
+$F$ sends isomorphisms to equivalences with $F_2$ as a non-trivial
+isomorphism to the identity.
+
+(Furthermore note that I have implicitly used the assumption that
+$F$ is normal in the diagrams by $\id=F\id$.)\end{proof}}}
+
+{\defn{Let $F,G$ be two pseudofunctors of bicategories:
+\[(F_0,F_1,F_2),(G_0,G_1,G_2)\colon \C\rightarrow\D.\] Then a 
+(strong) \textbf{pseudonatural transformation} $\sigma\colon F\Rightarrow G$ 
+consists of chosen $1$-cells \[\sigma^0\colon \C_0\rightarrow \D_1\]
+with $s(\sigma^0(a))=F_0a$ and $t(\sigma^0(a))=G_0a,$ as well as 
+coherence isomorphism $2$-cells chosen for every pair $a,b\in\C_0$ 
+and every 1-cell $f\in\C(a,b)$: \[\xymatrix{F_0a
+\drtwocell<\omit>{~~\sigma^1_f} \ar[r]^{F_1f} \ar[d]_{\sigma^0a}& 
+F_0b\ar[d]^{\sigma^0b}\\ G_0a \ar[r]_{G_1f}& G_0b,}\] which are 
+appropriately natural and are compatible with the compositors, i.e.
+we have for all objects $a,b,c\in\C_0$ and all $1$-cells $f,g\in\C_1$: 
+\[\begin{array}{lcccr}{\xymatrix{F_0a\ar[d]_{\sigma_0}
+\rruppertwocell<10>^{F_1(gf)}{<-3>\;\;\;\;F_2^{-1}} \ar[r]|{F_1f} 
+\drtwocell<\omit>{~~\sigma^1_f} &F_0b\ar[d]|{\sigma_0}\ar[r]|{F_1g} 
+\drtwocell<\omit>{~~\sigma^1_g}& F_0c\ar[d]^{\sigma_0} \\ G_0a
+\rrlowertwocell<-10>_{G_1(gf)}{<3>\;\;\;G_2}\ar[r]|{G_1f} &G_0b
+\ar[r]|{G_1g}&G_0c}} && = && {\xymatrix{F_0a \ar[d]_{\sigma_0}
+\ar[r]^{F_1(gf)} \drtwocell<\omit>{~~\sigma^1_{gf}} & F_0c
+\ar[d]^{\sigma_0}\\ G_0a \ar[r]_{G_1(gf)} & G_0c.}}\end{array}\]
+Furthermore for bicategories with strict units we want 
+$\sigma^1_{\id_a}=id_{\sigma^0_a}$ for each object $a\in\C_0$.
+If in addition the two-cells $\sigma^1$ are identities we call
+$\sigma$ a strict natural transformation.}}
+
+{\rem{Since I restrict attention to bicategories with only isomorphism
+two-cells or at least functors and transformations with isomorphism
+two-cells, I do not need to introduce the concepts of lax and oplax
+natural transformations.}}
+
+It is classical for $1$-categories that a natural transformation
+$\eta\colon F\Rightarrow G$ is the same thing as a functor 
+$\C\times I\rightarrow \D$ for $I = [0<1]$ the interval
+category. The analogous statement for bicategories holds true as well, which
+I want to isolate into a proposition for emphasis and reference.
+
+{\prop{A pseudonatural transformation $\eta$ of functors $F,G\colon 
+	\C\rightarrow\D$ consists of the same data as a pseudofunctor
+	$\eta\colon \C\times I\rightarrow \D,$ while the coherence
+	of $2$-cells is equivalent to the pseudonaturality of the
+	transformation.}}
+
+Given sufficient experience with $1$-categories one would expect that 
+I introduced all types of morphisms, but it should not be surprising 
+that the extra-level of morphisms in bicategories (i.e., two-cells)
+introduces a higher type of morphisms between ``natural 
+transformations'', called modifications.
+
+{\defn{\label{modis}
+Given two pseudonatural transformations $\sigma,\tau$ between
+the same two pseudofunctors $F,G$, a \textbf{modification} $\xi\colon \sigma
+\Rightarrow \tau$ consists of a choice of isomorphism two-cells 
+\[\xi\colon \C_0\rightarrow \D_2,\] making the following two 
+diagrams of two-cells equal:
+\[\xymatrix{~~~\ar[rr]^{Ff}\ddtwocell_{<2>{\tau^0a}}^{<2>\sigma^0a}<6>{\xi_a} 
+\ddrrtwocell<\omit>{\sigma^1}& &\ar[dd]^<<<<{\sigma^0b}&\ar[rr]^{Ff}
+\ddrrtwocell<\omit>{\tau^1~~~~~~~}\ar[dd]_>>>>>>{\tau^0a}&&~~~ 
+\ddtwocell^{<2>{\sigma^0b}}_{<2>{\tau^0b}}<6>{_\xi_b}\\&&~~~~\ar@{{}={}}[r]&~~~~&\\
+~~~\ar[rr]_{Gf}&&&\ar[rr]_{Gf}&&~~~.}\]}}
+
+{\rem{Do note that on the level of $2$-cells the diagrams above are
+only commutative squares resembling naturality in the context of 
+$1$-categories.}}
+
+With the relevant morphisms in place I can introduce 
+equivalences of bicategories. {\defn{A pseudofunctor of 
+bicategories $F\colon \C\rightarrow \D$ is an \textbf{equivalence of 
+bicategories}, if there is a pseudofunctor $G\colon\D\rightarrow\C$
+and there are two pseudonatural equivalences $\eta\colon FG\Rightarrow 
+\id_\D$ and $\zeta\colon GF\Rightarrow \id_\C$.}}
+
+The following proposition is particularly useful in chapter \ref{multbidel}, 
+nonetheless its appropriate context is abstract nonsense about 
+bicategories, so this section. I repeat the proof in particular to convince
+the reader that it holds for bicategories with enriched morphism categories.
+{\prop{\label{meinCzuZF}A pseudonatural transformation of pseudofunctors of 
+small bicategories is an equivalence if and only if all its 
+$1$-cells are equivalences.\begin{proof} It is clear that an inverse
+equivalence establishes each component $1$-cell as an equivalence in
+the target category. So we have to establish that having all $1$-cells 
+equivalences is sufficient.
+
+Let $\eta\colon F\Rightarrow G$ be a pseudonatural transformation
+comprised of $1$-cells $\eta^1\colon \C_0\rightarrow \D_1$, and for 
+each pair of objects $a,b$ in $\C$ a natural transformation:
+\[\xymatrix{\C(a,b)\rrtwocell<5>^{{\eta^1_b}_*\circ F_1}_{{\eta^1_a}^*
+\circ G_1}{~~~\eta^2_{a,b}}&& \D(Fa,Gb).}\]
+
+By assumption each $1$-cell $\eta^1_a$ is an equivalence, so by the
+axiom of choice choose for each $a$ an inverse equivalence $\zeta^1_a$
+and isomorphism two-cells $\sigma\colon \zeta^1\eta^1 \rightarrow \id$
+and $\tau\colon \id \rightarrow \eta^1\zeta^1$.
+
+With these choices in place we can make $\zeta$ into a pseudonatural
+transformation by choosing its two-cells as indicated by the 
+following diagram:\[\xymatrix{\zeta GA= \zeta GA \id \ar[r]^{\tau} &
+(\zeta GA)\cdot(\eta\zeta)\ar[d]^\alpha& (\zeta\eta)(FA\zeta) 
+\ar[r]^\sigma & \id FA\zeta=FA\zeta.\\&\zeta ((GA\eta)\zeta) 
+\ar[r]^{\eta^2} &\zeta ((\eta FA)\zeta) \ar[u]^\alpha & }\]
+
+Since $\tau$ and $\sigma$ are chosen objectwise, we get a natural 
+transformation. Since each arrow is an isomorphism $2$-cell, the 
+$1$-cells $\zeta$ along with the two-cells indicated above compromise 
+a pseudonatural transformation. It is compatible with the 
+compositors of $G$ and $F$ because $\eta$ is, and hence $\zeta$ is an 
+inverse equivalence to $\eta$. The relevant modifications are by 
+construction given by $\tau$ and $\sigma$.\end{proof}}}
+
+{\rem{For this proposition bicategories
+are much nicer than the stricter theory of $2$-categories. 
+Even if the pseudo-natural transformation strictly satisfies 
+naturality, its inverse equivalence might have non-trivial $2$-cells.}}
+
+{\rem{Do note that despite the fact this proposition is the analogue
+to the $1$-category statement that a natural transformation is a 
+natural isomorphism if and only if each component is an isomorphism,
+its truth is (ZF-)axiomatically equivalent to the statement that a 
+functor is an equivalence of categories if and only if it is 
+essentially surjective and fully faithful. Hence it is
+stronger because of the missing uniqueness for the inverse 
+$1$-cells.}}
+
+The following proposition is an immediate generalisation from
+the context of $1$-categories. I want to exhibit
+that the proof works in the context I define above. 
+Thus it reassures us that the definitions are consistently chosen.
+
+{\prop{A pseudofunctor $F=(F_0,F_1,F_2)$ of (small) bicategories is an 
+equivalence of bicategories if and only if $F_0$ is surjective up to 
+equivalence and each functor $F_1$ is an equivalence of 
+$1$-categories.\begin{proof}Given a pseudofunctor $F\colon\C
+\rightarrow\D$ that satisfies the conditions, we can by the axiom of 
+choice find a map $G_0\colon Ob\D=\D_0\rightarrow \C_0$ such that 
+there is an equivalence $\eta_d\colon F(G_0(d))\rightarrow d$ for 
+each $d\in\D_0$. Fix that equivalence and an inverse $\kappa^d$ 
+together with the isomorphisms $\eta_d\kappa^d\cong \id$ and $\kappa^d\eta_d
+\cong \id$ for each $d\in\D_0$, it is the system of $1$-cells for the 
+natural equivalence $FG \simeq \id_\D$ we need.
+
+By assumption we have for each pair $d_1,d_2$ an equivalence of 
+categories \[F_1\colon \C(G_0d_1,G_0d_2)\rightarrow \D(FG_0d_1,
+FG_0d_2).\] Fix an inverse equivalence for each such pair $G^{d_1,d_2}$,
+then we make $G$ into a functor of bicategories by the following
+assignment on morphism categories:
+\[\xymatrix{ \D(d_1,d_2) \ar[r]^{\eta_{d_1}^*} 
+& \D(FG_0d_1,d_2)\ar[r]^{\kappa^{d_2}_*} 
+& \D(FG_0d_1,FG_0d_2)\ar[r]^{G^{d_1,d_2}} & \C(G_0d_1,G_0d_2).}\]
+Without loss of generality make $G$ into a functor pointed
+at the identity $1$-cells.
+
+This is an inverse equivalence to $F$ by construction; it is a 
+pseudofunctor with compositor $2$-cell given by the isomorphisms 
+$\eta\kappa\cong\id$ chosen above and with the natural equivalence
+on one side given by $\eta$ with inverse $\kappa$ and on the other
+by $G\eta$ and $G\kappa$.\end{proof}}}
+
+It is reassuring to know that bicategories can still be strictified
+to 2-categories. (This is wrong for tricategories!)
+
+{\lem{(cf. \cite{Lei}) Each bicategory is equivalent to a 2-category.}}
+
+{\rem{\label{nota}From here I drop the properly emphasised but 
+clumsy notation, and denote $\cp$ in a bicategory by $\cdot$ or do not
+denote it at all, while composition of $2$-cells is denoted by 
+$\circ$, as it is usually the composition in some product of $1$-categories
+in my examples.
+
+For functors I refer to $(F_0,F_1)$ generically as $F$ and I denote 
+the compositor in uppercase greek letters $\Phi$, thus referring to a
+pseudofunctor $(F,\Phi)$ for instance.
+
+I stick to the following conventions for elements in 
+a general bicategory: objects are denoted by lowercase 
+latin letters $a,b,c,\ldots\in\C_0$, which in $\M$ are natural 
+numbers, but I do not want to restrict to that case unnecessarily. 
+In $\M$ the $1$-cells are matrices, hence I denote $1$-cells by 
+uppercase latin letters $A,B,C,\ldots\in\C_1$, and finally $2$-cells
+by lowercase greek letters $\varphi,\psi,\ldots$ which are morphisms 
+in products of the coefficient category $\R$ for $\M$.}}
+
+{\rem{I refer to bicategories $\C$ as \emph{enriched in} topological 
+spaces, simplicial sets, categories,\ldots if the morphism categories
+$\C_1$ are enriched in these monoidal categories.}}
+
+{\ex{A category enriched in topologically or simplicially enriched
+categories is a bicategory enriched in topological spaces or simplicial 
+sets respectively. A topological/simplicial monoidal category gives 
+rise to a one-point bicategory enriched in topological 
+spaces/simplicial sets. Do note that the propositions before 
+work in the enriched cases as well, i.e. for enriched bicategories, and
+enriched pseudofunctors, since the axiom of choice was only 
+involved objectwise.}}
+
+The rest of this chapter -- apart from the section \ref{kumodels} -
+can safely be skipped by the reader familiar
+with the delooping in \cite{EM}. For ease of reference I rewrite
+their delooping in the following sections, so that the delooping in
+bicategories \ref{multbidel} can be read in close analogy with the
+case in 1-categories.
+
+\subsection{A Delooping of Permutative Categories} 
+\label{pcatneu}  Permutative categories 
+provide a classical useful tool to model connective 
+spectra, hence are valuable in stable homotopy theory. Even 
+more than that Thomason proved \cite{Th1} that ``Symmetric monoidal
+categories model all connective spectra''. Thomason was also driven
+by the desire to provide a nice model for a smash product of spectra:
+``[I]n June 1993 [\ldots] I used this alternate model of stable 
+homotopy to give the first known construction of a smash product 
+which is associative and commutative up to coherent natural 
+isomorphism in the model category.''
+Since \cite{MMSS} showed ``all'' models for symmetric monoidal 
+categories of spectra yield (Quillen-)equivalent results, Thomason's
+construction of a smash product has lost attention.
+
+I elaborate on the construction $\C^+$ in \cite{Th2} in excessive detail, 
+so I can refer back to its details for the analogous construction in 
+bicategories \ref{multbidel}. Warning on notation: The notational 
+conventions for bicategories described in \ref{nota} do 
+not apply here, because they would clash with the natural interpretations.
+
+The following results are each found in section 4 of \cite{Th2}. In particular,
+I repeat his results and definitions in order to fix the notations I mimic
+for bicategories in chapter \ref{multbidel}.
+
+{\defn{\label{fastocat}Let $(\C,+,0,c_+)$ be a permutative category and 
+$f\colon n_+\rightarrow m_+$ a map of pointed sets $n_+=\{0,1,\ldots,n\}$.
+Define the following functor: \[\begin{aligned} f_*\colon& 
+  \C^{\times n} &\rightarrow& \C^{\times m}\\
+&(c_1,\ldots,c_n) &\mapsto& (\sum_{i\in f^{-1}j} c_i)_{j=1,\ldots,m},
+\end{aligned}\] where the empty sum is defined to be the zero object (and 
+its identity). Note that we have to
+use the induced ordering $f^{-1}j\subset (n,\leq)$ and sum the $c_i$ 
+accordingly.}}
+
+{\rem{Note in particular that this gives a left-action of the 
+symmetric groups on the respective powers: 
+$\sigma_*(c_1,\ldots,c_n)_j = \sum_{i\in \sigma^{-1}j}c_i 
+= c_{\sigma^{-1}j}.$}}
+
+The fact that we have to choose an ordering on the fibres of $f$ is 
+precisely what breaks the strictness of the functor $(\cdot)_*\Fi\rightarrow 
+Cat$, which on morphisms is the assignment $f\mapsto f_*$ according to
+the above definition. I isolate this fact into the following lemma.
+
+{\lem{\label{symmundstrong}Given pointed maps $f\colon n_+\rightarrow m_+$ and $g
+\colon m_+\rightarrow l_+$ there is a natural isomorphism of functors 
+$\varphi_{g,f}\colon(gf)_*\Rightarrow g_*f_*$. \begin{proof} We can 
+consider this componentwise, so without loss of generality let $g
+\colon m_+\rightarrow 1_+ = \{0,1\}$ the unique map with $g^{-1}0=
+\{0\}$. Then the summation according to $g_*f_*$ looks as follows:
+\[(g_*f_*)(c)=\sum_{i=1}^m (f_*c)_i = 
+\sum_{i=1}^m\sum_{j\in f^{-1}i}c_j,\]whereas the summation of $(gf)_*$
+is according to the linear order on $n$ given by \[(gf)_*(c)=
+\sum_{i\in (gf)^{-1}1}c_i = \sum_{i=1}^n c_i.\] Then there is a unique
+ additive symmetry giving the isomorphism: \[\xymatrix@1{ ((gf)_*c)_j
+=\sum_{k\in (gf)^{-1}j}c_k\ar[r]^-{c^+_{g,f}} 
+&\sum_{i\in g^{-1}j}\sum_{k\in f^{-1}i}c_k=\sum_{i\in g^{-1}j}(f_*c)_i 
+= g_*(f_*(c)),}\] which yields a natural isomorphism of functors: 
+\[(gf)_*\Rightarrow g_*f_*.\]\end{proof}}}
+
+{\rem{\label{troublemaker} Take special note of the following 
+composites, which reappear in the delooping constructions and the 
+distributivity axioms of bimonoidal categories. Define \[f\colon 
+4_+\rightarrow 2_+: f(1)=f(3)=1, f(2)=f(4)=2\] and \[g\colon 4_+
+\rightarrow 2_+: g(1)=g(2)=1, g(3)=g(4)=2\]. We have the unique map 
+$q\colon 2_+\rightarrow 1_+$ with $q^{-1}0=\{0\}$ for $n_+=\{0,1,\ldots,n\}$ pointed at $0$.
+We also have a unique map $c\colon
+4_+\rightarrow 1_+$ with $c^{-1}0=\{0\}$. Then we have $qf=qg=c$, and
+hence for a permutative category a unique isomorphism:
+\[q_*g_*=c_*=(qf)_*\Rightarrow q_*f_*, \] which is given by the 
+symmetry: \[1+c^++1\colon a+b+c+d \rightarrow a+c+b+d.\] In more 
+detail: The compositor for $q$ and $g$ is the identity: 
+$\varphi_{q,g}=id$, and for $q$ and $f$ is the symmetry 
+$\varphi_{q,f}=1+c^++1$.
+
+More generally: Since the action of the symmetric groups on the
+respective powers of $\C$ is strict, we get $\varphi_{\sigma_1,
+\sigma_2}=id$, for each $n\in \N$ and $\sigma_1,\sigma_2\in \Sigma_n$.
+Consider the composite of a permutation $\sigma\in\Sigma_n$ with the 
+unique map $q\colon n_+\rightarrow 1_+$, with $q^{-1}0=\{0\}$. Then 
+we get: $q_*(c_1,\ldots,c_n)=\sum_{i=1}^nc_i,$ and
+$q_*\sigma_*(c_1,\ldots,c_n)=\sum_{i=1}^nc_{\sigma^{-1}i},$ hence
+$\varphi_{q,\sigma}=c^+_{\sigma}$, for $c^+_\sigma$ the unique natural 
+additive symmetry in $\C$ between these sums.}}
+
+We can define a ``classifying'' pseudofunctor into the $2$-category 
+$Cat$ for a permutative category.
+
+
+{\prop{\label{BCfunctor} Given a permutative category $(\C,+,0,c_+)$, the assignment
+\[\begin{array}{rcl}B_{\C}\colon Fin_+ &\rightarrow& Cat \\  n_+ 
+&\mapsto &\C^{\times n}, \\  f\colon n_+\rightarrow m_+ &\mapsto 
+&f_*\colon \C^{\times n}\rightarrow \C^{\times m} \end{array}\] 
+defines a pseudofunctor of $2$-categories, where we consider 
+$Fin_+$ as a $2$-category with discrete morphism categories.
+\label{THEpseudofunctor} 
+\begin{proof} We have to prove the coherence: \[\xymatrix{ (hgf)_* 
+\ar[r]^{\varphi_{hg,f}} \ar[d]^{\varphi_{h,gf}} & (hg)_*f_* 
+\ar[d]^{\varphi_{h,g}id}\\ h_*(gf)_* \ar[r]^{id\varphi_{g,f}} 
+& h_*g_*f_*,}\] but we know by \cite{Lap} that the additive symmetry 
+defining the transformation \[(hgf)_*\Rightarrow h_*g_*f_*\] is 
+uniquely determined by the ordering of summands the composite 
+$h_*g_*f_*$ induces, so the diagram commutes. Furthermore we 
+obviously have $id_*=id$, so $B_\C$ is a normal functor.\end{proof}}}
+
+{\rem{Observe that giving a covariant pseudofunctor
+$\mathrm{Epi}\rightarrow Cat$, which on objects is the assignment $n\mapsto 
+\C^n$, already defines a symmetric monoidal product on $\C$, which is 
+strictly associative and includes a symmetry but does not have a unit or 
+unitors. In order to take care of the zero object we need a strong
+normal functor $\mathrm{Fin}\rightarrow Cat$. Choosing pointed sets as an index
+category induces projections in the additive Grothendieck construction below
+associated to the maps: \[\rho^i\colon n_+\rightarrow 1_+\] with
+\[\rho^i(j)= \begin{cases}0 & j\neq i\\ 1 & j=i,\end{cases}\]
+which is easily identified as: $(\rho^i)_*=pr_i\colon \C^{\times n} 
+\rightarrow \C.$}}
+
+This association of a monoidal category to a functor is sufficiently
+natural for the following lemma to hold:
+{\lem{A (pointed) functor $F\colon (\C,+)\rightarrow (\D,+)$ together 
+with a natural transformation $\lambda\colon F(\_)+F(\_)\Rightarrow 
+F(\_+\_)$ is strongly symmetrically monoidal if and only if the
+induced map of pseudofunctors $B_\C\Rightarrow B_\D$ is a 
+pseudonatural transformation. For $\C$ and $\D$ permutative
+$F$ is a strictly additive functor if and only if the induced
+map is a strict natural transformation $B_\C\Rightarrow B_\D$.
+
+Additionally a natural transformation of symmetric monoidal functors
+is symmetrically monoidal if and only if it induces a modification
+of the respective induced transformations.
+\begin{proof}
+That a strong symmetric functor defines a pseudonatural transformation
+is given in \cite[Paragraph 4.1.4]{Th2}. The converse follows from the observation
+that we can reconstruct $F$ by restriction to
+$U$-level $1$: $F=B_F|_{\{1_+\}}\colon \C\cong B_\C(1_+)\rightarrow 
+B_\D(1_+)\cong \D.$ 
+The pseudonaturality $2$-cell of $B_F$ for the unique map 
+$q\colon 2_+\rightarrow 1_+$ with $q^{-1}(0)=0$, gives the
+diagram:
+\[\xymatrix{B_\C(2_+)\ar[r]^{B^1_F}\ar[d]_q
+	\drtwocell<\omit>{B^2_F}& B_\D(2_+)\ar[d]^q\\
+	B_\C(1_+)\ar[r]^{B^1_F}& B_\D(1_+),}\] 
+which identifies $\lambda$ as the pseudonaturality $2$-cell $B^2_F$.
+It is coherently associative and symmetric because of the appropriate
+pseudonaturality diagrams in higher degrees.
+
+Comparing the diagram above with the diagram in definition \ref{modis}
+yields the properly analogous claim for monoidal natural transformations. 
+\end{proof}}}
+
+I do not give the full generality of Grothendieck constructions, but 
+only define the resulting category of the Grothendieck construction 
+on $B_\C$ with respect to the permutative category $(\C,+,0,c_+)$. It
+destills the complexity of the functor into an ordinary 1-category, 
+so I do not refer to bicategories again until \ref{modulbicat}. For
+a compatible general exposition of the Grothendieck construction as
+considered by Grothendieck compare pages 47--49 in \cite{Bena}.
+
+{\defn{\label{c+}Define the category $\C^+$ as follows: Its objects 
+are \[Ob\C^+ := \coprod_n \C^{\times n},\] its morphisms:
+\[\C^+((c_1,\ldots,c_n),(d_1,\ldots,d_m)) =
+\coprod_{f\in \Fi(n_+,m_+)}\C^m(f_*c,d).\]
+The identities are given by the identities in $\Fi$ and $\C^m$, the 
+composition is given as follows: $c=(c_1,\ldots,c_n),
+d=(d_1,\ldots,d_m),e=(e_1,\ldots,e_l)$: \[\xymatrix{
+\C^+(d,e)\times \C^+(c,d) \ar@{=}[d]\\
+\coprod_{g,f}\C^l(g_*d,e)\times \C^m(f_*c,d) 
+	\ar[d]^{\coprod id\times g_*}\\
+\coprod_{g,f}\C^l(g_*d,e)\times \C^l(g_*f_*c,g_*d)
+	\ar[d]^{comp_{\C^l}}\\
+\coprod\C^l(g_*f_*c,e) \ar[d]^{\varphi_{g,f}^*}\\
+\coprod\C^l((gf)_*c,e) \subset \C^+(c,e).}\]
+It is associative precisely because $\varphi$ is, and if 
+$(\C,+,0,c_+)$ carries an enrichment such that $+$ is an enriched 
+functor, then $\C^+$ is enriched over the same category.
+
+Call this the \textbf{additive Grothendieck construction} on a
+permutative category $(\C,+)$.}}
+
+{\rem{The construction $\C^+$ is already
+given by Thomason in \cite[Definition 2.1.2]{Th2}. Let me summarise the 
+idea of the construction. Given a monoidal product on a category: 
+$\otimes\colon \C\times\C\rightarrow \C$, we can define for each map 
+$f\colon n_+\rightarrow m_+$ of finite sets a functor $\C^{\times n}
+\rightarrow \C^{\times m}$ (in the same direction). This assembles 
+into a pseudofunctor $\Fi\rightarrow Cat$. The Grothendieck 
+construction associated to it is $\C^+$. I find it useful to
+describe the delooping constructions of \cite{EM,Os,Seg} in this
+one syntax.
+
+Note that by the description of the composition given above we have
+an enriched additive Grothendieck construction for an enriched permutative
+category - specifically if the monoidal functor $+\colon \C\times\C\rightarrow\C$
+is enriched, then the enrichment carries over to $\C^+$.}}
+
+{\ex{Consider an ordinary category, that is one enriched in sets, 
+then we can write morphisms between tuples as pairs \[(f, (a_1,\ldots,
+a_m))\colon (c_1,\ldots,c_n)\rightarrow (d_1,\ldots,d_m),\] where 
+$f\colon n_+\rightarrow m_+$ and $a_i \colon \sum_{j\in f^{-1}i}c_j
+\rightarrow d_i,$ where we understand the empty sum as the zero object.
+
+Then composition looks as follows (with $f\colon n\rightarrow m, 
+g\colon m\rightarrow l$):\[(g,(b_1,\ldots,b_l))\circ(f,(a_1,
+\ldots,a_m))=(gf,(b_1,\ldots,b_l)\circ g_*(a_1,\ldots,a_m)\circ
+\varphi_{g,f}).\]
+
+I consider the two extreme cases: The composites of symmetries are 
+strict. So we have trivial compositors here, and thus (with $\bar a^i
+= (a^i_1,\ldots,a^i_n)$ ~$n$-tuples of morphisms in $\C$):
+\[(\sigma,\bar a^3)\circ (\tau,\bar a^2)\circ (\rho,\bar a^1)
+= (\sigma\tau\rho, \bar a^3\circ \sigma.\bar a^2\circ 
+		(\sigma\tau).\bar a^1).\]
+The other extreme case is given 
+for the composite of any symmetry $\sigma\in \Sigma_n$ with a map 
+$q\colon n_+\rightarrow 1_+$ with $q^{-1}0=\{0\}$, there is a unique
+additive symmetry $c^+_\sigma$ in $\C$: \[c^+_\sigma\colon 
+q_*(c_1,\ldots,c_n)=\sum^n_{i=1}c_i\rightarrow 
+q_*(\sigma.(c_1,\ldots,c_n))=\sum^n_{i=1}c_{\sigma^{-1}i}.\]
+Thus we get: \[\begin{array}{ll} (q,a)\circ(\sigma,(b_1,\ldots,b_n)) 
+      &= (q\sigma, a\circ q_*(b_1,\ldots,b_n)
+				\circ \varphi_{\sigma,q})\\
+      &= (q, a\circ (\sum_i b_i) \circ c^+_{\sigma})\\
+\multicolumn{2}{c}{\text{and by the naturality of the additive twist we can identify this with:}}\\ 
+      &= (q, a\circ c^+_{\sigma}\circ (\sum_ib_{\sigma^{-1}i}))\\
+      &= (q, a\circ c^+_\sigma \circ q_*(\sigma.(b_1,\ldots,b_n)))\\
+      &= (q, a\circ c^+_\sigma) \circ (id, \sigma.(b_1,\ldots,b_n)).
+\end{array}\] In particular this Grothendieck construction 
+incorporates structural morphisms for permutations between $n$-tuples 
+that project down to the ordinary additive symmetry in $\C$.}}
+
+{\rem{\label{disccomp}Note that in particular the category $\C^+$ has structural 
+morphisms $(f,id)\colon c\rightarrow f_*c$, for $c=(c_1,\ldots,c_n)$ 
+and $f\colon n_+\rightarrow m_+$. We call these morphisms the 
+\emph{discrete component} of morphisms $c\rightarrow d$. This 
+is a forgetful functor $U\colon\C^+\rightarrow\Fi$, 
+which is important for the delooping construction.}}
+
+{\ex{Building on the previous example let us reconsider the maps from 
+\ref{troublemaker}. We set\[f\colon 4_+\rightarrow2_+: f(1)=f(3)=1,f(2)
+=f(4)=2,\]\[g\colon4_+\rightarrow2_+: g(1)=g(2)=1,g(3)=g(4)=2,\]\[q
+\colon2_+\rightarrow1_+: q(2)=q(1)=1,\]and write $c\colon4_+\rightarrow
+1_+$ for the unique map with $c^{-1}0=0$. Then the compositor 
+$\varphi_{q,f}$ is given by $1+c_++1$, whereas the compositor 
+$\varphi_{q,g}$ is the identity. So we find:\[\begin{aligned}(q,a)
+\circ(g,(b_1,b_2))&=(qg,a\circ q_*(b_1,b_2))\\&=(c,a\circ(b_1+b_2))\\
+(q,a)\circ(f,(b_1,b_2))&=(qf,a\circ(b_1+b_2))\\&=(c,a\circ(b_1+b_2)
+\circ(1+c_++1)).\label{fuerdiehohenReds}\end{aligned}\]
+
+Hence the following diagram represents a commutative square in $\C^+$:
+\[\xymatrix{(c_1,c_2,c_3,c_4) \ar[d]^{(g,\id)}\ar[rr]^{(f,\id)} 
+&& (c_1+c_3,c_2+c_4) \ar[d]^{(q,\id)}\\
+(c_1+c_2,c_3+c_4) \ar[r]^{(q,\id)} & (c_1+c_3+c_2+c_4)
+&\ar[l]_{\varphi_{q,f}} (c_1+c_2+c_3+c_4),}\] because $\varphi$ is 
+part of the composition law.}}
+
+The additive Grothendieck construction is naturally associated 
+to the pseudofunctors $B_\bullet$, thus leading to the 
+following naturality:
+{\lem{A strong symmetric monoidal functor $(F,\mu)\colon
+(\C,+)\rightarrow (\D,+)$ induces a canonical functor $F^+$ on
+additive Grothendieck constructions as follows: It assigns tuples
+componentwise $F^+(c_1,\ldots,c_n)=(Fc_1,\ldots,Fc_n)$.
+For morphisms consider the case with morphism sets. 
+The map \[(f,(\varphi_1,\ldots,\varphi_m))\colon (c_1,\ldots,c_n)
+\rightarrow (d_1,\ldots,d_m)\] is sent to:
+\[\xymatrix{(Fc_1,\ldots,Fc_n)\ar[d]^{(f,id)}\\
+(\sum_{j\in f^{-1}i}Fc_j)_i\ar[r]^{(id,(\mu)_i)}&
+(F(\sum_{j\in f^{-1}i}c_j))_i \ar[d]^{(id,(F(\varphi_1),
+\ldots,F(\varphi_m)))}\\& (Fd_1,\ldots,Fd_m). }\]
+This is a functor precisely because $(F,\mu)$ is symmetrically 
+monoidal.
+
+A monoidal natural transformation $\eta\colon (F,\mu)\Rightarrow 
+(G,\nu)$ induces a natural transformation $\eta^+\colon F^+\Rightarrow
+G^+$. \begin{proof}I only comment on the natural transformation. Again 
+consider the case with morphism sets, then we set $\eta^+$ as tuples
+with the appropriate instances of $\eta$ and no discrete component.
+This is natural in morphisms $(f,(\mu)_i)$ trivially, because $\eta$
+is monoidal, and it is natural in morphisms $(id,(F(\varphi_1),\ldots,
+F(\varphi_m)))$ because it is a product of natural transformations
+$\eta\colon F\Rightarrow G$.
+
+Do note that it is not meaningful for a natural transformation to be
+symmetrically monoidal; there is no additional compatibility for 
+$\eta$ to be satisfied.\end{proof}}}
+
+Given any symmetric monoidal category $\C$ we can restrict to its
+subcategory of isomorphisms $\C^{iso}$, which is a symmetric monoidal
+subcategory of $\C$, so this gives an inclusion on their Grothendieck
+constructions. \label{isorest}{\cor{There is a natural inclusion 
+$I\colon(\C^{iso})^+\rightarrow \C^+$.}}
+
+The following definition describes the index categories relevant for
+the delooping. Specifically, we consider the comma category of finite
+pointed sets under $A_+$, for $A_+$ not necessarily an object of $\Fi$.
+
+{\defn{\label{commaindex}For an arbitrary finite pointed set $A_+$ 
+define the index category $A_+\downarrow 
+\Fi$ as follows: Objects are pointed maps $p\colon A_+
+\rightarrow n_+$ and morphisms $f\colon p\rightarrow q$ are 
+commutative triangles under $A_+$:~~~~~~ \xymatrix{A_+ \ar[r]^p \ar[dr]_q
+& n_+ \ar[d]^f\\ &m_+.}}}
+
+{\defn{Call the morphisms $\rho^i$ with $\rho^i(j)=*$ for $j\neq i$ and $\rho^i(i)=1$. 
+They fit into the diagram:\[\xymatrix{ A_+ \ar[r]^f \ar[dr]_{\chi_{f^{-1}i}} 
+& n_+ \ar[d]^{\rho^i}\\ & 1_+,}\] for each $f$ and each non-empty
+preimage $f^{-1}i\neq \emptyset.$}}
+
+{\rem{Note that the functors $(\rho^i)_*\colon \C^n\rightarrow \C$ are
+strictly equal to the projection onto the $i$th factor.}}
+
+{\rem{We have a target functor, i.e., $T\colon A_+\downarrow
+\Fi\rightarrow \Fi$. \label{target1}
+
+For $f\colon A_+\rightarrow B_+$ a pointed map
+we have a (covariant) functor $f^*\colon \Bix\rightarrow\Aix$, which
+is a functor over $T$, i.e., the diagram
+\[\xymatrix{\Bix \ar[dr]_T\ar[r]^{f^*} & \Aix\ar[d]^T\\&\Fi}\]
+commutes.}}
+
+{\rem{The categories $\Aix$ have a ``full'', actually discrete, 
+subcategory on objects the characteristic maps $\chi_a\colon A_+\rightarrow 1_+$
+with $\chi_a(x)=+$ for $x\neq a$ and $\chi_a(a)=1$. This yields a
+functor $j_A\colon A^\delta \rightarrow \Aix,$ which includes the
+unpointed set $A$ as a discrete subcategory $A^\delta$ into $\Aix$,
+by identifying each element $a$ with its characteristic map $\chi_a$.}}
+
+It is not strictly necessary to define the delooping construction 
+for $n=1$ (\ref{ca-n!}), but the essential mathematics happen here.
+The cases for $n>1$ are then reductions to this case.
+
+{\defn{Given a permutative category $(\C,+)$ and a finite pointed set
+$A_+$ define its \textbf{first delooping category} $\C(A_+,1)$ as the 
+category of functors lifting $T\colon \Aix\rightarrow \Fi$ through 
+$U\colon (\C^{iso})^+\rightarrow \Fi$, i.e., the dashed arrows in the
+diagram: \[\xymatrix{	& (\C^{iso})^+\ar[d]^U\\
+\Aix \ar@{-->}[ur] \ar[r]_T & \Fi,}\]
+where $T$ is the target functor given in \ref{target1}, and $U$ is the
+functor sending each morphism to its discrete component as in \ref{disccomp}.
+Its morphisms are the natural transformations of the functors pushed
+forward with $I\colon (\C^{iso})^+\rightarrow \C^+,$ i.e., natural 
+transformations but with arbitrary components, not just isomorphisms.}}
+
+{\rem{The delooping of a permutative category given in 
+\cite{EM} can be understood as a categorified version of the 
+usual classifying space construction for abelian groups 
+(cf. \cite[pp.87+88 and Theorem 23.2]{MaySoat}). 
+For the functoriality of the delooping construction in finite
+pointed sets and arbitrary maps it is more convenient to consider
+all maps of finite pointed sets as structural morphisms. But one should
+think of the structural $\Ep$-morphisms as fundamental, whereas 
+non-surjective morphisms just keep track of zeroes.}}
+
+{\rem{By contravariant functoriality of the indexing categories
+over $T$ we get that $\C(\_,1)$ defines a covariant 
+functor $\Fi\rightarrow Cat$. Furthermore restriction along
+$j_A\colon A^\delta \rightarrow \Aix$ 
+is a functor $R\colon \C(A_+,1)\rightarrow \C^{\times A}$.}}
+
+{\prop{Every functor $F\colon \Aix\rightarrow \C^+$ lifting $T$ through $U$
+	is isomorphic to a unique \emph{strict representative}. i.e., a functor,
+	which assigns to commutative triangles of $\Aix$ only morphisms with 
+    discrete components and additive symmetries and appropriate 
+    identities in the second component.
+	In particular any two functors restricting to the same $A$-tuple along 
+	$R$ are naturally isomorphic. \begin{proof} To build the 
+	\emph{strict representative} $F^{st}$ proceed as follows: Choose a bijection 
+	$\sigma_A\colon A_+\rightarrow |A|_+$ and set $F^{st}(\sigma_A)
+	=(F(\chi_a\colon A_+\rightarrow 1_+))_{a\in A}$. Any other 
+	object of $\Aix$ has a unique morphism from $\sigma_A$. 
+	So for $p\in \Aix$ set $F^{st}(p)=(p\sigma_A^{-1})_*(F^{st}(\sigma_A))
+	\in\C^{\times|T(p)|}\subset\C^+$. I drop the $\sigma_A^{-1}$ from the notation
+	immediately, since it is only there to make coherent choices for all
+	maps of finite sets at once. For a commutative triangle under $A_+$:
+	\[\xymatrix{A_+\ar[r]^{p}\ar[dr]_{qp} & n_+\ar[d]^q\\&m_+}\]	we need 
+	a morphism $F^{st}(p)=p_*(F^{st}(\sigma_A)) \rightarrow 
+	q_*p_*(F^{st}(\sigma_A))\rightarrow (qp)_*(F^{st}(\sigma_A))=F^{st}(qp),$ 
+	which we can choose to be $(q,\varphi^{q,p})$; in particular it only 
+	has the claimed components. Furthermore it obviously projects down 
+	to $q$ in $\Fi$ by the forgetful functor $U\colon \C^+\rightarrow \Fi,$ 
+	so it is a lift of $T$ through $U$. Since the second component is always 
+	a symmetry we also trivially have a functor $F^{st}\colon\Aix\rightarrow 
+	(\C^{iso})^+$, hence an object of $\C(A_+,1)$.
+
+	For the isomorphism first consider the following diagram:
+	\[\xymatrix{A_+\ar[r]^{\sigma_A}\ar[dr]_{\chi_a}& |A|_+.\ar[d]^{\rho^a} 
+	\\ & 1_+}\] By definition $F$ sends $\rho^a$ to a morphism ($U$-)over 
+	$\rho^a$, hence of the form $(\rho^a,f_a)$ with $f_a\colon 
+	(\rho^a)_*F\sigma_A=F(\sigma_A)_a\rightarrow F(\chi_a)$ an isomorphism
+	in $\C$. These assemble to an isomorphism $F\sigma_A\rightarrow 
+	(F\chi_a)_{a\in A}$ in $\C^{\times A}$.
+
+	We can uniquely write each $Fq\colon Fp\rightarrow F(qp)$ as
+	\[\xymatrix{Fp\ar[rr]^-{(q,\id)} && q_*Fp \ar[rr]^-{(\id,
+	F^{\C}(q))} && F(qp),}\] with $F^\C$ a morphism in a product 
+	category $\C^k$ for $q\colon A_+\rightarrow k_+$.
+
+	In particular we get a canonical morphism:
+	\[\xymatrix{Fp \ar[rr]^-{(F^{\C}(p\sigma_A^{-1}))^{-1}} && p_*F\sigma_A
+	\ar[rrr]^-{(\id,p_*((F\chi_a)_{a\in A}))} &&& p_*F^{st}\sigma_A = F^{st}(p),}\]
+	which assembles to a natural transformation $F\Rightarrow F^{st}$
+	whose components are isomorphisms by the assumption on $F$.	So we 
+	have a canonical isomorphism for each functor to its strict
+	representative, and the strict representative only depends on the
+	restriction of $F$ along $j_A$.\end{proof}}}
+
+This immediately has the following corollary, which is useful for constructing
+such lifting functors more easily.
+{\cor{Each functor $F$ lifting $T$ through $U$ is uniquely determined up to natural
+	isomorphism by its restriction to $A_+\downarrow \Ep$. In particular we
+	can assume without loss of generality that for each $p\colon A_+\rightarrow k_+$
+	with $k>|A|$ the object $Fp$ is given by padding with zeroes from a
+	bijection $F\sigma_A$, and the morphisms accordingly only have identities
+	in zero-components.}}
+
+{\rem{\label{warumEpi}Restricting to epimorphisms is extremely convenient. 
+Given any finite set $A_+$ we know a priori that the index-categories
+$A_+\downarrow Epi_+$ are finite, i.e., have finitely many objects.
+
+Since for finite $A_+$ there is always a non-unique maximal surjection, i.e.
+a bijection $A_+ \rightarrow |A|_+$, any other object of $A_+ 
+\downarrow \Fi$ can be written relative to a chosen bijection. 
+In particular for $n>|A|$ there is an injection $|A|_+ \rightarrow n_+,$ 
+which is unique, if we choose the injection strictly monotonous 
+and with minimal maximal element.}}
+
+Let me reemphasise the uniqueness clause of the strict representative to
+the canonical delooping statement:
+{\prop{For $(\C,+)$ a permutative category the delooping category $\C(A_+,1)$
+	is naturally equivalent to a product category by restriction along 
+	$j_A$. I.e., we have an equivalence:\[\C(A_+,1)\simeq \C^A.\]\begin{proof}
+	The construction of the strict representative given above can also be
+	used to promote each $A$-tuple to a lifting functor, which gives the
+	inverse equivalence to restriction along $j_A$. 
+	The natural isomorphism on the left was given above, on $\C^A$ these
+	functors strictly compose to the identity.	\end{proof}}}
+
+{\rem{It is true, but inessential and uninstructive to prove, that the 
+	delooping category $\C(A_+,1)$ is actually naturally \textbf{isomorphic}
+	to the Segal construction on a permutative category $\C$ as defined in 
+	\cite[Construction 4.1, Theorem 4.2]{EM}.
+
+	The isomorphism $\C(A_+,1)\rightarrow 
+	\C^{Seg}$ is given by sending a	lifting functor $F$ to its 
+	restriction on characteristic functions for subsets 
+	$\chi_S\colon A_+\rightarrow 1_+$. The additors $\rho_{S,T}$ are given 
+	by the maps associated to the factorisation in $\Aix$: \[\xymatrix{A_+
+	\ar[r]^{\chi_{(S,T)}} \ar[dr]_{\chi_{S\cup T}}& 2_+\ar[d] \\ &1,}\]
+	for $S,T$ disjoint subsets of $A$.	
+
+	The associativity of the additors given in the diagrams of 
+	\cite[Construction 4.1]{EM} follows from the fact that the map
+	$\chi_{(S,T,U)}\colon A_+\rightarrow 3_+$ in particular
+	has maps in $\Aix$ to $\chi_{(S\cup T,U)}$ and $\chi_{(S,T\cup U)},$
+	which both map to $\chi_{S\cup T\cup U}$, giving a commutative
+	square in $\Aix$, thus one in $\C^+$ for each lifting functor.}}
+
+\subsection{The Construction $\C(A_+,n)$ for Permutative $1$-Categories}
+\label{ca-n!} I want to describe the delooping
+construction in \cite[Construction 4.4]{EM} in the same way that I 
+just described the Segal construction $\C(A_+,1)$. To that 
+end I consider the Segal construction with $n$-fold products 
+of finite sets and maps flattened into the additive Grothendieck 
+construction $\C^+$, such that the case before is $n=1$.
+
+As in \ref{Finp} fix a smash product functor on $\Fi$.
+Then we can define a symmetric monoidal structure on $\C^+$ when 
+given a bimonoidal structure on $\C$.
+
+{\prop{
+	Consider the additive Grothendieck construction $\C^+$ for
+	a bimonoidal category $(\C,+,\cdot)$, then
+	we have an induced monoidal structure on $\C^+$,
+	which makes the forgetful functor $U\colon \C^+ \rightarrow \Fi$
+	strictly monoidal with respect to the induced
+	multiplication on $\C^+$ and the smash-product functor on
+	$\Fi$. If moreover the multiplication of $(\C,+,\cdot)$ makes
+	$\C$ a bipermutative category, the induced monoidal structure
+	is symmetric, and the functor $U$ is strictly symmetric
+	monoidal.
+	\begin{proof}
+	Given a smash product functor on $\Fi$ we have fixed pointed 
+	bijections $(n\times m)_+=n_+\wedge m_+\rightarrow nm_+,$
+	hence also $\omega_{n,m}\colon n\times m\rightarrow nm,$ which 
+	are associative. For two objects $c=(c_1,\ldots,c_n),
+	d=(d_1,\ldots,d_m)$ in $\C^+$
+	set their product to be: \[c\boxtimes d = (c_id_j)_{\omega(i,j)},\]
+	where I have written points in the indexing set 
+	$\{1,\ldots,nm\}$ as images $\omega(i,j)$.
+
+	The essential subtlety is the fact that this can be made into
+	a functor. Consider the following two objects in $\C^+$:
+	\[(f\wedge g)_*(c\boxtimes \bar c)_{\omega(i,j)}
+	=\sum_{\omega(k,l)\in(f\times g)^{-1}(\omega(i,j))}c_k\bar c_l,\]
+	and analogously: \[((f_*c)\boxtimes(g_*\bar c))_{\omega(i,j)}
+	= (f_*c)_i\cdot(g_*\bar c)_j = \left(\sum_{k\in f^{-1}i}c_k\right)
+	\left(\sum_{l\in g^{-1}j}\bar c_l\right).\]
+
+	By \ref{bim1} and \cite{Lap} we find that there is a unique composite
+	of distributors and additive symmetries comparing these objects. For
+	instance by first reducing summands on the left, then on the right,
+	we get: \[(f\wedge g)_*(c\boxtimes \bar c) = \sum_{k,l}c_k\bar c_l
+	\rightarrow \sum_k\left(c_k\left(\sum_l\bar c_l\right)\right)\]
+	\[~~~~~~~
+	\rightarrow \left(\sum_{k\in f^{-1}i}c_k\right)
+	\left(\sum_{l\in g^{-1}j}\bar c_l\right) = f_*c\boxtimes g_*\bar c.\]
+	Hence there is a unique structural morphism $D^{f,g}$ determined by
+	the summations $f$ and $g$ induce. Thus for two
+	maps in $\C^+$ in the case of hom-sets with structure:
+	\[(f,(a_1,\ldots,a_{m_1}))\colon c=(c_1,\ldots,c_{n_1})
+	\rightarrow (d_1,\ldots,d_{m_1})=d,\]\[(g,(b_1,\ldots,b_{m_2}))\colon 
+	\bar c=(\bar c_1,\ldots,\bar c_{n_2})\rightarrow 
+	(\bar d_1,\ldots,\bar d_{m_2})=\bar d,\]
+	we set their product to be the composite:
+	\[\xymatrix{c\boxtimes \bar c = (c_i\bar c_j) \ar[r]^-{(f\wedge g)_*}&
+	\left(\sum c_k\bar c_l\right)\ar[r]^-{D^{f,g}}&	\left(\sum c_k
+	\right)\left(\sum\bar c_l\right) \ar[r]^-{a_ib_j}&(d_i\bar d_j).}\]
+	Analogously define the product for general enriched bimonoidal categories as
+    follows: Consider $D^{f,g}\circ (f\wedge g)_*$ on the $(f,g)$-component
+	of the morphisms on the product of the additive Grothendieck construction
+	on $\C$, i.e., $(\C^+\times\C^+)((c,\bar c),(d,\bar d))=
+	\coprod_{(p,q)}\C^{|\bar c|}(p_*c,\bar c)\times \C^{|\bar d|}(q_*d,\bar d)$,
+	and postcompose with the monoidal product $\cdot$ of $\C$, which in its
+	$\omega(i,j)$th component pairs the $i$th factor in the first product 
+	with the $j$th factor in the second product.
+
+	This assignment evidently sends identities to identities, and it
+	respects composites, because $\cdot$ is part of a bimonoidal/bipermutative
+	structure on $\C$, hence we can always interchange distributors $D^{f,g}$
+	and tuples of genuine $\C$-morphism $(a_ib_j)$ by summing up and reducing
+	the appropriate components.
+	In summary we obtain a functor:
+	\[\boxtimes\colon \C^+\times\C^+\rightarrow \C^+.\]
+
+	Since we have chosen $\wedge$ to be a strictly unital functor 
+	on $\Fi$ and $\cdot$ strictly unital on $\C$, the $1$-tuple 
+	$(1)\in\C^+$ with entry the multiplicative unit of $\C$ is a 
+	strict unit for $\boxtimes$. Since $\wedge$ is strictly associative
+	and $\cdot$ is strictly associative, $\boxtimes$ is strictly associative
+	as well.
+
+	Finally for $\cdot$ not just a monoidal, but a braided or symmetric
+	monoidal structure with symmetry $c^\cdot$, consider the symmetry 
+	in $\Fi$ for $\wedge$, and call	it $\chi$. Then a multiplicative 
+	symmetry for $\boxtimes$ on $\C^+$ is given	by:
+	\[\xymatrix{c\boxtimes d = (c_id_j)_{\omega(i,j)} \ar[r]^-\chi
+	& (c_id_j)_{\omega(j,i)} \ar[r]^-{c^\cdot} & (d_jc_i)_{\omega(j,i)}
+	=d\boxtimes c.}\]
+	It squares to the identity if $c^\cdot$ does, and satisfies the braiding
+	coherence diagrams for triple products that $c^\cdot$ satisfies. Hence
+	yields a braided/symmetric monoidal structure, if $(C,\cdot)$ is
+	braided/symmetric monoidal and bimonoidal as $(C,+,\cdot)$.	We have
+	evidently constructed the symmetric monoidal structure just so that
+	$U$ becomes a strictly (braided/symmetric) monoidal functor.
+	\end{proof}}}
+
+I do not intend to get back to this multiplicative structure until chapter
+\ref{multbidel}, but wanted to explicitly state it for $1$-categories.
+It emphasises that the multiplicative structure exhibited in 
+chapter \ref{multbidel} can be built easily here as well.
+
+To define the higher delooping categories $\C(A_+,n)$ we need to consider
+target functors for the product categories $(\Aix)^n$.
+{\prop{\label{T-n}
+	There is a forgetful functor $T_n\colon (\Aix)^n\rightarrow \Fi$ for each
+	$n\geq 1$, which is faithful away from the basepoint, and can moreover 
+	be chosen to be associative, i.e., the diagram \[\xymatrix{(\Aix)^n\times
+	(\Aix)^m\times(\Aix)^l \ar[rr]^-{T_{n+m}\times \id}\ar[d]_{\id\times 
+	T_{m+l}}&&\Fi\times (\Aix)^l \ar[d]^{\id\times T_l}\\(\Aix)^n\times\Fi 
+	\ar[d]_{T_n\times \id}&& \Fi\times\Fi \ar[d]^{\wedge}\\\Fi\times\Fi 
+	\ar[rr]^{\wedge} && \Fi,}\]	commutes. Moreover the functors $T_n$ can 
+	be chosen symmetric, i.e., the functors
+	\[\xymatrix{(\Aix)^n\times (\Aix)^m \ar[rr]^-{T_n\times T_m} &&
+	\Fi\times \Fi\ar[r]^-{\wedge} & \Fi	}\]	and	\[\xymatrix{(\Aix)^{n+m}
+	 \ar[r]^-{tw^\times_{n,m}}& (\Aix)^{m+n} \ar[r]^-{T_m\times T_n} 
+	& \Fi\times\Fi\ar[r]^-\wedge&\Fi}\]	are naturally isomorphic by exchanging 
+	priority of the smash components, i.e., $\chi^\wedge$ on $\Fi$.
+	\begin{proof}Simply set $T_n$ to be the following functor:\[\xymatrix{
+	(\Aix)^n\ar[r]^-{(T)^n} & \Fi^n	\ar[r]^{\wedge} & \Fi,}\]where $T$ is 
+	the target functor of $\Aix$, and $\wedge$ is the 
+	$n$-fold smash, which is defined because $\wedge$ is strictly 
+	associative. Then the $T_n$ inherit associativity and symmetry as claimed, 
+	and are just as faithful as $T$ and $\wedge$. Hence for maps with 
+	$f^{-1}+=\{+\}$	we get injectivity on hom-sets.\end{proof}}}
+
+These functors should give the reader a reasonable hunch how I define
+$\C(A_+,n)$ such that $\C(A_+,1)$ considered above trivially becomes the
+case $n=1$.
+{\defn{The \textbf{higher delooping category} of a permutative category $\C(A_+,n)$ for
+	$n\in\mathbb{N}$ and $A_+$ a finite pointed set, is given as the
+	category of functors lifting $T_n$ through $U$, i.e., the dashed arrows
+	in the diagram:
+	\[\xymatrix{& (\C^{iso})^+\ar[d]^U \\ (\Aix)^n \ar@{-->}[ur]\ar[r]^-{T_n} 
+	& \Fi.}\]Its morphisms are the natural transformations of functors pushed forward
+	with the inclusion $(\C^{iso})^+\rightarrow \C$, i.e., natural transformations
+	with arbitrary components, not just isomorphisms.}}
+
+{\ex{\label{kommKub} Consider again (\ref{troublemaker}) the prototypical 
+surjections $f,g\colon 4_+\rightarrow 2_+$, with $f(1)=f(3)=1$,$f(2)=f(4)=2$, 
+$g(1)=g(2)=1$,$g(3)=g(4)=2$,and $q\colon 2_+\rightarrow 1_+$ again. 
+Choosing the bijection $\omega$ for the smash product
+gives the following commutative cube: \[\xymatrix{ (2\times 2)_+ 
+\ar[rr]^<<<<<{id\times q}\ar[dd]_<<<<<{q\times id} \ar[dr]^\omega && 
+(2\times 1)_+\ar[dr]^\omega \ar[dd]^<<<<<{q\times id}\\ &4_+
+\ar[rr]^<<<<<{f}\ar[dd]_<<<<<{g} && 2_+\ar[dd]^>>>>>q\\ (1\times 2)_+ 
+\ar[rr]^<<<<<{id\times q} \ar[dr]_\omega && (1\times 1)_+ 
+\ar[dr]^\omega\\ &2_+\ar[rr]_>>>>>q&&1_+.}\]
+
+Flattening this cube makes a pentagon with the additional arrow given
+by $1+c^++1$, which appears for instance in axiom (5) of 
+\cite[Construction 4.4]{EM}.}}
+
+{\prop{\label{symmSpekt!!} Each permutation $\sigma\in\Sigma_n$ 
+induces a functor \[\sigma\colon (A_+\downarrow \Fi)^{\times n} 
+\rightarrow (A_+\downarrow \Fi)^{\times n}.\] Precomposing with this
+permutation of the components and post-composing a functor with
+the symmetry $\chi$ of the smash-product on $\Fi$, induces a natural
+$\Sigma_n$-action on $\C(A_+,n)$ .
+\begin{proof}The statement concerning the symmetry warrants some 
+explanation. By \ref{T-n} we know that we can choose the target
+functors $T_n$ as $(\Aix)^n\rightarrow \Fi^n\rightarrow \Fi$, hence
+the symmetry isomorphism from $T_n$ to $\sigma^*T_n$, for 
+$\sigma\in\Sigma_n$ can be pushed forward to $\Fi$ by the appropriate
+symmetry $\chi_{\sigma}^{\wedge}$ of the smash-product on $\Fi$. Then
+by pushing forward the permuted functor in $\C^+$ with the same symmetry
+we get a functor lifting $T_n$ again.\end{proof}}}
+
+{\rem{To state the following proposition conveniently I introduce a standard
+    simplifying assumption. For $\C$ a permutative category we can without 
+    loss of generality assume that $0\in\C$ is an isolated object, i.e., it
+    has at most non-trivial endomorphisms, but no maps in $\C$ from or to
+    different objects. This makes $\C\setminus\{0\}\sqcup\{0\}$ a decomposition
+    of $\C$ by full subcategories. 
+
+    For $\C$ with isolated zero $0$ as above we can define the smash product of $\C$
+    with a finite pointed set $A_+=A\sqcup\{*\}$ as:
+    \[A_+\wedge \C := End(0)\coprod_{x\in A} (\C\setminus\{0\}).\]
+
+    The assumption is without loss of generality since we can attach to each
+    category $\C$ a disjoint basepoint $\C_+:=\C\sqcup\{*\}$. For $\C$ permutative
+    we extend the monoidal functor by letting $*$ act as a strict unit, thus in 
+    particular the object $0\in\C$ is not neutral in $\C_+$. On classifying spaces
+    we get $|N\C_+|=|N\C|\sqcup \{*\}$, i.e., we only added a disjoint basepoint
+    to the classifying space as well.
+
+    Finally note that for $\C$ permutative with an isolated additive unit $0$, any
+    finite pointed set $A_+$ and any natural number $n$, the
+    higher delooping categories have an isolated zero as well:
+    The category $\C(A_+,n)$ has a basepoint given by the 
+    functor $$O\colon (A_+\downarrow Epi_+)^{\times n}\rightarrow \C^+$$ 
+    with $O((f_1,\ldots,f_n)\colon (A_+,\ldots,A_+) \rightarrow (k^1_+,
+    \ldots,k^n_+))=0$ the $k^1\cdot\ldots\cdot k^n$-tuple consisting 
+    only of the additive unit, and each morphism is sent to its appropriate 
+    discrete component with $\C^{\times \bullet}$-components only 
+    identities. If the additive unit in $\C$ is isolated, then this zero functor $O$ is 
+    an isolated basepoint of $\C(A_+,n)$ as well, and we can identify the smash as:
+    \[A_+\wedge \C(A_+,n) 
+    =End(O) \sqcup \coprod_{x\in A} (\C(A_+,n) \setminus\{O\})\times 
+    \{x\}.\] Take note that the disjoint union is over all non-basepoints 
+    in $A_+$, hence all elements of $A$. The fact that $O$ is isolated 
+    ensures that each $\C(A_+,n)\setminus\{O\}$ forms a (sub)category.}}
+
+The extension functors are a bit obscured by the fact that I chose to 
+reduce the arguments in the delooping-construction of \cite{EM}
+to $n$ equal inputs $A_+$ only, but it coalesces nicely. 
+
+{\prop{We have a natural inclusion of categories: \[e\colon A_+
+\wedge\C(A_+,n)\rightarrow \C(A_+,1+n).\] Furthermore this inclusion
+is $\Sigma_n$-equivariant, where on $\C(A_+,1+n)$ the 
+action is given by restriction along the inclusion $\Sigma_n=\Sigma_1
+\times\Sigma_n\rightarrow \Sigma_{1+n}$, i.e., letting $n$-permutations 
+act on the indices $\{2,\ldots,n+1\}$.
+\begin{proof} 
+As above we see if the additive unit in $\C$ is isolated, then 
+the zero functor $O$ is an isolated basepoint of $\C(A_+,n)$, 
+and we can identify the smash as: \[A_+\wedge \C(A_+,n) 
+=End(O) \sqcup \coprod_{x\in A} (\C(A_+,n) \setminus\{O\})\times \{x\}.\]
+Hence I can describe the extension functor on each component 
+seperately. We set $e(O)=O$ and send an endomorphism of 
+$O\in\C(A_+,n)$ to the endomorphism of $O\in \C(A_+,1+n)$, which we obtain 
+by appropriately extending with identities.
+
+More interestingly consider a summand $\C(A_+,n)\setminus\{0\}\times 
+\{x\}$. Then we have to define $e(F,x)(p_1,\ldots,p_{n+1})$ for each 
+$(n+1)$-tuple of maps $p_i\colon A_+\rightarrow k_i$. We set: 
+\[e(F,x)(p_1,\ldots,p_{n+1})=\begin{cases} 0 &~~p_{1}\neq (\rho^x
+\colon A_+\rightarrow 1_+),\\F(p_2,\ldots,p_{n+1}) &~~p_{1}=\rho^x.
+\end{cases}\] Accordingly, $e(F,x)$ is the identity on the additive unit
+for all $(n+1)$-tuples of morphisms, which do not have $id_{1_+}=
+id_{\rho^x}$ as its first component. On the tuples, where the 
+last component is $id_{1_+}$ and target and source have last 
+component $\rho^x$ we can use $F$ on the first $n$ maps.
+
+This is obviously a functor, natural in $\C$ and $A_+$.
+Equivariance follows by our choice of singling out the first component. 
+Changing the marked component changes the inclusion $\Sigma_n\rightarrow 
+\Sigma_{1+n}$ but still yields equivariance as claimed.\end{proof}}}
+
+Again we have the result making $\C(A_+,n)$ a delooping of $\C$.
+{\thm{For $(\C,+)$ a permutative category we have a natural equivalence
+	of categories \[\C(A_+,n)\simeq Set(A,\C(A_+,n-1)),\]
+	with the map $\C(A_+,n)\rightarrow Set(A,\C(A_+,n-1))$ given by
+	restriction of functors along $(\id_{n-1},j_A)\colon
+	(\Aix)^{n-1}\times A^\delta\rightarrow (\Aix)^n.$
+	Inductively we get a natural equivalence:
+		\[\C(A_+,n)\simeq \C^{A^{\times n}}.\]\begin{proof}
+	The start of the induction is the case $n=1$ displayed above. The same
+	argument with \emph{strict representatives} can be made to prove the
+	equivalence above by making a functor in $\C(A_+,n)$ only consist of
+	discrete components and additive symmetries one component at a time.
+	\end{proof}}}
+
+I give the construction of the Eilenberg-Mac Lane spectrum based on
+this delooping in chapter \ref{multbidel} in the maximal generality
+I need it. The case of permutative $1$-categories then follows by 
+considering them as permutative bicategories with discrete morphism
+categories. The maximal generality in this thesis is motivated by the 
+principal example of interest $K(ku)$. The next chapter is thus 
+concerned with the module bicategory of a bimonoidal category. 
+For the spectrum $ku$ I want to fix the relevant models and maps next.
+
+\section{Models for $ku$}\label{kumodels}
+Assuming that the delooping given by $\C(A_+,n)$ yields an $E_\infty$ 
+symmetric ring spectrum $H\C$, which I prove in chapter \ref{multbidel}, 
+we get models for connective $K$-theory with an $E_\infty$-multiplication 
+by considering nicely explicit bipermutative categories.
+
+{\ex{\label{modultensor}
+	Given a commutative ring $k$, consider its (skeletal)
+	category of finitely generated free modules $\MM_k$ on 
+	objects: \[\Ob\MM_k = \Ob~\mathrm{Fin} = \{\mathbf{n}| n\in\mathbb{N}\}.\] 
+	Consider the unpointed sets $\mathbf{n}$ as ranks of finitely generated
+	free modules over $k$. To establish its 
+	bipermutative structure first consider the morphism sets in a bigger category
+    $\MM^L$ (compare \ref{Fin}):
+	\[\MM^L_k(\mathbf{n},\mathbf{m}):= 
+	\mathit{Hom}_k(k\{1,\ldots,n\},k\{1,\ldots,m\})\]
+	of all $k$-linear maps of free modules on the unpointed sets $\mathbf{n},
+	\mathbf{m}$.
+
+	Fixing the direct sum functor as the linear extension of disjoint
+	union gives a strictly associative coproduct-functor for $\MM^L$:
+	\[k\{1,\ldots,n\}\oplus k\{1,\ldots,m\}:=k\{\mathbf{n+m}\}
+	=k\{1,\ldots,n,n+1,\ldots,n+m\},\] with the obvious extension to 
+	morphisms by linearly extending the description of $\mathrm{Fin}$ 
+	on basis elements.
+
+	The product functor chosen on finite sets (specifically by fixing
+	associative bijections $\omega=\omega_{n,m}\colon \mathbf{n}\times 
+	\mathbf{m} \rightarrow \mathbf{nm}$) 
+	extends to the tensor-product of free modules: \[k\{1,\ldots,n\}\otimes 
+	k\{1,\ldots,m\} := k\{1,\ldots,nm\},\] where we define the 
+	tensor-product of linear maps represented as quadratic matrices
+	$f\in M_n(k), g\in M_m(k)$ as follows:
+	\[(f\otimes g)(e_{\omega{(i,j)}}):= \sum_{\omega(s,t)\in nm} 
+	f_{si}g_{tj}e_{\omega(s,t)}.\] For the entries of the representing
+	matrix for $f\otimes g$ with respect to the ordering on $\mathbf{nm}$ fixed
+	by $\omega\colon \mathbf{n}\times\mathbf{m}\rightarrow \mathbf{nm}$ we get:
+	\[(f\otimes g)_{\omega(i_1,j_1),\omega(i_2,j_2)}
+	=f_{i_1,i_2}\cdot g_{j_1,j_2},\] which is a strictly associative
+	representation of the tensor-product. We know it is left-adjoint
+	to the $\mathit{Hom}_k$-functor, hence Lemma \ref{bipermallthethings} applies, and
+	we get a bipermutative structure on the  $\MM^L_k$.
+
+	Analogous to finite sets we can restrict to 
+	injections, surjections and isomorphisms. The case of 
+	isomorphisms is the one of primary interest in this thesis, so I 
+	define \emph{the} module category $\MM_k$ of a commutative ring
+    as:\[\MM_k(n,m)=\begin{cases}GL_n(k) &~~n=m\\ 
+	\emptyset &~~n\neq m.\end{cases}\]}}
+
+For $k=\RR,\CC$ we have a topological version of the above example.
+{\ex{The same constructions as in the example above describe continuous
+     functors with respect to the topologies on $GL_n\RR$ and $GL_n\CC$
+     as subspaces of $M_n\RR\cong \RR^{n^2}$ and $M_n\CC\cong \CC^{n^2}$.
+     Call the category with objects the natural numbers and morphism
+     spaces $GL_nk$ considered as a topologically enriched category $\MM_k^c,$
+     where the upper index is a reminder for continuity. Call the 
+     analogous discrete category with morphism sets $GL_nk$ and
+     their discrete topology $\MM_k^\delta$.
+
+     For real and complex coefficients we can restrict 
+     to the respective compact subgroups:
+		\[O_n\rightarrow GL_n(\mathbb{R}), \mathrm{~and~}~U_n \rightarrow 
+		GL_n(\mathbb{C}).\]
+     These inclusions define subcategories of the topological as well as the
+     discrete module categories.
+     Denote the topological subcategories by $\V^c_k\subset \MM_k^c$ and 
+     analogously the discrete subcategories by $\V^\delta_k\subset \MM_k^\delta$.
+     Since the symmetries and distributors are unitary morphisms as well, 
+     the canonical inclusion functors are bipermutative:
+	    \[\V_\mathbb{R}\rightarrow \MM_\mathbb{R},\]
+	    \[\V_\mathbb{C}\rightarrow \MM_\mathbb{C},\]
+     for the topological as well as the discrete versions.
+
+     A continuous inverse is given by the Gram-Schmidt process, which I
+     denote by $r\colon \MM_k\rightarrow \V_k.$ This is compatible
+     with direct sum by considering the sum as orthogonal. 
+     It can be promoted to a homeomorphism
+     as follows (cf. \cite[pp.33-35]{MT}): We have a natural map \[g_n\colon O_nk
+     \times H^+_nk\rightarrow GL_nk\] with 
+	$g_n(U,B)=UB$ for $O_nk$ the orthogonal group for $k=\RR$ and the 
+	unitary group for $k=\CC$, and $H^+_nk$ the space of symmetric/hermitian 
+	positive definite matrices. For each $n$ the map $g_n$ is a 
+	homeomorphism with inverse:\[h_n\colon GL_nk \rightarrow O_nk\times H^+_nk\] 
+	given by: \[h_n(A)= (A\sqrt{(A^*A)}^{-1}, \sqrt{(A^*A)}).\]
+
+	The map $g_n$ is compatible with direct sums. For tensor-products
+	consider the following diagram:	\[\xymatrix{
+	O_n\times H_n^+\times O_m\times H_m^+\ar[r]^-{g_n\times g_m}\ar[d] 
+	& GL_n\times GL_m\ar[dd]^\otimes\\ O_n\times O_m\times H_n^+\times H_m^+
+	\ar[d]_{\otimes\times\otimes}\\
+	O_{nm}\times H^+_{nm} \ar[r]_{g_{nm}} & GL_{nm}, }	\]
+	which needs to commute for $g$ to induce a strictly multiplicative functor 
+	$\V_k\rightarrow \MM_k$. Fixing associative bijections $\omega$ 
+	write:$(A\otimes B)_{ij}=A_{i_1j_1}\cdot B_{i_2j_2}.$
+
+	Then we have:
+	\[\begin{aligned} 
+	(g_n(U,B)\otimes g_m(V,C))_{ij}&= g_n(U,B)_{i_1j_1}g_m(V,C)_{i_2j_2}\\
+	&=(UB)_{i_1j_1}(VC)_{i_2j_2}=\sum_{k,l} U_{i_1k}B_{kj_1}V_{i_2l}C_{lj_2},
+	\end{aligned}\]	while the other side is given by: \[\begin{aligned}
+	g_{nm}(U\otimes V,B\otimes C)_{ij}	&= ((U\otimes V)(B\otimes C))_{ij}\\
+	&= \sum_p (U\otimes V)_{ip}(B\otimes C)_{pj}= 
+	\sum_p U_{i_1p_1}V_{i_2p_2}B_{p_1j_1}C_{p_2j_2}.	\end{aligned}\]
+	The terms thus agree by commutativity of addition and multiplication 
+	in $k$, so we get a bipermutative inclusion $I\colon \V_k\rightarrow 
+	\MM_k$ as well as a bipermutative retraction $R\colon \MM_k\rightarrow 
+	\V_k$ given by $g$. Specifically we get topologically enriched  
+	functors $R\colon \MM_k^c\rightarrow \V_k^c,$ i.e., functors, which
+	are continuous on the morphism spaces, and the same assignments define
+	functors on the discrete versions $R\colon \MM_k^\delta\rightarrow 
+	\V_k^\delta$.}}
+
+{\rem{The tensor-product structure on categories of the form $\MM_k$ has
+    a more natural interpretation: Choose an euclidean/hermitian scalar 
+    product in each dimension $n$ for $k=\RR,\CC$ or any 
+    non-degenerate bilinear form for an arbitrary field $k$ 
+    - say $\langle\cdot,\cdot\rangle$. By basic 
+	linear algebra we know that any bilinear form $b$ yields a uniquely 
+	determined linear map $f$ such that $\langle f\cdot,\cdot \rangle = 
+	b(\cdot,\cdot).$ If moreover the bilinear form $b$ is non-degenerate
+	as well, then $f$ is an isomorphism. Hence fixing (any) non-degenerate 
+	bilinear form $\langle\cdot,\cdot\rangle$ we get an isomorphism:
+    \[Bil_+(V)\cong GL(V)\]
+	of non-degenerate bilinear-forms on $V$ and linear automorphisms of $V$,
+	which is a homeomorphism when meaningful.
+
+	In light of this consider the following tensor product of bilinear forms:
+    For two bilinear forms $b^V\colon V\otimes V\rightarrow k$ and $b^W\colon W\otimes W
+	\rightarrow k$, define their tensor product $b^{V\otimes W}\colon (V\otimes W)^{\otimes 2}
+	\rightarrow k$ on generators:
+	\[b^{V\otimes W}(v_1\otimes w_1,v_2\otimes w_2) = b^V(v_1,v_2)\cdot 
+	b^W(w_1,w_2),\]	and extend bilinearly.
+	This is non-degenerate if both forms above are non-degenerate. It is
+	symmetric/hermitian if both forms are symmetric/hermitian. 
+
+	On representing matrices we get the following: \[b^{V\otimes W}(e_i\otimes 
+	e_j,e_k\otimes e_l) = b^V(e_i,e_k)b^W(e_j,e_l) = b^V_{ik}b^W_{jl},\]
+	hence precisely the coefficients given in \ref{modultensor} for the
+	tensor-product of the linear maps associated to the representing
+	matrices.}}
+
+Finally I summarise the canonical functors between the examples:
+{\ex{For each commutative ring $k$ we have a canonical inclusion functor
+	\[k[\cdot]\colon \mathrm{Fin} \rightarrow \MM^L_k\]
+	given by sending each finite set to its associated free module, and
+	each map to its linear extension. This is a strictly additive as
+	well as multiplicative functor, moreover it strictly respects the
+	symmetries and distributors. We can obviously restrict to 
+	$\mathrm{Inj}$, $\mathrm{Epi}$, $\Sigma$ and restrict the codomain to 
+	the appropriate linear maps, i.e., monomorphisms, epimorphisms, 
+	or isomorphisms.
+	
+	We also have the analogous canonical inclusion functor given by
+	reduced free modules:
+	\[\tilde k[\cdot]\colon \Fi\rightarrow \MM^L_k\]
+	sending each finite set to the associated free module with the 
+	basepoint divided out. It is again strictly symmetric monoidal
+	with respect to pointed sum and smash product, and respects the
+	distributivity transformations as well.
+
+	Finally for $k=\mathbb{R},\mathbb{C}$ these functors even have image
+    in the categories $\V_k$, since the described maps are obviously orthogonal/unitary.}}
+
+{\defn{Since we want to model connective complex $K$-theory we consider
+$k=\CC$ in the example above, and find that $\V^c_\CC$ also becomes a
+topological bipermutative category in that case. The delooping of 
+$\V^c_\CC$ is the prototypical model for connective complex $K$-theory. 
+In particular I denote by $ku:=H\V^c_\CC$ the delooping spectrum of the
+topological category of finitely generated complex vector spaces with
+morphism spaces the unitary isomorphisms.}}
+
+\subsection*{Preliminaries on Discrete Models for $ku$}\label{ltolzeta}
+For each odd prime $p$ there are in addition ``discrete models'' for $ku$, 
+which are a suitable replacement when studying its $H\F_p$-homology.
+
+Fix a prime $p$ for which we want an $H\F_p$-approximation
+of $ku$, i.e., a spectrum $E$ with a map $E\rightarrow ku,$ which
+induces an isomorphism on $H\F_p$-homology. Following Quillen \cite{Q1971}
+we want to approximate $ku$ by algebraic $K$-theory of the algebraic
+closure $\bar\F_p$ of the finite field with $p$ elements. In fact it
+is sufficient to restrict to a subfield of $\bar\F_p$ which contains
+the appropriate roots of unity, which we construct here.
+
+For that we need to choose a prime that is a generator 
+of $(\Z/p^2)^\times$. Observe that necessarily the existence of just 
+one generator implies that $p$ is odd, because for $p=2$ we have 
+$(\Z/2^k)^\times\cong\{\pm 1\}\times\Z/2^{k-2}\Z,$ where for $k\geq 3$ 
+the second factor is always generated by the powers of $5$ 
+\cite[Art. 91, p. 89 - Latin edn.]{Gauss}. 
+For $p$ odd the group of units has a 
+decomposition $(\Z/p^k)^\times \cong \Z/(p-1)\times \Z/p^{k-1},$ 
+and is thus a product of two cyclic groups of coprime order 
+\cite[Art. 84, p. 82 - Latin edn.]{Gauss}. Given an integer $g$ reducing
+to a multiplicative generator of the units of $\Z/p$ we know by 
+Fermat's little theorem $g^{p-1}=1~ \mathrm{mod}~ p$, so 
+$g^{p-1}=1+lp$ for some $l\in\Z$. Then we have in $\Z/p^2$: 
+\[(g+p)^{p-1}=g^{p-1}+(p-1)g^{p-2}p \mathrm{~mod~}p^2\neq g^{p-1}
+\mathrm{~mod~}p^2,\] so at least one of the integers $\{g,g+p\}$ 
+satisfies \[g^{p-1}\neq 1 \mathrm{~mod~}p^2~~~ \mathrm{or}~~~(g+p)^{p-1}\neq 1\mathrm{~mod~} 
+p^2.\] An integer of $\{g,g+p\}$ satisfying the above inequality 
+(multiplicatively) generates the units of $\Z/p^k$ for each $k\geq 2$, 
+in particular it generates the units of the $p$-adic integers $\Z_p$ 
+topologically.
+
+We use Dirichlet's Theorem on arithmetic progressions
+in the following form:
+{\thm[Dirichlet]{For a natural number $n\geq 2$ and a unit 
+$a\in(\Z/n)^\times$ consider the class of primes 
+$P_a=\{~p\in\N~|~p \mathrm{~prime~ and~~} p = a \mathrm{~mod~} n \}$.
+Then each class $P_a$ has ``logarithmic density'' $\frac1{\varphi(n)}$ 
+in the set of all primes, for $\varphi(n)$ the number of units in
+$\Z/n$.}}
+
+{\rem{I do not need the concept of logarithmic density again, so I 
+only give a vague description: The intuition 
+is that it is an adapted way to measure subsets of countable sets 
+(such as the set of all prime numbers), such that the measure is $0$ 
+for finite subsets.}}
+
+One proof of the theorem by complex analysis involves the Dirichlet 
+$L$-series associated to a homomorphism $(\Z/n)^\times \rightarrow 
+\CC^\times.$ For the trivial homomorphism which sends everything 
+to $1\in\CC$ the $L$-series has a singularity in $1$. This forces 
+the $L$-series of every non-trivial character to be bounded, 
+but non-zero, in $1$. This gives the following comparison of 
+divergence around $s=1$: 
+\[\sum_{p\equiv a \mod n}p^{-s}=\frac1{\varphi(a)}\log\frac1{s-1}\pm C.\] 
+In words: The sum over all primes, which are in $P_a$, 
+taken with the exponent $-s$ diverges like $\log\frac1{s-1}$ 
+in $1$ (up to a constant $C\in \RR$). In particular there are 
+infinitely many such primes.
+
+We can use the theorem in particular to specialise to a 
+generator $a\in\Z/p^2$, and find a prime $q$ with $q=a~\mod ~p^2,$ 
+which generates the units of each $\Z/p^k$ by the considerations 
+before. 
+
+{\ex{I want
+to exhibit valid choices for all primes below $100$. I organised the 
+table by smallest multiplicative generator $q$ for $\Z/p^2$:\\
+\phantom{aaaaaaaaaaaaaaaaaaaaaaaaaaaa} \begin{tabular}{c|r}$q$&$p$\\
+\hline$2$&$3,5,11,13,19,29,37,53,59,61,67,83,$\\$3$&$7,17,31,43,79,
+89,$\\$5$&$23,47,73,97,$\\$7$&$41,71.$\end{tabular}
+\phantom{blubb}\\}}
+
+We want to approximate $ku$ by algebraic $K$-theory applied to 
+a suitable tower of field extensions.
+Start with the prime field with $q$ elements $\F_q$. Since $q$ 
+generates the units of $\Z/p^2$ it generates $\Z/p^\times$
+as well. So the cyclotomic polynomial of degree $p-1$ \[\varphi_{p}(X)
+=\sum_{i=0}^{p-1}X^i\] is irreducible over $\F_q$. Thus we have the 
+extension of fields \[\l_0:=\F_q\rightarrow \F_q[X]/\varphi_p\cong 
+\F_{q^{p-1}}=\l_0(\zeta_{p})=:k_0\] for $\zeta_p$ some chosen primitive 
+$p$th root of unity.
+Since $q$ and $p$ are trivially coprime by the assumptions, each 
+element in $\F_q$ has a $p$th root in $\l_0$. However, the units of
+$k_0$ have order $q^{p-1}-1$. Because $q$ is a unit in $\Z/p$, we get
+\[q^{p-1}-1=0\mathrm{~mod~} p,\]
+so taking the $p$th power is not injective, hence not surjective.
+So there is an element $a\in k_0$, which does not have a $p$th root.
+There is an obvious candidate: $\zeta_p$. Because of our assumption on
+$q$ and $p$ we have $q^{p-1}-1=0\mathrm{~mod~} p$, but 
+$q^{p-1}-1\neq0\mathrm{~mod~} p^2,$ because $p-1$ is strictly smaller
+than the order of the units of $\Z/p^2$, so the units of $\l_0(\zeta_p)$ 
+decompose as:\[\l_0(\zeta_p)^\times \cong
+\Z/p\langle\zeta_p\rangle\times \Z/s,\] for some $s$ coprime to $p$. 
+In particular we find that the kernel of $(\cdot)^p$ is contained 
+in the $\Z/p$-summand, while the image is contained in the $\Z/s$-factor,
+hence $\zeta_p$ does not have a $p$th root in $k_0=\l_0(\zeta_p)$.
+Since $p$ is odd, we get that $f_m(X)=X^{p^m}-\zeta_p$ is irreducible
+for each $m\geq 1$ if and only if $\zeta_p$ has no $p$th root in $k_0$,
+which we just established. So inductively call $\alpha_i = 
+\sqrt[p]{\alpha_{i-1}}$ with $\alpha_0 = \zeta_p$. More explicitly
+for each $i\geq 1$ we choose a primitive $p^i$th root of $\zeta_p$, and
+call it $\alpha_i$.
+
+\label{myfields}
+For exposition let me choose a presentation. We can write $k_i$ for 
+$i\geq1$ as:\[\F_q[X,Y_i]/\left(Y_i^{p^i}-X,\sum_{k=0}^{p-1}
+X^k\right)\cong\F_q[Y_i]/\left(\sum_{k=0}^{p-1}Y^{p^ik}
+=\varphi_p(Y_i^{p^i})\right).\] Then the field $\l_i\subset k_i$ is 
+given as the fixed-set under the Galois-action of 
+the factor $\Z/p-1$, which stems from the cyclotomic extension.
+
+In the fields $k_i$ we trivially have the inclusions $k_i\rightarrow k_{i+1}$
+with $Y_i\mapsto Y^p_{i+1},$ i.e., identifying $Y_{i+1}$ as a $p$th root
+of $Y_i$. This yields the following diagram
+\[\xymatrix{ k_0\ar[r] & k_1\ar[r] &\ldots \ar[r]& k_i \ar[r]&\ldots& \\
+\l_0 \ar[u]\ar[r] & \l_1\ar[r]\ar[u] &\ldots\ar[r] & \l_i\ar[r]\ar[u] &\ldots,&}\] 
+where the horizontal arrows signify $\Z/p$-Galois-extensions, while
+the vertical arrows are $\Z/(p-1)$-Galois-extensions. Hence on colimits
+$K=\colim_i k_i$ and $L=\colim_i \l_i$ we get the $\Z/(p-1)$-extension:
+$L\rightarrow K,$ which by the presentations given above is
+of the form \[L\rightarrow K=L[X]/\varphi_p =L(\zeta_p).\]
+
+{\rem{Let me emphasise that the prime $p$ defining the degree
+of the extension with Galois group $\Z/p-1$ is structurally important, while
+$q$ only serves to ensure the existence of this extension and its particular
+choice is irrelevant to the construction.}}
+
+{\ex{Building on the previous example the extension
+of $L$ by a primitive $p$th root of unity $\zeta_p$, as above
+$L\rightarrow L(\zeta_p)$,
+induces a map of bipermutative categories $\V_L\rightarrow
+\V_{L(\zeta_p)}.$ Hence the delooping of these bipermutative 
+categories provides a map \[H(\V_L)\rightarrow H(\V_{L(\zeta_p)}),\]
+which is a map of $E_\infty$ symmetric ring spectra. Again referring 
+to chapter \ref{multbidel} we see that these spectra are models for the 
+algebraic $K$-theory of their respective fields and hence we understand 
+this map as:\[K(L)\rightarrow K(L(\zeta_p)).\] Consider the Galois 
+group of the extension $L\rightarrow L(\zeta_p)$: 
+$G=Gal(L(\zeta_p)/L).$ For any homology theory $h_*$ with $p-1=|G|
+=|\Z/p-1|$ a unit in its coefficients the map $K(L)\rightarrow K(L(\zeta_p))$
+induces an isomorphism on $h$-homology groups:
+\[h_*K(L)=(h_*K(L(\zeta_p)))^{G}.\] In particular for $h = H\F_p$ we 
+get an equivalence of $p$-completed spectra: \[K(L)^\wedge_p\simeq
+(K(L(\zeta_p))^\wedge_p)^{hG}.\]}}
+
+\subsection*{Comparison of the Models}
+One essential insight that led Quillen to the definition of algebraic
+$K$-theory \cite{Q1971,Q1972,Q1973} was the fact that he could compute
+the full Algebraic $K$-theory of all finite fields by comparison to
+fibres of Adams operations on $BU$, so in essence by comparison to
+$ku$. I want to exhibit the map involved, which is established by the
+Brauer lift, but I shall defer the proofs to the relevant sources.
+
+Again by the construction in \ref{myfields} we can easily fix a
+homomorphism:\[\mu\colon L(\zeta_p)^\times \subset \langle\zeta_p
+\rangle \times\bigoplus_{l ~\mathrm{prime} \neq p}\Z/l^\infty 
+\rightarrow \mathbb{C}^\times\] by setting $\mu(\zeta_p) =
+\exp(\frac{2\pi i}{p}).$ For a summand indexed by a prime $l$ choose a 
+primitive $l$th root of unity in $\CC^\times$ as 
+$\exp(\frac{2\pi i}{l})$ as well as the primitive $l^j$th roots of 
+unity $\exp(\frac{2\pi i}{l^j})=\zeta_{l,j}$. This yields coherent 
+homomorphisms for each $l$ \[\mu_l\colon \Z/l^j\rightarrow \CC^\times, 
+\mathrm{~~hence~on~the~colimit~~} \mu_l\colon\Z/l^\infty \rightarrow 
+\CC^\times.\]
+
+With these choices fixed we can use the following theorem (cf.
+\cite[p. 283, Theorem 5.3.4]{Ros1994}):
+{\thm{Let $G$ be a finite group, and let $\rho\colon G\rightarrow 
+GL_n\barF_q$ be a finite-dimensional representation of $G$ over the
+algebraic closure of $\F_q$. Let $\{\xi^i_g~|~i=1,\ldots,n\}$ be the
+eigenvalues of $\rho_g$ with multiplicities, so that the trace of
+$\rho_g$ is given as: $tr(\rho_g)=\sum_i \xi^i_g.$
+
+The function $f^\rho\colon G\rightarrow \CC$ with 
+$f^\rho(g)=\sum_i\mu(\xi_g)$ is a class-function, hence by basic 
+complex representation theory (cf. \cite[Part I, Chapters 1-3]{Serre}) 
+a linear combination of characters of complex $G$-representations. 
+Call $f^\rho$ the Brauer character of $\rho$.
+
+In fact we have integral coefficients, so $f$ uniquely determines 
+a complex virtual representation of $G$, called the 
+\emph{Brauer lift} of $\rho$ - denote it $F(\rho)$. Furthermore 
+the Brauer lift is additive, i.e., for a short
+exact sequence of $\barF_q[G]$-modules:
+\[0\rightarrow U\rightarrow V\rightarrow W\rightarrow 0\]
+the lifts satisfy $F(V)=F(U)+F(W)$.}}
+
+{\rem{Observe that the Brauer lift consists of
+representations of $G$ that have eigenvalues on the circle 
+$\S^1\subset \CC$, because the group has finite order.}}
+
+I want to exhibit the idea of how this induces a comparison map, 
+but I gloss over quite a few details, which are in part explained 
+in \cite[pp. 284--285]{Ros1994} and much more in the original 
+\cite{Q1971,Q1972}.
+
+We want to consider the homomorphism $i_n\colon GL_n(L(\zeta_p))
+\rightarrow GL_n(\barF_q)$. Since $L(\zeta_p)$ is a colimit of finite
+fields the general linear groups $GL_n(l_i)$ are finite groups, which
+yield $GL_n(L(\zeta_p))$ as their colimit. The Brauer Lift is
+evidently stable in the colimit over the fields $l_i$, since the 
+eigenvalues of the matrices do not change. 
+
+We can determine the virtual dimension of the Brauer Lift by the 
+trace of the identity: We get $\xi^i(id_n)=1$ for $1\leq i \leq n$, 
+so $\sum_i\mu(\xi^i)=\sum_i\mu(1) = \sum_i1=n$.
+This is obviously not stable in $n$; thus subtract the 
+trivial $GL_n(\CC)$ representation of $GL_nl_i$,
+and consider the lift of $i_n$ minus $n$. Obviously the 
+trivial complex representation of $GL_nl_i$ of 
+dimension $n$ is a lift for the trivial $GL_nl_i$-representation over
+$\barF_q$, so we get $F(i_n-n)=F(i_n)-n$ and hence a stable class
+of a virtual representation of dimension zero giving a map 
+\[BGL(L(\zeta_p))\rightarrow BGL^\delta(\CC)\rightarrow BGL(\CC)\simeq BU.\]
+This map induces homology isomorphisms with $\F_m$-coefficients for
+any prime $m$ other than $q$, thus induces an equivalence of 
+completed spaces at each prime $m\neq q$:
+\[BGL(L(\zeta_p))^{\wedge}_m\rightarrow BU^{\wedge}_m,\]
+given as theorems 1.6 and 4.7 by Quillen in \cite{Q1971}.
+
+If the Brauer Lift happened to be not just a virtual representation
+but indeed a genuine homomorphism $\Phi\colon GL(L(\zeta_p))
+\rightarrow GL(\CC)$ we could try to restrict to the $GL_n$ again,
+and induce a map of bipermutative categories
+$\V_{L(\zeta_p)}\rightarrow \V_\CC,$ which would give an infinite loop
+map, i.e., a map of spectra $K(L(\zeta_p))\rightarrow K(\CC)=ku$, and
+furthermore of $E_\infty$-ring spectra. But calculating in low 
+dimensions for $GL_2(\F_q)$ shows that the Brauer Lift has a genuine
+negative component. I suspect this approach could be repaired
+with a ``ring-complete'' version of $\V_\CC$ as given by \cite{BDRR2013},
+but the result has been established long before that by other methods.
+
+The additivity directly yields that the Brauer Lift is an 
+$E_\infty$-map with respect to the $E_\infty$-structure on 
+$BGL(L(\zeta_p))^+$ and $BU^+$ induced by direct sum of matrices. 
+Furthermore in ``$E_\infty$ Ring Spaces and $E_\infty$ Ring Spectra'' 
+May shows \cite[pp. 212-222]{MayEinf} that the induced map is also an 
+$E_\infty$-map for the $E_\infty$-structure induced by tensor-products. 
+With all this in place we have an equivalence of 
+$E_\infty$ ring spectra at $p$:
+\[K(L(\zeta_p))^\wedge_p\rightarrow K(\CC)=ku^\wedge_p.\]
+The equivalence of spectra is given in 
+\cite[pp. 217+218, Corollary VIII.2.7, Theorem VIII.2.8]{MayEinf}, the compatibility
+with the $E_\infty$ structures on these spectra is 
+\cite[pp. 219-222, Theorem VIII.2.11]{MayEinf}. \label{einfapprox}
+
+\subsection*{The Involutions}
+In this thesis I want to investigate the induced involution on the 
+algebraic $K$-theory of $ku$ as well, so as the final comment on the
+models I establish which involution is induced on $K(l(\zeta_p))$ by
+the Brauer lift.
+
+{\prop{For any multiplicative embedding $\mu\colon l(\zeta_p)^\times
+\rightarrow\CC^\times$ we have the following relation for involutions:
+\[\mu\circ(\cdot)^{-1}=(\cdot)^{-1}\circ\mu=\overline{(\cdot)}
+\circ\mu.\]
+That is, we have on $\CC^\times$ that multiplicative inversion $(\cdot)^{-1}$
+and complex conjugation $\overline{(\cdot)}$ coincide on the image of the
+embedding, and the embedding is a monoid homomorphism, thus compatible with
+multiplicative inversion.
+\begin{proof} Since we have $\mu(1)=1$ it commutes with inverting 
+elements, which is a homomorphism because the involved groups are 
+commutative. But since the order of every element of 
+$l(\zeta_p)^\times$ is finite, we know that $\mu(l(\zeta_p)^\times)
+\subset \S^1$. Hence inverting and complex conjugation coincide.
+\end{proof}}}
+
+{\prop{For any representation of a finite group $\rho\colon G
+\rightarrow GL_n\barF_q$ and the induced representation
+of the group $G^{op}$ with opposed multiplication given by
+$\rho\circ(\cdot)^{-1}\colon G^{op}\rightarrow GL_n\barF_q$ we have 
+the following relation for the Brauer characters:
+\[\overline{f^{\rho}} = f^{\rho\circ(\cdot)^{-1}}.\]
+\begin{proof} For $g\in G$ calculate the Brauer character with 
+$\xi^i_g$ again the eigenvalues of $\rho_g$ with multiplicities:
+\[\overline{\sum_i\mu\xi_g^i}=\sum_i\overline{\mu\xi_g^i} 
+=\sum_i(\mu\xi_g^i)^{-1}=\sum_i\mu((\xi_g^i)^{-1})
+=\sum_i\mu(\xi_{g^{-1}}^i),\] hence follows the claim.\end{proof}}}
+
+Finally, we would like to induce this Brauer character by some virtual
+representation which only explicitly depends on $\rho$ and starts
+from the same group $G$ instead of the one with opposed 
+multiplication, but we do not want to cancel out the inversion. 
+Note that the target is a general linear group. For $G=GL_nR$ the group 
+hence comes equipped with a second isomorphism from $G$ to $G^{op}$ 
+given by transposition.
+
+{\thm{For any representation of a finite group $\rho\colon 
+G\rightarrow GL_n\barF_q$ let $\rho^\dagger$ be the representation 
+induced by considering the composition:
+\[\xymatrix{G\ar[r]^{(\cdot)^{-1}} & G^{op} \ar[r]^\rho 
+& GL_n\barF_q^{op}\ar[r]^{(\cdot)^t}&GL_n\barF_q}\]
+Then their Brauer characters satisfy:
+\[f^{\rho^\dagger}=\overline{f^\rho},\]
+and hence by uniqueness of the associated (virtual) representation
+we find
+\[F(f^{\rho^\dagger})=\overline{(\cdot)}\circ F(f^\rho).\] 
+\begin{proof}Obviously transposing matrices does not change the 
+eigenvalues involved in the definition of the Brauer character, so the 
+preceding proposition directly yields the claimed result.\end{proof}}}
+
+For ease of reference I summarise Quillen's approximation
+\cite{Q1971} by the Brauer lift with respect to its multiplicative
+and involutive structure in one theorem.
+{\thm{The Brauer lift at any prime $p\geq 3$ is a map of $E_\infty$ ring 
+	spectra	$K(L(\zeta_p))=H(\MM(L(\zeta_p)))\rightarrow H(\MM(\CC))=ku,$
+	which is an equivalence of $E_\infty$-ring spectra after completion
+	at $p$: $K(L(\zeta_p))^\wedge_p\rightarrow ku_p^\wedge.$
+
+	Furthermore the involution on $ku$ given by complex conjugation is
+	approximated by $(\cdot)^t\circ(\cdot)^{-1}$ on $L(\zeta_p)$, in 
+	particular the involution as induced on $ku$ by \ref{indinvSP}
+	from complex conjugation cancels out to give the approximation of
+	$E_\infty$-ring spectra with involution:
+	\[(K(L(\zeta_p))^\wedge_p,\id)\rightarrow (ku_p^\wedge,
+	\overline{(\cdot)}_*).\]}}
+\label{Invandmultappr}

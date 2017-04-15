@@ -1,0 +1,1225 @@
+\chapter{Bicategories of Matrices}\label{modulbicat}
+\section{Osorno's Delooping of $\M$}
+Given a permutative category that has a compatible associative multiplication,
+one can define its module bicategory \cite{Os}. Furthermore, Osorno
+provides a delooping of this bicategory by considering block sums of
+matrices and organising these into a $\Gamma$-structure on the module
+bicategory. This leads to an associated spectrum given a permutative
+bicategory. 
+
+I extend Osorno's result in a multiplicative manner. 
+This means I define the bicategory-analogue of bipermutative
+categories in this chapter and adapt Osorno's delooping in a 
+manner that it has an induced multiplicative structure in the 
+next chapter, leading to an $E_\infty$ symmetric ring spectrum.
+
+Given a bimonoidal category $(\R,\oplus,\otimes)$ one can define its
+bicategory of matrices as follows:
+{\defn{The \textbf{bicategory of matrices} $\M$ associated to a bimonoidal
+category $\R$ is given as follows. It has as objects the natural numbers 
+$n\in\N_0$, and its morphism categories are:\[\M(n,m):=\begin{cases}
+GL_n\R, ~~~&n=m,\\ \emptyset,  & \mathrm{else,}\end{cases}\] with 
+$GL_n\R$ the categories of weakly invertible $n\times n$-matrices 
+over the bimonoidal coefficients $\R$ (cf. \cite{Os,Ri2010,BDR2004}}).}
+
+For this category to have an associator it is vital that the 
+distributivity morphisms of $\R$ are \emph{isomorphisms} 
+(cf. equation (4) on p.323 of \cite{Ri2010})! 
+
+In what follows I need that for each bimonoidal category the 
+bipermutative category $\Sigma_*$ is part of the bicategory $\M$ 
+in a well-behaved way:
+{\prop{\label{symmMatr}Consider the map \[\begin{aligned}E_{\bullet}
+\colon& \Sigma_n&\rightarrow &~GL_n\R & \sigma \mapsto E_\sigma,\end{aligned}\] 
+with $(E_\sigma)_{ij}:=\delta_{i,\sigma j}$. This map satisfies 
+$E_{\sigma \tau} = E_{\sigma}E_{\tau}$. It is a faithful 
+functor between monoidal categories.
+
+Furthermore there is an action on general matrices: \[(E_\sigma A 
+E_\tau)_{ij}=A_{\sigma^{-1}i,\tau j},\] hence in particular: 
+\[(E_{\sigma^{-1}}AE_{\sigma})_{ij}=A_{\sigma i, \sigma j} 
+\label{indexPerm}.\]}}
+
+Structurally more satisfactory we get the following embedding.
+{\prop{\label{strictAss}The category of finite sets as described in 
+Example \ref{Fin} includes into the bicategory of modules for each coefficient
+category $\R$: \[\Sigma_* \rightarrow \M.\] More explicitly: Consider 
+$\Sigma_*$ as a bicategory with discrete morphism categories, then for
+each coefficient category $\R$ we get a strict normal functor 
+$E_\bullet\colon \Sigma_* \rightarrow \M,$ i.e., $E_\bullet$ strictly
+respects identities and compositions \ref{strictn}. \begin{proof} I only give the 
+indication of why this is true in my setup. The essential 
+point is the strictness of $0$ and $1$ in the coefficient category as 
+units, as well as the strict equality $0\cdot a = 0$.\end{proof}}}
+
+This has the following extremely convenient corollary.
+{\cor{For each (small) coefficient category $\R$ its module bicategory 
+$\M$ has a sub-bicategory which is the faithful image of $E_\bullet$, 
+in particular, this sub-bicategory is a $2$-category, so the 
+associator restricts to the identity there.}}
+
+{\rem{With these results it is just a minor abuse of notation to 
+identify permutations with their images in $\M$, hence I write 
+$\sigma = E_\sigma$. In particular the identity matrix of an object
+$n\in\M$ is in the image of $E$ and I write $E_n=E_{id_n}$ for the
+unit matrix.}}
+
+In \cite{Os} Osorno established that the direct sum of matrices equips 
+this bicategory with a well-behaved permutative structure 
+\cite[Theorem 4.7]{Os}, and the main result of the paper 
+\cite[Theorem 3.6]{Os} states that this can be delooped just as the
+classical case \cite{Seg}.
+
+{\thm[{\cite[Theorem 4.7]{Os}}]{\label{OsPlus} The bicategory of matrices $\M$ 
+is strictly symmetric monoidal with respect to the \textbf{block sum} of 
+matrices: \[\begin{aligned}\boxplus\colon&\M\times\M &\rightarrow&~\M\\
+& (n,m)&\mapsto & ~n+m\\&(A,B)&\mapsto &\left(\begin{array}{c|c}A&0\\
+		    \hline0&B\end{array}\right).\end{aligned}\]
+The symmetry is just the one given by the functor $E_\bullet$ 
+defined in Proposition \ref{symmMatr} from $\Sigma_*$ (cf. Example \ref{Fin}), 
+i.e.: \[\Sigma_{n+m}\ni c^+_{n,m}=c_+\colon n\boxplus m \rightarrow m\boxplus n .\]}}
+
+This symmetric monoidal structure exhibits the classifying space of
+$\M$ as an infinite loop space.
+
+{\thm[{\cite[Theorem 3.6]{Os}}]{\label{plusdeloop} Let $\mathcal{M}$ be a strict 
+symmetric monoidal bicategory. Then there is a special $\Gamma$-bicategory 
+$\widehat{\mathcal{M}}$ such that:\[\widehat{\mathcal{M}}(1)\cong 
+\mathcal{M}.\] Therefore the classifying space 
+$|N\mathcal{M}|$ is an infinite loop space upon group completion.}}
+
+I elaborate on the permutative structure and the delooping further in \ref{Mult} 
+once my multiplicative matters are in place. In 
+particular my main result of this chapter is the following.
+{\thm{Given a bipermutative coefficient category $(\R,\oplus,\otimes)$
+there are two permutative structures $\boxplus,\boxtimes$ on its 
+module bicategory $\M$ that can be arranged into a bipermutative 
+bicategory.}}
+
+This bipermutative structure can then be fitted onto the delooping of
+$\M$, such that the result is an $E_\infty$-ring spectrum. This is
+the content of the next chapter \ref{multbidel}.
+
+{\thm{There is an $E_\infty$ symmetric ring spectrum $H\M$, which is weakly 
+equivalent to the spectrum of Osorno's $\Gamma$-space 
+$|N\widehat{\M}|$, with multiplication induced by the 
+multiplicative structure of $\M$.}}
+
+{\rem{The embeddings of the symmetric groups are compatible with 
+direct sum of matrices in the nicest possible way: \[\xymatrix{
+\Sigma_n\times \Sigma_m\ar[r]^\sqcup \ar[d] & \Sigma_{m+n}\ar[d]\\
+GL_n\R\times GL_m\R \ar[r]^-\boxplus & GL_{n+m}\R.}\] So we have
+$\sigma\boxplus\tau=\sigma\sqcup \tau,$ i.e., considering 
+permutations as matrices yields that their direct sum is the
+disjoint union.}}
+
+\section{Definition - Symmetric Monoidal and Permutative Bicategories}
+In what follows I need two types of symmetric monoidal structures.
+One is the $E_\infty$-structure which we deloop, thus the one thought
+of as additive. The other one gives the induced $E_\infty$-multiplication
+on the delooping.
+
+For convenience I use the shorthand $Ob\C=\C_0$. For $1$-cells, 
+i.e., objects of morphism categories, when I do not want to refer 
+to their source and target I use $Mor\C=\C_1$.
+
+By weakening the definition of $2$-categories to bicategories one has an assortment
+of ways how monoidality can be defined for a bicategory. Apart from the weakenings
+of unit axioms, one can
+impose associativity up to isomorphism, and varying degrees of symmetry. For 
+bicategories there is one more degree of symmetry in addition to ``associative,
+braided,'' and ``symmetric'', which is called ``sylleptic''. For a detailed discussion
+of these notions, as well as a guide to the 7 sources, which incrementally built the
+notion of ``monoidal bicategory'' in a fully weakened version, I defer to the PhD thesis
+of Christopher Schommer-Pries \cite{SP09}. The original fully weakened definition of 
+braided monoidal bicategories goes back to Kapranov and Voevodsky in \cite{KV} as
+braided Gray monoids.
+
+{\defn{\label{permbic} A \textbf{permutative bicategory} $(\C,+,0,c_+)$ is a 
+bicategory with strict identities, a strict normal \ref{strictn} functor \[+\colon 
+\C\times\C \rightarrow \C,\] a chosen additive unit $0\in\C_0$ and a 
+strict natural transformation\[c_+\colon +\circ tw\Rightarrow +\] 
+for $tw\colon \C\times\C\rightarrow \C\times\C$ the strict isomorphism,
+which exchanges factors. 
+
+These satisfy the following identities: \begin{itemize} \item Adding 
+$0$ is strictly equal to the identity functor on $\C$: \[0+\_=\_+0=
+id_\C.\]\item Addition is strictly associative, i.e., we have an 
+equality of functors \[(\_+\_)\circ((\_+\_)\times id) =(\_+\_)\circ(id
+\times (\_+\_)),\] \end{itemize} giving a 
+well-defined strict normal $n$-fold sum functor for each $n\geq 0$:
+\[\sum_n\colon \C^{\times n}\rightarrow \C.\]
+Additionally the additive twist has to make the following 
+diagrams strictly commutative for every $a,b,c\in\C_0$:
+\begin{itemize}\item[]\[\begin{array}{cc} {\xymatrix{a+b+c \ar[r]^{
+c_++id_c}\ar[dr]_{c_+} & b+a+c\ar[d]^{id_b+c_+}\\&b+c+a}}&{\xymatrix{
+a+b+c\ar[r]^{id_a+c_+}\ar[dr]_{c_+}& a+c+b\ar[d]^{c_++id_b}\\&c+a+b}}
+\end{array}\]\item[] \[\xymatrix{a+b \ar@{=}[rr]\ar[dr]_{c_+}&&a+b\\
+&b+a,\ar[ur]_{c_+} & }\]\end{itemize} giving a 
+unique (strict) natural transformation for every $n\in\N_0$ and 
+$\sigma\in\Sigma_n$: \[c_\sigma\colon \sum_n\circ\left({\sigma\colon 
+\C^{\times n} \rightarrow \C^{\times n}}\right)\Rightarrow \sum_n\] 
+built from composites of $c_+$.\label{uniquecplussigma}}}
+
+{\rem{This is a maximally strictified version of the definition of ``strict symmetric monoidal''
+	Ang\'elica Osorno uses in \cite[Definition 3.1]{Os}. She considers more generally a monoidal
+	product, which is just a pseudofunctor, as well as a symmetry, which is just pseudonatural.
+	Thus in addition to the assumption of strict identities, the strict functoriality of $+$ and
+	the strict naturality are stronger conditions to impose.}}
+
+{\defn{\label{mdlbic} A \textbf{symmetric monoidal bicategory} 
+$(\C,\cdot,1,c_\cdot)$ consists of a bicategory with strict units 
+$\C$, a pseudofunctor \[(\cdot,\Phi)\colon \C\times\C
+\rightarrow \C,\] a chosen unit-object $1\in\C_0$, a strong 
+pseudonatural transformation \[(c^1_\cdot,c^2_\cdot)\colon \cdot\circ 
+tw\Rightarrow \cdot,\] satisfying the following identities:
+\begin{itemize}\item Multiplying with $1$ is strictly equal to the 
+identity functor on $\C$: \[1\cdot \_=\_\cdot 1=id_\C.\] 
+\item Multiplication is strictly associative, i.e., we have a 
+strict equality of functors (and their compositors): 
+\[(\_\cdot\_)\circ((\_\cdot\_)\times id)=(\_\cdot\_) \circ(id \times 
+(\_\cdot\_)),\] giving a well-defined pseudofunctor:
+\[(\prod_n,\Phi^{\prod_n})\colon \C^{\times n}\rightarrow \C.\]
+In addition the multiplicative twist makes the following
+diagrams strictly commute for every $a,b,c\in\C_0$: 
+\[\begin{array}{ccc} {\xymatrix{abc \ar[r]^{c_\cdot\cdot id_c}
+\ar[dr]_{c_\cdot} & bac\ar[d]^{id_b\cdot c_\cdot}\\&bca}}&{\xymatrix{
+abc\ar[r]^{id_a\cdot c_\cdot}\ar[dr]_{c_\cdot}& acb\ar[d]^{c_\cdot
+\cdot id_b}\\&cab}}& {\xymatrix{ab \ar@{=}[r]
+\ar[dr]_{c_\cdot}  & ab \\  &ba,\ar[u]_{c_\cdot}}}\end{array}\]
+which means in more detail that the functors as well as their 
+compositors coincide. In particular ${c^1}_\cdot$ squares to the 
+identity transformation with identity two-cell, hence ${c^2}_\cdot$
+has to square to the identity as well. Again this implies that we have
+a unique strong pseudonatural transformation for every $n\in\N_0,
+\sigma\in\Sigma_n$:\[c_\sigma\colon \prod_n\circ\left({\sigma\colon 
+\C^{\times n} \rightarrow \C^{\times n}}\right)\Rightarrow \prod_n\]
+built from composites of $(c^1_\cdot,c^2_\cdot)$.\end{itemize}}}
+
+{\rem{The above notion is precisely the notion of ``strict symmetric monoidal'' Osorno
+	gives in \cite{Os} apart from my standing assumption on strict identity $1$-cells
+	in the underlying bicategory. Since I consider no other symmetric monoidal structures
+	on bicategories than the ones given by block sum and tensor-product on $\M$, I choose
+	to drop the attribute ``strict'', since the essential difference to ``permutative'' is
+	the \textbf{non-strictness} of the monoidal functor $(\cdot,\Phi)$.}}
+
+{\rem{Do note that the condition that $c^1$ squares to the identity
+implies that it is an isomorphism $1$-cell, not just an equivalence as
+one might guess.}}
+
+{\rem{In chapter \ref{multbidel} I can much more easily generalise the 
+Grothendieck construction as I defined it in \ref{c+}, since the 
+additive structure of $\M$ is even a bit stricter than Osorno 
+axiomatised, making her delooping apply to more general monoidal
+bicategories than mine does. 
+
+I chose the symbols before incorporating the intuition
+that I think of permutative structures as additive structures, which we deloop,
+while symmetric monoidal structures can potentially give superimposed
+multiplications on the delooping.}} 
+
+\section{The Multiplicative Structure on $\M$} \label{Mult} Just as 
+in the classical case of commutative rings one should expect the 
+module category of a bipermutative category to have a multiplicative 
+structure analogous to the tensor product of modules. Since for 
+combinatorial reasons I decided to restrict to a coordinatised version
+of modules, given by ranks and matrices, the tensor product has to be
+one of matrices as well. 
+
+Let me reiterate that the distributivity morphisms
+for a bipermutative category are isomorphisms in this
+thesis! (Compare Remark \ref{IsoIsoIso}.)
+
+ Given a bipermutative coefficient category 
+$(\R,+,\cdot)$ we want to define a tensor product on its 
+bicategory of matrices $\M$. Choose an associative 
+bijection $\omega_{n,m}\colon \mathbf{n}\times \mathbf{m}\rightarrow \mathbf{nm}$, 
+defining a strictly associative monoidal product on $\mathrm{Fin}$,
+which represents the cartesian product of finite sets - cf. Example \ref{Fin}.  
+For definiteness I set $\omega_{n,m}(i,j):= (i-1)\cdot m + j$ with 
+inverse $\theta_{n,m}(i)=(((i-1) ~\mathrm{div} ~m)+1, ((i-1) ~\mathrm{mod}~ m +1),$
+where $i~\mathrm{div} ~m := \floor{\frac{i}{m}}$ is the integer part
+of division of $i$ by $m$, while $i~\mathrm{mod}~ m$ is the remainder
+$r$ for $i=qm+r$ the Euclidean division of $i$ by $m$. 
+
+Recall that this is consistent with the associative smash product 
+on $\Fi$ described in Example \ref{Finp}.
+
+{\defn{\label{tensor}
+Given a choice of associative bijections $\omega\colon \mathbf{n}
+\times \mathbf{m}\rightarrow \mathbf{nm}$ define the tensor product as 
+follows: \[\begin{array}{rlll}\boxtimes\colon&\M&\times&\M
+\longrightarrow\M\\&(n,m)&\mapsto&nm\\&(A,B)&\mapsto&(A\boxtimes B)_{
+\omega(i_1,j_1),\omega(i_2,j_2)}:=A_{i_1,i_2}\cdot B_{j_1,j_2}.\end{array}\] 
+The same description applies to the tensor product of 2-cells.}}
+
+The rest of the section is devoted to proving that $\M$ equipped with
+this monoidal structure satisfies the axioms given in \ref{mdlbic}.
+
+{\rem{Obviously my choice of $\omega$ is dictated by the choices I
+fixed in \ref{Fin} so that I can establish $E_\bullet$ as a 
+bipermutative functor.}}
+
+{\ex{For clarity consider the following small example. Let \[A=\left(
+\begin{array}{cc} A_{11}&A_{12}\\A_{21}&A_{22}\end{array}\right)\] and
+\[B=\left(\begin{array}{cc} B_{11}&B_{12}\\B_{21}&B_{22}\end{array}
+\right),\] then with the bijections chosen above we 
+have: \[A\boxtimes B=\left(\begin{array}{cc|cc}
+A_{11}B_{11} & A_{11}B_{12} &A_{12}B_{11} &A_{12}B_{12} \\
+A_{11}B_{21} & A_{11}B_{22} &A_{12}B_{21} &A_{12}B_{22} \\\hline
+A_{21}B_{11} & A_{21}B_{12} &A_{22}B_{11} &A_{22}B_{12} \\
+A_{21}B_{21} & A_{21}B_{22} &A_{22}B_{21} &A_{22}B_{22} \\
+\end{array}\right).\]}}
+
+{\rem{Following this example it is easy to see that the tensor product
+as defined in \ref{tensor} respects weakly invertible matrices with
+coefficients in a bipermutative category. In particular, if we 
+considered a tensor-product of matrices given by columnwise or 
+linewise ordering (as opposed to blockwise), any entry $a_{ij}=0$ 
+would produce a full zero column or line, hence definitely not a 
+(weakly) invertible matrix.}}
+
+{\rem{As I indicated before the structure induced by direct sum of
+matrices on $\M$ yields a permutative structure, but the 
+tensor-product does not. The fact that $(\M,\boxplus)$ is permutative 
+is shown in the proof of \cite[Theorem 4.7]{Os}. The tensor-product already fails
+at the first strictness of a permutative bicategory, because $\boxtimes$ 
+is not a strict functor, i.e., it only respects composition up to an 
+isomorphism two-cell, which is strict if and only if the multiplicative 
+symmetry of the coefficients is trivial, hence only for $\R$ an ordinary 
+ring (or rig as in the case of $\N$).}}
+
+\subsection{The Matrix Tensor Product is Symmetric Monoidal}
+This subsection is devoted to proving that the tensor product equips
+$\M$ with a symmetric monoidal structure in all detail. It can be 
+skipped safely by the reader without losing any essential information.
+I am sure that an elegant short proof by exploiting the functor 
+$E_\bullet\colon \Sigma_*\rightarrow\M$ can be devised, but I want to
+exhibit the additional strictness the tensor-product on $\M$ satisfies
+in explicit detail.
+
+{\lem{\label{tensoristFunktor} The assignment $\boxtimes$ of 
+definition \ref{tensor} is a pseudofunctor of bicategories.
+
+In addition we have the following natural identities on $1$-cells:
+\[A\boxtimes B = (A\boxtimes id)(id\boxtimes B)\] as well as strict 
+compositors:
+\[(A^1A^2)\boxtimes id = (A^1\boxtimes id)(A^2\boxtimes id),\]
+\[id\boxtimes (B^1B^2) = (id \boxtimes B^1)(id\boxtimes B^2).\]
+
+\begin{proof}Normality is obvious: the identity matrices $E_n$ and 
+$E_m$ are sent to \[E_n\boxtimes E_m = E_{nm},\] by strictness of $0$ 
+and $1$ in $\R$. The interesting aspect is the compositor 
+\[\Phi^\boxtimes\colon (A^1\circ A^2)\boxtimes (B^1\circ B^2)
+\Rightarrow (A^1\boxtimes B^1)\circ (A^2\boxtimes B^2).\]
+Composition of 1-cells in $\M$ is given by matrix multiplication, 
+hence
+\[(A^1\circ A^2)\boxtimes(B^1\circ B^2)_{\omega(i_1,j_1),\omega(i_2,j_2)}\]
+\[\begin{aligned}&=(A^1\circ A^2)_{i_1,i_2}(B^1\circ B^2)_{j_1,j_2}\\
+             &=\left(\sum_k A^1_{i_1,k}A^2_{k,i_2}\right)
+\left(\sum_l B^1_{j_1,l}B^2_{l,j_2}\right)\\    
+             &\Rightarrow^{\rho^{-1}} \sum_k A^1_{i_1,k}A^2_{k,i_2}
+\left(\sum_lB^1_{j_1,l}B^2_{l,j_2}\right)\\
+             &\Rightarrow^{\sum_k\lambda^{-1}} 
+	\sum_{(k,l)}A^1_{i_1,k}A^2_{k,i_2}B^1_{j_1,l}B^2_{l,j_2}\\
+             &\Rightarrow^{\sum_{(k,l)}id\cdot c^{\R}_\otimes\cdot id} 
+\sum_{(k,l)} A^1_{i_1,k}B^1_{j_1,l}A^2_{k,i_2}B^2_{l,j_2}\\
+             &= \sum_{(k,l)}(A^1\boxtimes B^1)_{\omega(i_1,j_1),\omega(k,l)}
+(A^2\boxtimes B^2)_{\omega(k,l),\omega(i_2,j_2)}\\
+             &= (A^1\boxtimes B^1)
+\circ(A^2\boxtimes B^2)_{\omega(i_1,j_1),\omega(i_2,j_2)}.\end{aligned}\]
+So define $\Phi^\boxtimes := (id\cdot c_\otimes\cdot id)\circ\lambda^{
+-1}\circ \rho^{-1}$ in the manner described above for each component 
+(with summations suppressed because of the appropriate coherences in 
+the coefficient category). It is natural, because the involved 
+morphisms are natural in $\R$. It is obvious if either $A^1A^2=id$ or 
+$B^1B^2=id$ then the involved natural isomorphisms are forced to be 
+identities, hence follow the strict identities claimed above.
+
+To see that $\Phi$ is associative I refer the reader to
+\cite{Lap}: Given a morphism \[((A^1\circ A^2)\circ A^3)\boxtimes 
+((B^1\circ B^2)\circ B^3) \Rightarrow (A^1\circ (A^2\circ A^3))
+\boxtimes (B^1\circ (B^2\circ B^3))\] comprised only of structural 
+(iso)morphisms of the bipermutative category $\R$ there is a unique 
+structural morphism between the given source and target. Since the 
+associator of $\M$ is given by structural morphisms of $\R$ and the 
+compositor $\Phi^\boxtimes$ of $\boxtimes$ is given by structural 
+morphisms of $\R$ as well, this gives that $\Phi^\boxtimes$ is 
+associative in the appropriate manner (cf. \cite[p. 4]{Lei}).
+\end{proof}}}
+
+{\rem{Since this is the first proof of this type let me emphasise that 
+	it is sufficient to consider the compatibilities on $1$-cells, because
+	the $2$-cells are any type of $n\times n$-matrix with no additional
+	condition. So the calculations on $1$-cells are ``always'' strictly
+	natural with respect to $2$-cells.}}
+
+{\rem{The additional strict identities show that the compositor of 
+$\boxtimes$ is a result of the natural isomorphism: 
+$(id\boxtimes B)(A\boxtimes id)\Rightarrow 
+(A\boxtimes id)(id\boxtimes B) = A\boxtimes B.$}}
+
+{\rem{Consistently with the Deligne conjecture for Algebraic 
+$K$-theory we see that we need at least a braiding (i.e., an 
+$E_2$-structure) on the coefficient category $\R$ to define 
+an $E_1=A_\infty$-multiplication on its module category. 
+Cf. for instance \cite[Example 3.9]{Bar} and 
+\cite[Remarks after C.6.3.5.17]{Lu2}. For a more thorough
+survey of the Deligne conjecture on Hochschild cohomology as well as
+a survey of its proofs see Section 16 of \cite{MSm}.}}
+
+{\lem{The functor $\boxtimes$ is strictly associative. \begin{proof}
+For this proof I fix the specific associative bijections from the beginning
+of this section. For $A\in GL_n\R, B\in GL_m\R, C\in GL_l \R$ we have:
+\[((A\boxtimes B)\boxtimes C)_{(i_1-1)ml+(j_1-1)l+k_1,
+(i_2-1)ml+(j_2-1)l+k_2}\]
+\[\begin{aligned}
+&= (A\boxtimes B)_{(i_1-1)m+j_1,(i_2-1)m+j_2}\cdot C_{k_1,k_2} \\
+&=  A_{i_1,i_2}\cdot B_{j_1,j_2}\cdot C_{k_1,k_2}\\
+&=  A_{i_1,i_2}\cdot (B\boxtimes C)_{(j_1-1)l+k_1,(j_2-1)l+k_2}\\
+&= (A\boxtimes (B\boxtimes C))_{(i_1-1)ml + (j_1-1)l + k_1,
+(i_2-1)ml + (j_2-1)l +k_2}. \end{aligned}\]\end{proof}}}
+
+{\lem{The object $1$ with its identities is a strict unit for 
+$\boxtimes$. \begin{proof} We have:
+\[(A\boxtimes 1)_{(i_1-1)1+j_1,(i_2-1)1+j_2} = A_{i_1,i_2}\]
+for $i_1,i_2=1,\ldots, |A|$ and $j_1=j_2=1$, analogously 
+$1\boxtimes A = A$.\end{proof}}}
+
+The following statement can also be thought of as a convention: Just 
+as the empty matrix is a strictly neutral element for 
+$\boxplus$, it is a strict zero for $\boxtimes$.
+
+{\lem{The object $0$ with its identity considered as the empty matrix 
+(of objects and morphisms respectively) is a strict zero for 
+$\boxtimes$.}}
+
+I needed some commutativity to show that $\boxtimes$ is a 
+functor, it should be much less surprising that it is necessary for
+commutativity of $\boxtimes$.
+
+{\lem{The bicategory of matrices $\M$ over a bipermutative coefficient category
+$\R$ is symmetric monoidal with respect to $\boxtimes$. \begin{proof}
+At this point I borrow the bipermutative structure from $\Sigma_*$ 
+(cf. \ref{symmMatr}), let $A\in GL_n\R$, $B\in GL_m \R$, and consider:
+\[(c_{n,m}(A\boxtimes B))_{(i_1-1)n + j_1,(i_2-1)m+j_2}
+= (A\boxtimes B)_{(j_1-1)m + i_1,(i_2-1)m+j_2} 
+= A_{j_1,i_2}B_{i_1,j_2},\]
+\[((B\boxtimes A)c_{n,m})_{(i_1-1)n + j_1,(i_2-1)m+j_2}
+= (B\boxtimes A)_{(i_1-1)n+j_1,(j_2-1)n+i_2} 
+= B_{i_1,j_2}A_{j_1,i_2},\]
+these can obviously be transformed into each other by the 
+multiplicative twist of $\R$, so the symmetry has as one-cells 
+$c_{n,m}\colon nm\rightarrow mn$ and two-cells 
+$(C^\boxtimes)_{ij} = c^\R_\cdot~~\forall i,j$.\end{proof}}}
+
+{\ex{Consider this again on $2\times 2$-matrices, i.e., a diagram:
+\[\xymatrix{2\cdot 2\drtwocell<\omit>{~c^\R}\ar[r]^{A\boxtimes B} \ar[d]_{c_{2,2}}
+	&2\cdot 2\ar[d]^{c_{2,2}}\\
+2\cdot 2\ar[r]_{B\boxtimes A} & 2\cdot 2.}\]
+Use the identification $c_{2,2}=(23)$ to calculate:
+\[\begin{aligned}
+(B\boxtimes A)E_{(23)}
+&=\left({\begin{array}{cccc}
+B_{11}A_{11} & B_{11}A_{12} &B_{12}A_{11} &B_{12}A_{12} \\
+B_{11}A_{21} & B_{11}A_{22} &B_{12}A_{21} &B_{12}A_{22} \\
+B_{21}A_{11} & B_{21}A_{12} &B_{22}A_{11} &B_{22}A_{12} \\
+B_{21}A_{21} & B_{21}A_{22} &B_{22}A_{21} &B_{22}A_{22} \\
+\end{array}}\right)\left({\begin{array}{cccc}
+1&&&\\
+&&1&\\
+&1&&\\
+&&&1
+\end{array}}\right)\\
+&=\left({\begin{array}{cccc}
+B_{11}A_{11} &B_{12}A_{11} & B_{11}A_{12} &B_{12}A_{12} \\
+B_{11}A_{21} &B_{12}A_{21} & B_{11}A_{22} &B_{12}A_{22} \\
+B_{21}A_{11} &B_{22}A_{11} & B_{21}A_{12} &B_{22}A_{12} \\
+B_{21}A_{21} &B_{22}A_{21} & B_{21}A_{22} &B_{22}A_{22} \\
+\end{array}}\right)
+\end{aligned}\]
+and the other side:
+\[\begin{aligned}
+E_{(23)}(A\boxtimes B)
+&=\left({\begin{array}{cccc}
+1&&&\\
+&&1&\\
+&1&&\\
+&&&1
+\end{array}}\right)\left({\begin{array}{cccc}
+A_{11}B_{11} & A_{11}B_{12} &A_{12}B_{11} &A_{12}B_{12} \\
+A_{11}B_{21} & A_{11}B_{22} &A_{12}B_{21} &A_{12}B_{22} \\
+A_{21}B_{11} & A_{21}B_{12} &A_{22}B_{11} &A_{22}B_{12} \\
+A_{21}B_{21} & A_{21}B_{22} &A_{22}B_{21} &A_{22}B_{22} \\
+\end{array}}\right)\\
+&=\left({\begin{array}{cccc}
+A_{11}B_{11} & A_{11}B_{12} &A_{12}B_{11} &A_{12}B_{12} \\
+A_{21}B_{11} & A_{21}B_{12} &A_{22}B_{11} &A_{22}B_{12} \\
+A_{11}B_{21} & A_{11}B_{22} &A_{12}B_{21} &A_{12}B_{22} \\
+A_{21}B_{21} & A_{21}B_{22} &A_{22}B_{21} &A_{22}B_{22} \\
+\end{array}}\right),
+\end{aligned}\]
+thus we have the $2$-cell given by the multiplicative twist of $\R$ in
+each component:
+\[\xymatrix{\left({\begin{array}{cccc}
+B_{11}A_{11} &B_{12}A_{11} & B_{11}A_{12} &B_{12}A_{12} \\
+B_{11}A_{21} &B_{12}A_{21} & B_{11}A_{22} &B_{12}A_{22} \\
+B_{21}A_{11} &B_{22}A_{11} & B_{21}A_{12} &B_{22}A_{12} \\
+B_{21}A_{21} &B_{22}A_{21} & B_{21}A_{22} &B_{22}A_{22} \\
+\end{array}}\right)\ar[d]_{c^\R}\\
+ \left({\begin{array}{cccc}
+A_{11}B_{11} & A_{11}B_{12} &A_{12}B_{11} &A_{12}B_{12} \\
+A_{21}B_{11} & A_{21}B_{12} &A_{22}B_{11} &A_{22}B_{12} \\
+A_{11}B_{21} & A_{11}B_{22} &A_{12}B_{21} &A_{12}B_{22} \\
+A_{21}B_{21} & A_{21}B_{22} &A_{22}B_{21} &A_{22}B_{22} \\
+\end{array}}\right).}\]}}
+
+Let me summarise these results into one big lemma:
+{\lem{The module bicategory $\M$ of a bipermutative category $\R$ is 
+strictly symmetric monoidal with respect to the tensor product of 
+matrices $\boxtimes$, i.e., we have:
+\begin{itemize}
+\item $(\boxtimes,\Phi^\boxtimes)$ is a pseudofunctor:
+\[\boxtimes\colon \M\times\M\rightarrow\M,\]
+\item $\boxtimes$ is strictly associative, i.e., 
+\[\boxtimes\circ(\boxtimes\times id) 
+= \boxtimes\circ (id\times\boxtimes),\]
+\item $\boxtimes$ has a strict unit $1$, i.e.,
+\[\boxtimes\circ (id\times 1) 
+= \boxtimes \circ (1\times id) = id_{\M},\]
+\item $\boxtimes$ has a strong symmetry transformation 
+$(c^\Sigma, c^\R_\cdot)$.
+\end{itemize}
+
+Additionally the symmetry satisfies the following coherences strictly:
+\[\begin{array}{cc}
+{\xymatrix{l\cdot m\cdot n \ar[dr]_{c^\Sigma_{l,mn}} 
+\ar[r]^{c^\Sigma_{l,m}\boxtimes 1_n}
+ & m \cdot l\cdot n \ar[d]^{1_m\boxtimes c^\Sigma_{l,n}}\\
+ & m\cdot n\cdot l}}
+&
+{\xymatrix{l\cdot m\cdot n \ar[dr]_{c^\Sigma_{lm,n}} 
+\ar[r]^{1_l\boxtimes c^\Sigma_{m,n}}
+ & l\cdot n\cdot m \ar[d]^{c^\Sigma_{n,l}\boxtimes 1_m}\\
+ & n\cdot l\cdot m.}}\end{array}\]
+Furthermore the symmetry is its own inverse:
+\[{\xymatrix{
+n\cdot m\ar@{=}[rr] \ar[dr]_{c^\Sigma_{n,m}} && n\cdot m \\
+ & m\cdot n.\ar[ur]_{c^\Sigma_{m,n}}}}\]
+
+\begin{proof} Each of the properties that do not follow from the 
+previous lemmas is just promoted to $\M$ from $\Sigma_*$ by the 
+functor $E_\bullet$, so there is nothing new to prove.\end{proof}}}
+
+In summary I have proved that $(\M, \boxtimes, 1, c_\cdot)$
+is a strict symmetric monoidal bicategory in the sense also used by 
+\cite[Definition 3.1]{Os}. Since the tensor product of matrices satisfies
+these strict axioms, it is sufficient for me to consider this type of 
+symmetric monoidal bicategory, although it is very probable that 
+this class does not cover all equivalence classes of the most general
+type of bicategories with a symmetric monoidal structure one could 
+devise.
+
+With the tensor-product in place I can state the second strict 
+monoidality the functor $E$ satisfies, which quite trivially follows
+from the fact that I chose the same bijection for the tensor-product
+as I did for the product in $\Sigma_*$.
+{\prop{For each bipermutative coefficient category $\R$ the inclusion
+\[E\colon \Sigma_* \rightarrow \M\] is strictly symmetric monoidal 
+with respect to $\times$ on $\Sigma_*$ and $\boxtimes$ on $\M$.}}
+
+{\rem{With the symmetric monoidal structures on $\M$ settled the remark
+	that everything works enriched as well is obligatory. The calculations
+	before extend to $2$-cells, because they are defined merely as part of
+	the appropriate product-categories with no additional conditions, thus
+	reordering $2$-cells as indicated by the $1$-cells is compatible with
+	the enrichment.}}
+
+\section{The Bimonoidal Structure on $\M$}
+Osorno has proved that $(\M,\boxplus, 0, c_+)$ is a permutative
+bicategory (see Theorem \ref{OsPlus}), and in Section \ref{Mult} I elaborate on the 
+fact that $(\M,\boxtimes, 1, c_\cdot)$ is a second symmetric monoidal
+bicategory structure on $\M$. One would want these to 
+interact in a manner analogous to bipermutative $1$-categories. 
+This section is devoted to making the analogy precise, and establishing
+$\M$ as a bipermutative bicategory.
+
+In \ref{Fin} the choice of a strictly associative functor representing
+the product made the left-distributor strict in $\Sigma_*$, i.e., we 
+have $\lambda=id$. Here I used the same bijection that fixes this for 
+the tensor-product structure in \ref{tensor}. It should be intuitive 
+that this makes $E_\bullet$ into a well-behaved bipermutative functor. I
+elaborate on that after the appropriate definition for bicategories.
+
+The distributors of the bipermutative structure on $\Sigma_*$
+promote to natural transformations in $\M$ without using two-cells.
+
+{\prop{We have strict equalities of one-cells for $A\in GL_n\R$, 
+$B\in GL_m\R$, $C\in GL_l\R$: \[(A\boxplus B)\boxtimes C = A\boxtimes C
+\boxplus A\boxtimes C\] and \[A\boxtimes(B\boxplus C)c^\Sigma_{m+l,n}
+(c^\Sigma_{n,m}\boxplus c^\Sigma_{n,l}) = c^\Sigma_{m+l,n}(
+c^\Sigma_{n,m}\boxplus c^\Sigma_{n,l})((A\boxtimes B) \boxplus 
+(A\boxtimes C)).\] \begin{proof} I only comment on the strictness, 
+which is a result of the fact that the multiplicative twist enters 
+twice as a two-cell, hence cancels out.\end{proof}}}
+
+{\ex{Let me elaborate on $l=n=2, m=1$, so we get:
+\[c_{m+l,n}=c_{3,2},\] which is \[c_{3,2}((i-1)3+j) = (j-1)2+i\]
+i.e., $c_{3,2}$ is the cycle $(2453)$. We have\[c_{2,1}+c_{2,2}=id+
+(23)=(45),\]hence\[c_{3,2}(c_{2,1}+c_{2,2})=(2453)(45)=(432).\] 
+
+On one side we find:\[\begin{aligned}&A\boxtimes(B\boxplus C)E_{(432)}
+\\&={\left(\begin{array}{cccccc}A_{11}b &&&A_{12}b&&\\
+& A_{11}C_{11}&A_{11}C_{12}&&A_{12}C_{11}&A_{12}C_{12}\\
+& A_{11}C_{21}&A_{11}C_{22}&&A_{12}C_{21}&A_{12}C_{22}\\
+A_{21}b &&&A_{22}b&&\\
+& A_{21}C_{11}&A_{21}C_{12}&&A_{22}C_{11}&A_{22}C_{12}\\
+& A_{21}C_{21}&A_{21}C_{22}&&A_{22}C_{21}&A_{22}C_{22}\\\end{array}
+\right)}{\left(\begin{array}{cccccc}
+1&&&&&\\&&1&&&\\&&&1&&\\&1&&&&\\&&&&1&\\&&&&&1\end{array}\right)}\\
+&={\left(\begin{array}{cccccc}A_{11}b &A_{12}b&&&&\\
+&& A_{11}C_{11}&A_{11}C_{12}&A_{12}C_{11}&A_{12}C_{12}\\
+&& A_{11}C_{21}&A_{11}C_{22}&A_{12}C_{21}&A_{12}C_{22}\\
+A_{21}b &A_{22}b&&&&\\
+&& A_{21}C_{11}&A_{21}C_{12}&A_{22}C_{11}&A_{22}C_{12}\\
+&& A_{21}C_{21}&A_{21}C_{22}&A_{22}C_{21}&A_{22}C_{22}\\
+\end{array}\right).}\end{aligned}\] On the other side we have:
+\[\begin{aligned} &E_{(432)}(A\boxtimes B\boxplus A\boxtimes C)\\
+&={\left(\begin{array}{cccccc}1&&&&&\\&&1&&&\\&&&1&&\\&1&&&&\\&&&&1&\\
+&&&&&1\end{array}\right)}{\left(\begin{array}{cccccc}
+A_{11}b &A_{12}b&&&&\\ 
+A_{21}b &A_{22}b&&&&\\
+&& A_{11}C_{11}&A_{11}C_{12}&A_{12}C_{11}&A_{12}C_{12}\\
+&& A_{11}C_{21}&A_{11}C_{22}&A_{12}C_{21}&A_{12}C_{22}\\
+&& A_{21}C_{11}&A_{21}C_{12}&A_{22}C_{11}&A_{22}C_{12}\\
+&& A_{21}C_{21}&A_{21}C_{22}&A_{22}C_{21}&A_{22}C_{22}\\
+\end{array}\right)}\\&={\left(\begin{array}{cccccc}A_{11}b&A_{12}b&&&&
+\\&& A_{11}C_{11}&A_{11}C_{12}&A_{12}C_{11}&A_{12}C_{12}\\
+&& A_{11}C_{21}&A_{11}C_{22}&A_{12}C_{21}&A_{12}C_{22}\\
+A_{21}b &A_{22}b&&&&\\
+&& A_{21}C_{11}&A_{21}C_{12}&A_{22}C_{11}&A_{22}C_{12}\\
+&& A_{21}C_{21}&A_{21}C_{22}&A_{22}C_{21}&A_{22}C_{22}\\\end{array}
+\right)}=A\boxtimes(B\boxplus C)E_{(432)}.\end{aligned}\]}}
+
+Because of this strictness I define what a bipermutative bicategory is
+in close analogy with $1$-categories.
+
+{\defn{\label{bipbic}A \textbf{bipermutative bicategory} $\R$ is a bicategory 
+(with strict identities) with two monoidal structures $\boxplus, 
+\boxtimes$, an additive symmetry $c_\boxplus$, making $(\R,\boxplus)$ 
+into a permutative bicategory (Definition \ref{permbic}), a multiplicative symmetry 
+$c_\boxtimes$, making $(\R,\boxtimes)$ into a symmetric monoidal 
+bicategory (Definition \ref{mdlbic}), and strictly natural distributivity 
+isomorphisms (strictly invertible 1-cells):
+\[\lambda\colon a\boxtimes b\boxplus a\boxtimes b' \rightarrow 
+a\boxtimes (b\boxplus b'),\] \[\rho\colon a\boxtimes b\boxplus 
+a'\boxtimes b \rightarrow (a\boxplus a')\boxtimes b,\]
+satisfying the following strict identities of 1-cells:
+\begin{enumerate} \item strict zero: \[0\boxtimes a=a\boxtimes 0 =0~~
+\forall a\in\R,\] \item $\boxplus$-associativity of distributors:
+\[\lambda(\lambda\boxplus id) = \lambda(id\boxplus \lambda),\]
+\[\rho(\rho\boxplus id) = \rho(id\boxplus \rho),\]
+\item additive symmetry of distributors:
+\[(c_\boxplus\boxtimes id)\lambda = \lambda\circ c_\boxplus,\]
+\[(id\boxtimes c_+) \rho = \rho c_+,\]
+\item $\boxtimes$-associativity of distributors:
+\[\lambda = \lambda \circ (\lambda \boxtimes id),\]
+\[\rho = \rho\circ (id\boxtimes \rho),\]
+\item middle associativity of distributors:
+\[\lambda\circ (id\boxtimes \rho)=\rho\circ (\lambda\boxtimes id),\]
+\item mixed associativity of distributors:
+\[\lambda(\rho\boxplus \rho) =\rho (\lambda\boxplus\lambda)
+ (1\boxtimes c_\boxplus \boxtimes 1),\]
+\item multiplicative symmetry of distributors:
+\[c_\boxtimes \circ \lambda = \rho \circ 
+	(c_\boxtimes \boxplus c_\boxtimes).\]\end{enumerate}}}
+
+{\rem{Let me emphasise that I have modelled this definition of 
+bipermutative bicategory in such a way that the only thing left to 
+show given the two symmetric monoidal structures $\boxplus$ and 
+$\boxtimes$ on $\M$ is: There are distributors $\lambda$ and 
+$\rho$, they are strict natural transformations and they
+satisfy the coherences above. There is no additional data in the form
+of coherence $2$-cells involved.}}
+
+{\defn{Define the distributivity $1$-cells for $\M$ as follows:
+\[\lambda:=\id=E_\lambda,~~\mathrm{and~~} \rho:=E_{\rho^\Sigma}
+=c^\Sigma_{m+l,n}(c^\Sigma_{n,m}\boxplus c^\Sigma_{n,l}),\] with 
+identities as 2-cells.}}
+
+With these distributivity $1$-cells I can easily prove the 
+following theorem, which I use to summarise all explicit details about
+the bipermutative structure of $\M$, because most of it is part of the
+lemmas already proven above.
+
+{\thm{For $\R$ a bipermutative $1$-category (possibly enriched over the
+symmetric monoidal categories $\mathit{Top}, \mathit{Cat}, 
+\mathit{sSet}$), the following is a bipermutative bicategory $\M$ 
+(with $2$-cells in the same enrichment):\begin{itemize}
+\item $Ob\M = \N_0,$ \item $\M(n,m)=\begin{cases}GL_n\R, &~n=m,\\ 
+                     		    \emptyset, & ~n\neq m,\end{cases}$
+\item $(A\boxplus B)_{i,j}=\begin{cases}A_{i,j}, &~1\leq i,j\leq |A|,\\ 
+                       B_{i-|A|,j-|A|}, & ~1\leq i-|A|,j-|A|\leq |B|,\\
+                                        0,\end{cases}$
+\item $\boxplus$ is a strict normal \ref{strictn} functor, 
+i.e., $(A_1A_2\boxplus B_1B_2)=(A_1\boxplus B_1)(A_2\boxplus B_2)$
+and $\id_n\boxplus \id_m = \id_{n+m},$
+\item $(A\boxtimes B)_{(i_1-1)|B|+j_1,(i_2-1)|B|+j_2} 
+      := A_{i_1,i_2}B_{j_1,j_2},$
+\item $\boxtimes$ is a pseudofunctor, i.e., 
+$(\id_n\boxtimes \id_m) = \id_{nm}$ and there is a natural isomorphism 
+$2$-cell $(A_1\boxtimes B_1)(A_2\boxtimes B_2) \Rightarrow 
+(A_1A_2)\boxtimes (B_1B_2)$ given by the adequate composition of 
+(both) $\R$-distributors and its multiplicative symmetry $c^\R$ 
+(cf. \ref{tensoristFunktor}), \item the matrix $E_{c^+}$ for the 
+additive twist in $\Sigma_*$: \[c^+_{n,m}(i)=\begin{cases} 
+i+m, &~i\leq n,\\i-n, &~i\geq n+1, \end{cases}\] yields the additive 
+twist with $(C^+)_{i,j}=\delta_{i,c^+_{n,m}(j)},$ which is a strict
+natural transformation $\boxplus \circ tw \Rightarrow \boxplus$, i.e., 
+a pseudonatural transformation with coherence $2$-cells identities,
+\item the bijections $c_{n,m}((i-1)m+j) = i + (j-1)n$ yield the 
+multiplicative twist with $C_{i,j}=\delta_{i,c_{n,m}(j)}$, which is 
+a strong pseudonatural transformation with $2$-cell given by the 
+$c^\R$ in each component.\end{itemize} the distributors are given as:
+\begin{itemize} \item $\lambda = \id\colon nm+nl \rightarrow n(m+l),$
+and \item $\rho = c_{n,m+l}(c_{m,n}+c_{l,n})\colon mn+ln \rightarrow 
+(m+l)n,$\end{itemize} and satisfy the coherences of \ref{bipbic}.
+\begin{proof} The only thing left to prove is the fact that the 
+distributors satisfy the claimed coherences. For that consider the 
+functor \[E\colon \Sigma_*\rightarrow \M\] again. I already 
+established that it is strictly symmetric monoidal with respect to $\boxplus$,
+but given $\boxtimes$ as in \ref{tensor} and $\times$ as in \ref{Fin}
+it is obvious that $E$ is also strictly symmetric monoidal with respect to 
+these structures. Take particular note that the coherence $2$-cell of
+$c_\boxtimes$ does not feature here because the multiplicative 
+symmetry of $\R$ is forced to be the identity for the product 
+$0\cdot 0 = 0\cdot 1=0$ and $1\cdot 1$ by the axioms of symmetric 
+monoidal categories for the first and third case and the additional 
+zero-axiom for bipermutative categories.
+
+The distributors are defined as part of the image of $E$ explicitly,
+so obviously we have $E_\lambda = \lambda$ and $E_\rho=\rho$, but $E$
+is a strict functor of bicategories (and even $2$-categories, if we
+restrict our attention to its image), so all coherences these 
+distributors satisfy in $\Sigma_*$ directly promote to $\M$ for 
+arbitrary bipermutative coefficients $\R$. 
+
+In particular, $E$ is a strict functor of bipermutative bicategories, 
+which is strictly additive, strictly multiplicative, and strictly
+satisfies $E(c^+)=C^\boxplus, E(c^\cdot)=C^\boxtimes$ as well as
+$E\lambda=\lambda, E\rho=\rho$.\end{proof}}}
+
+{\rem{Let me emphasise that I can get away with such a strict structure, because
+	the $2$-cells in $\M$ are just parts of the appropriate product categories
+	with no additional compatibility condition among them. If one were to impose
+	``weak invertibility'' on the matrices of $2$-cells for instance, I do not
+	know, if we still get such a strict bipermutative structure.}}
+
+\section{Transposition and Involutions} In commutative rings we are 
+well aware of the formula: \[(AB)^t = B^tA^t.\] In preparation 
+for involutions on module bicategories I want to isolate
+how this formula behaves with genuine bipermutative 
+categories as coefficients.
+
+{\defn{For any bicategory $\C$ consider the $1$-opposed bicategory 
+$\C^{op_1}$, which has the same objects, $1$-cells, $2$-cells, but 
+opposed composition of $1$-cells, which I denote by $\circ$, while I 
+do not denote the composition of $1$-cells in $\C$, just as usual for ordinary 
+matrix multiplication. The associator is then the inverse of the 
+original associator: \[\xymatrix{A\circ (B\circ C) = (CB)A 
+\ar[r]^{\alpha^{-1}} &C(BA) = (A\circ B)\circ C.}\] For a bimonoidal
+$1$-category $\R$ we also consider the $\mu$-opposed category 
+$\R^\mu$ with the same objects and morphisms, opposed multiplication,
+and hence exchanged distributors.}}
+
+{\prop{\label{transstrfun}
+For bimonoidal coefficients transposition is a strict normal \ref{strictn}
+functor:\[(\cdot)^t\colon \MM(\R^\mu) \rightarrow \MM(\R)^{op_1}.\]
+\begin{proof}We calculate on $1$-cells: \[\begin{aligned}
+(A^t\circ_1 B^t)_{ij} &= (B^tA^t)_{ij} \\
+&= \sum_k B^t_{ik}A^t_{kj}\\&= \sum_k A^t_{kj}\circ B^t_{ik}\\
+&= \sum_k A_{jk}\circ B_{ki} = (AB)_{ji} = (AB)^t_{ij}. \end{aligned}\]
+So transposition strictly respects composition of $1$-cells and
+strictly respects identities.\end{proof}}}
+
+{\rem{For bipermutative coefficients we could use the multiplicative twist
+to suppress the $\mu$-opposition. However to make the book keeping of oppositions
+more transparent I do not use that.}}
+
+I want to consider involutions on the coefficient category $\R$ as 
+considered by Richter in \cite[Definition 3.1]{Ri2010}.
+
+{\defn{An anti-involution on a bipermutative category $\R$ is given by
+a self-inverse strictly symmetric monoidal functor 
+$T\colon (\R,+)\rightarrow (\R,+)$ with respect to $(\R,+,0,c^\R_+)$ together
+with a natural isomorphism: \[t\colon T(a)T(b)\rightarrow T(ba).\]
+Satisfying:\begin{itemize} \item $(T,t)$ strictly respects the unit, 
+i.e., $T(1) = 1$ and \[t=id\colon T(a)1=1T(a)=T(1)T(a) \rightarrow 
+T(a),\] \item $t$ is associative with respect to multiplication
+\[\xymatrix{ T(a)T(b)T(c) \ar[r]^{t T(c)}\ar[d]^{T(a)t} & T(ba)T(c) 
+\ar[d]^t\\ T(a)T(cb) \ar[r]^t & T(cba).}\] \item $(T,t)$ is symmetric 
+with respect to multiplication: \[\xymatrix{ T(a) T(b) \ar[r]^t \ar[d]^c 
+& T(ba) \ar[d]^{T(c)}\\ T(b) T(a) \ar[r]^t & T(ab).}\] \item the 
+involution commutes with the distributors: \[\xymatrix{
+T(a)T(b)+T(a)T(c)\ar[r]^-{\lambda} \ar[d]^{t+t} & T(a)T(b+c)\ar[d]^t\\
+T(ba)+T(ca) \ar[r]^{T(\rho)} & T((b+c)a),}\]and\[\xymatrix{
+T(a)T(c)+T(b)T(c)\ar[r]^-{\rho} \ar[d]^{t+t} & T(a+b)T(c)\ar[d]^t\\
+T(ca)+T(cb) \ar[r]^{T(\lambda)} & T(c(a+b)).}\]\end{itemize}}}
+
+{\rem{It is quite obvious that in the bipermutative case, the way I 
+consider it in this thesis, one of the compatibilities with 
+distributors implies the other, but the exposition is more transparent
+this way.}}
+
+{\rem{Richter proceeds in \cite{Ri2010} to define an induced 
+involution on the bar construction of the monoidal categories 
+$GL_n\R$. I define this involution as induced on matrix
+bicategories.}}
+
+{\prop{Let $(F,\varphi)\colon \mathcal{R}\rightarrow \mathcal{A}$ be a
+strictly additive functor of strictly bimonoidal categories, i.e.
+\[F(0)=0, F(r+s)=F(r)+F(s),\] furthermore let $F$ be strictly unital 
+$F(1)=1$, then \begin{itemize} \item a lax transformation $\varphi\colon F(a)F(b)
+\rightarrow F(ab)$ promotes to a lax normal 
+functor \[\mathcal{M}F\colon \mathcal{M}(\mathcal{R})\rightarrow 
+\mathcal{M}(\mathcal{A}),\] \item if furthermore 
+$\varphi\colon F(a)F(b)\rightarrow F(ab)$ is a natural isomorphism, so
+$F$ is strongly multiplicative, then $(F,\varphi)$ 
+promotes to a pseudofunctor \[\mathcal{M}F\colon 
+\mathcal{M}(\mathcal{R})\rightarrow \mathcal{M}(\mathcal{A}).\]
+\end{itemize} \begin{proof} Again the interesting point is what 
+happens on $1$-cells: \[\begin{aligned} 
+(\mathcal{M}FA\cdot\mathcal{M}FB)_{ij}&=\sum_k FA_{ik}\cdot FB_{kj}\\
+&\Rightarrow^\varphi \sum_k F(A_{ik}B_{kj})=F(\sum_k A_{ik}B_{kj})\\
+&= F(AB_{ij}) = \mathcal{M}F(AB)_{ij},\end{aligned}\] obviously the 
+functor $(\mathcal{M}F,\varphi)$ then is just as good as the 
+constraint $\varphi$ of $F$.\end{proof}}}
+
+{\lem{An anti-involution on a bimonoidal category $\R$ is a strictly
+additive, strongly multiplicative functor from $\R$ to 
+its multiplicative opposition $\R^\mu$
+\[T\colon \R\rightarrow \R^\mu.\] Consequently an anti-involution 
+induces a pseudofunctor of module bicategories:
+\[\mathcal{M}T\colon \M \rightarrow \mathcal{M}(\R^\mu).\]
+$\hfill \Box$}}
+
+This is as far as I can come in the bicategory setting without 
+appealing to classifying spaces, so let me summarise what the 
+involution induces on module bicategories. \label{invStop}
+
+{\lem{Composing transposition and an anti-involution on coefficients 
+gives a pseudofunctor \[\mathcal{M}T\circ (\cdot )^t\colon 
+\M \rightarrow \M^{op_1}.\]}}
+
+\subsection{Involution and Tensor-products}\label{invundtensor}
+One aim of this chapter on module bicategories is to get a 
+combinatorial insight on how the involution on the coefficient 
+category and the $E_\infty$-structure on its module bicategory 
+interact. Fortunately this is easily described on the level of 
+bipermutative bicategories.
+
+It is obvious that the induced involution strictly respects direct
+sum:
+{\lem{For a bimonoidal category $\R$ with involution $(T,t)$ the 
+induced involution on module bicategories is strictly additive and 
+symmetric:
+\[\mathcal{M}T(A\boxplus B) = \mathcal{M}TA\boxplus \mathcal{M}TB,\]
+and \[\mathcal{M}T(c^+_{m,n})=c^+_{m,n}.\]}}
+
+The tensor product structure, if defined, is also easily seen to be
+compatible with the coordinatewise involution:
+
+{\lem{For a bipermutative category $\R$ with involution $(T,t)$ we 
+have a strictly natural isomorphism of functors:
+\[t\colon \boxtimes \circ{\mathcal{M}T\times\mathcal{M}T}
+ \Rightarrow \mathcal{M}T \circ\boxtimes,\]
+each considered as functors $\M\times\M\rightarrow 
+\mathcal{M}(\R^\mu)$.
+\begin{proof}
+This is a simple calculation, again consider $1$-cells:
+\[\begin{aligned}
+(\mathcal{M}T(A)\boxtimes \mathcal{M}T(B))_{(i_1-1)|B|+j_1,
+	(i_2-1)|B|+j_2}
+&=\mathcal{M}T(A)_{i_1,i_2}\circ \mathcal{M}T(B)_{j_1,j_2}\\
+&=T(A_{i_1,i_2})\circ T(B_{j_1,j_2})\\
+&\Rightarrow^t T(A_{i_1,i_2}B_{j_1,j_2})\\
+&=\mathcal{M}T((A\boxtimes B)_{(i_1-1)|B|+j_1,(i_2-1)|B|+j_2})\\
+&=\mathcal{M}T(A\boxtimes B)_{(i_1-1)|B|+j_1,(i_2-1)|B|+j_2}.
+\end{aligned}\]\end{proof}}}
+
+So we can summarise: {\thm{For a bipermutative category $\R$ with 
+involution $(T,t)$ the coordinatewise involution on the 
+bicategory of matrices $\M$ induces a strong bipermutative functor:
+\[\mathcal{M}T\colon (\M,\boxplus,\boxtimes)\rightarrow 
+	(\mathcal{M}(\R^\mu),\boxplus,\boxtimes),\]
+in the sense that it is strictly additive, and strongly multiplicative
+with respect to $\boxtimes$. \begin{proof} I only need to elaborate on
+the multiplicative symmetry of $\mathcal{M}T$, which is a consequence 
+of the compatibility on coefficients: \[\xymatrix{T(a)T(b) \ar[r]^t 
+\ar[d]^c  & T(ba) \ar[d]^{Tc}\\T(b)T(a) \ar[r]^t & T(ab).}\]
+\end{proof}}}
+
+In particular the fact that $\mathcal{M}T$ is strictly additive with respect to
+$\boxplus$ implies that it induces a map of $\Gamma$-spaces, i.e., an
+infinite loop map on classifying spaces as follows:
+\[B\mathcal{M}T\colon B\M\rightarrow B\mathcal{M}(R^\mu),\]
+cf. \ref{plusdeloop}. In what follows I want to define an internal 
+involution on $B\M$, and refine Osorno's delooping of Theorem \ref{plusdeloop} 
+to one that allows us to induce a multiplicative structure more easily.
+Thus as the last compatibility, which is directly visible on the
+level of bicategories of matrices, we see that transposition and
+tensor-product strictly commute.
+
+{\prop{\label{transmultopp}
+	For any bipermutative category $\R$ transposition induces a strictly
+	additive and strictly multiplicative strict normal \ref{strictn} functor on its
+	bicategory of matrices $\M$:
+	\[(\cdot)^t\colon (\MM(\R^\mu),\boxplus,\boxtimes^\mu)\rightarrow 
+	(\MM(\R)^{op_1},\boxplus,\boxtimes^{op}),\]
+	where we consider the opposite multiplication on $\M^{op_1}$, i.e.
+	fully reversed $A\boxtimes^{op}B=B\boxtimes A.$
+	\begin{proof}The fact that transposition is a strict normal functor is 
+	Proposition	\ref{transstrfun}. The strict additivity is obvious as 
+	$(A\boxplus B)^t = A^t\boxplus B^t$. For the multiplicativity consider 
+	the following sequence of equations:
+	\[\begin{aligned}(A\boxtimes^\mu B)^t_{\omega(i_1,i_2),\omega(j_1,j_2)} &=
+	(A\boxtimes^\mu B)_{\omega(j_1,j_2),\omega(i_1,i_2)} \\
+	&=A_{j_1,i_1}\circ B_{j_2,i_2}\\&=B^t_{i_2,j_2}A^t_{i_1,j_1}\\
+	&=(B^t\boxtimes A^t)_{\omega(i_2,i_1),\omega(j_2,j_1)}
+	&=(A^t\boxtimes^{op} B^t)_{\omega(i_1,i_2),\omega(j_1,j_2)}.\end{aligned}\]
+	Thus transposition and the coordinatised tensor-product \ref{tensor}
+	commute up to one exchange of factors, 
+	yielding the claimed compatibility.\end{proof}}}
+
+Thus we see that by strict additivity of transposition we get an
+infinite loop map of classifying spaces as:
+\[B\mathcal{M}T\circ (\cdot)^t\colon B\M\rightarrow B\mathcal{M}(R)^{op_1}.\]
+
+\section{Basics on Nerves of Bicategories} On page 2 of \cite{CCG2010} 
+one can see various constructions of nerves, thus
+classifying spaces for bicategories, all homotopy equivalent after 
+realisation. In previous versions of this thesis I considered the
+``Segal Nerve'' as for instance in \cite[p.21, Definition 5.2]{CCG2010}. I
+finally noticed that in this bisimplicial set associated to a 
+bicategory one of the simplicial directions only
+consists of homotopy equivalences \cite[Theorem 6.2.]{CCG2010}. Hence I can
+restrict to one simplicial direction, simplifying the
+exposition.
+
+{\defn{The nerve of a bicategory $\C$ (with only isomorphism $2$-cells) 
+is the simplicial set with $n$-simplices pseudofunctors: 
+\[N\C_n:=\mathbf{NorHom}([n],\C).\]}}
+
+Let me be more explicit about this, I consider the ordered set 
+$[n]=\{0<1<\ldots<n-1<n\}$ as a $1$-category, which is a bicategory
+with only identity $2$-cells. Then a pseudofunctor \[(F,\varphi)\colon
+[n]\rightarrow \C\] is the same thing as a collection of objects $F_i 
+\in Ob\C$, and for each pair $0\leq i<j\leq n$ a choice of $1$-cell 
+$A_{i<j}\colon F_i\rightarrow F_j \in Ob\C(F_i,F_j)$ (where normality
+corresponds to the fixed choice $A_{i\leq i}=id_{F_i}$), and for each
+triple $i<j<k$ a $2$-cell $\varphi_{i<j<k} \colon A_{jk}A_{ij} 
+\rightarrow A_{ik},$ assembling to the compositor $\varphi$ of $F$, 
+which is hence associative in the appropriate sense.
+
+Compare page 22 of \cite{LP2008}, where there is also a 
+condition on identities I do not need, because I only consider normal 
+functors.
+
+So for a bicategory $\C$ (possibly enriched) we get a simplicial set:
+\[N\C\colon \Delta^{op}\rightarrow Set.\]I want to elaborate 
+on the simplicial operators, let \[\Phi\colon [n] \rightarrow 
+[m]\] be a monotone map: The effect on an $n$-simplex $F\colon [n]
+\rightarrow \C$ is then given as:\[\Phi^*F(i):= F\circ\Phi(i),
+\] on $1$-cells we have: \[\Phi^*A_{ij} := A_{\Phi(i),\Phi(j)}\colon 
+F_{\Phi(i)}\rightarrow F_{\Phi(j)},\] which is the identity, if 
+$\Phi(i) = \Phi(j)$ according to the normality condition on $F$. 
+Finally on compositors we get: \[\Phi^*\varphi_{i<j<k} := 
+\varphi_{\Phi(i),\Phi(j),\Phi(k)},\] which is the identity if any two
+of the three indices coincide. This is coherent, because I only 
+consider bicategories with strict identity $1$-cells.
+
+{\rem{The terminology varies, which is
+partly due to the fact that there are at least $10$ reasonable ways
+to define a nerve for bicategories (cf. the diagram 
+\cite[p. 2]{CCG2010}). This particular construction is called the 
+``unitary geometric nerve'' in \cite{CCG2010}, where more generally
+all lax functors are considered. These coincide with pseudofunctors
+for bicategories with just isomorphism $2$-cells. In particular the
+warning after Theorem 6.5 in \cite{CCG2010} does not apply for 
+bicategories with all $2$-cells isomorphisms.}}
+
+We are used to the fact that natural transformations of functors on 
+$1$-categories induce homotopies. For bicategories the same argument
+yields that an arbitrary pseudonatural transformation induces a homotopy.
+The observation is not original, but in the presence of $10$ different
+nerve constructions I want to exhibit this fact specifically for the one
+I use.
+{\prop{A pseudonatural transformation $\eta$ of pseudofunctors \[F,G
+	\colon \C\Rightarrow \D\] is equivalent to a pseudofunctor $\C\times 
+	I\rightarrow \D,$ hence induces a map: \[N(\C\times I)\cong N\C\times 
+	NI\rightarrow N\D.\] \begin{proof} This is plainly the universal 
+	property of the product in bicategories, i.e., $Fun(\A,\C\times\D) =
+	Fun(\A,\C)\times Fun(\A,\D),$ where $Fun$ can be any of the 
+	classes of functors between bicategories. Thus in particular 
+	for $\A=[n]$ and $Fun$ the class of normal pseudofunctors we get 
+	the claimed natural isomorphism.\end{proof}}}
+
+\subsection{Opposition of a Bicategory and its Nerve} As I alluded to
+at the end of section \ref{invStop}, I want to induce an involution on
+the nerve of a bicategory. For that I need one last preparation.
+
+{\defn{Let the reversal functor \[r\colon \Delta \rightarrow \Delta\] 
+be given as the identity on objects and on morphisms 
+$\Phi\colon [n]\rightarrow [m]$ define: \[r(\Phi)(i) := m- \Phi(n-i).\]
+Given a simplicial object in any category 
+$X\colon \Delta^{op}\rightarrow \C$, set $X^{op} := X\circ r$, 
+analogously for cosimplicial objects.}}
+
+The special point special about $\mathit{Top}$ as a target category is the 
+cosimplicial object that defines geometric realisation. (The analogous
+isomorphism in chain complexes $Ch$ is given by only a sign depending
+on the chain degree.)
+
+{\lem{Let $\Delta^\bullet\colon \Delta\rightarrow \mathit{Top}$ be the 
+cosimplicial space defined as usual:
+\[\Delta^n = \{(t_0,\ldots,t_n)\in I^{n+1}|\sum t_i=1\},\]
+with cosimplicial operators: \[\delta^i(t_0,\ldots,t_{n-1}) 
+= (t_0,\ldots,t_{i-1},0,t_i,\ldots,t_{n-1})\] and 
+\[\sigma^i(t_0,\ldots,t_n) 
+= (t_0,\ldots,t_{i-1},t_i+t_{i+1},t_{i+2},\ldots,t_n).\]
+Then we have an isomorphism of cosimplicial topological spaces:
+\[\Gamma\colon \Delta^\bullet \rightarrow \Delta^\bullet\circ r.\]
+\begin{proof} Define $\Gamma(t_0,\ldots,t_n) = (t_n,\ldots,t_0)$, this
+is obviously a degreewise homeomorphism, and the identities:
+\[\Gamma\circ \delta^i = \delta^{n-i}\circ\Gamma\] \[\Gamma\circ 
+\sigma^i = \sigma^{n-i}\circ\Gamma\] give that $\Gamma$ is an 
+isomorphism of cosimplicial objects.\end{proof}}}
+
+{\lem{\label{simpoppTop}Let $X\colon \Delta^{op}\rightarrow \mathit{Top}$ be a 
+simplicial space (in particular sets with discrete topology), then 
+consider geometric realisation as a coend: \[X\otimes_\Delta 
+\Delta^\bullet = |X|.\] Then we have the identity \[X\otimes 
+(\Delta^\bullet\circ r) = (X\circ r)\otimes\Delta^\bullet,\] and hence a 
+natural homeomorphism of realisations: \[X\otimes \Gamma\colon |X|
+\rightarrow |X\circ r|.\] \begin{proof} The identity \[X\otimes 
+(\Delta^\bullet\circ r) = (X\circ r)\otimes\Delta^\bullet\] can be seen 
+as follows. Both objects are quotients of the object \[\coprod_n X_n
+\times \Delta^n,\] because $r$ does not change anything on the 
+simplices. The identification according to $X\otimes (\Delta^\bullet
+\circ r)$ then is: \[[x,\delta^{n-i} t] = [d_ix,t],\] and in $(X\circ 
+r)\otimes\Delta^\bullet$ it is: \[[d_{n-i}x,t] = [x,\delta^{i} t].\] 
+So the idenfications are just listed in a different order, but the 
+equivalence relation we divide out is the same.
+
+As a consequence the natural homeomorphism spells out: \[\begin{aligned} 
+X\otimes \Gamma\colon &|X|\rightarrow |X\circ r|\\ &[x,(t_0,\ldots,t_n)] 
+\mapsto [x,(t_n,\ldots,t_0)].\end{aligned}\]\end{proof}}}
+
+With the simplicial considerations in place I define the classifying
+space of a bicategory as follows:
+
+{\defn{Given a bicategory $\C$ consider its nerve, which is a simplicial 
+set as defined before:\[N\C\colon \Delta^{op} \rightarrow Set.\]
+The geometric realisation of this simplicial set then defines the 
+classifying space of $\C$: \[B\C := |N\C|.\]}}
+
+We can understand opposing $1$-cells as the opposition of simplicial objects 
+by precomposition with the reversal functor $r\colon\Delta\rightarrow \Delta.$
+
+{\lem{\label{catoppnerv} The nerve of the bicategory $\C^{op_1}$ with 
+reversed composition of $1$-cells is isomorphic to the $r$-reversed 
+simplicial set $NC\circ r$:\[NC\circ r\cong N(C^{op_1}).\]
+\begin{proof} This is immediate from the definition. The core point is
+that opposing functors $[n]\rightarrow \C$ does change the direction
+of $1$-cells, but does not change the direction of $2$-cells, just their
+indexing.\end{proof}}}
+
+Hence we find that the homeomorphism $B\C \cong B\C^{op}$ extends
+to bicategories:
+
+{\lem{The isomorphism $\Gamma\colon \Delta^\bullet\rightarrow 
+\Delta^\bullet\circ r$ extends to a natural homeomorphism: 
+\[\Gamma\colon B\C \rightarrow B{\C^{op_1}}.\] }}
+
+So the homeomorphism interprets a sequence of $n$ $1$-cells in $\C$
+as an $n$-sequence of the opposed $1$-cells.
+
+{\defn{\label{indinv} For $\R$ a bimonoidal category with involution 
+$T$ define the induced involution on its module bicategory as 
+follows:\[\xymatrix{B\M \ar[r]^{B\mathcal{M}(T)} & 
+        B\mathcal{M}(\mathcal{R}^\mu) \ar[r]^{B(\cdot)^t}  
+        & B\mathcal{M}(\R)^{op_1} \ar[r]^{\Gamma} & B\M.}\]}}
+
+Recall that transposition and the involution are 
+covariant with respect to the $2$-cells, so the $1$-cells of the functors are 
+opposed twice, but the $2$-cells are never opposed, so the constraints 
+of $F,G,H$ (for $n\geq 2$) do not change their direction.
+
+{\rem{Chasing through the definitions and taking into account the 
+homeomorphism \[B\M \cong \coprod_n |BGL_n\R|,\] where $BGL_n\R$ is 
+the bar construction on the monoidal category $GL_n\R$ as defined in 
+\cite[Definition 3.8]{BDR2004}, it is easy to
+see that this is precisely the same involution as defined in 
+\cite{Ri2010}.}}
+
+\section{Examples for Nerves of Bicategories}
+There is an integral class in degree $3,$ from which I can bootstrap my 
+calculations of the involution on $V(1)_*K(ku)$. I can describe it
+easily as induced from a functor $\Sigma^2\S^1\rightarrow
+\mathcal{M}(\V_\CC)$, thus induced by a map $\S^3\rightarrow K(\Z,3)
+\rightarrow K(ku)$. For this I want to prepare some preliminaries on
+the nerve of bicategories. For this section recall that we
+can understand the totally ordered set $[n]=[0<1<\ldots<n]$ as a 
+$1$-category, thus as a bicategory with discrete morphism categories.
+
+{\prop{Let $\C$ be an arbitrary bicategory, and $F\colon 
+	[n]\rightarrow \C$ a strong normal functor. Then $F$ 
+	is uniquely	determined by its restriction to all $2$-faces, i.e., 
+	by all restrictions \[[2]\rightarrow [n] \rightarrow 
+	\C.\] Such a system of pseudofunctors $[2]\rightarrow \C$ 
+	determines a (unique) pseudofunctor	$[n]\rightarrow \C$ if 
+	and only if each four compatible $2$-faces can be extended over 
+	$[3]$ \[\xymatrix{(\partial\Delta^3=)\coprod_4 [2]
+	\ar[d]\ar[rr] && \C\\[3],\ar[urr]}\]where the boundary 
+	can obviously not be made into a (bi)category, but we can 
+	still express it as functors on the disjoint union subject 
+	to the appropriate compatibility on $1$-cells. \begin{proof}
+	This follows by inspecting the definition of pseudofunctor 
+	carefully. The data given by functors $[2]\rightarrow\C$
+	precisely gives the compositor $2$-cells, and the condition 
+	on extending a functor on the boundary of $[3]$ to all of 
+	$[3]$ is precisely the associativity condition on 
+	compositors \ref{pseudo}.\end{proof}}}
+
+The following result is classical and implicit in Section 5 of \cite{Str2},
+where Street even more generally considers nerves of $n$-categories for
+each $n$. However the exposition is quite dated, so I want to phrase
+the specific result I need in the context I set up here.
+
+{\prop{The bicategory $\Sigma^2A$ with $A$ an abelian (possibly 
+topological) group with one object $*$, one $1$-cell $\id_*$ and
+$\Sigma^2A(\id_*,\id_*)=A$ yields as classifying space a double 
+delooping of $A$, i.e., there is a homotopy equivalence 
+\[\Omega^2|N\Sigma^2A|= A.\] Thus define $B^2A= |N\Sigma^2A|.$
+
+In particular, if $A$ is a discrete group we get $B^2A=K(A,2)$, and
+for $A=\S^1$ we have $B^2\S^1=K(\Z,3)$, so $\Sigma^2\S^1$ is a 
+bicategory modelling a $K(\Z,3)$.\begin{proof} We see immediately 
+from the definition $N\Sigma^2A_0 = N\Sigma^2A_1 = \{*\},$ as well 
+as $N\Sigma^2A_2=A$. The functors $r_{a,b,a+b}\colon[0<1<2<3]
+\rightarrow\C$ with $r_{a,b,a+b}(012)=a, r_{a,b,a+b}(023)=b, 
+r_{a,b,a+b}(123)=a+b, r_{a,b,a+b}(013)=\id_{\id_*}$ introduce the
+relations of the Bar complex, thus we get that $N\Sigma^2A$ is a
+model for the double delooping as claimed.\end{proof}}}
+
+\subsection*{The Prototypical Class in $H(\MM\V_\CC)=K(ku)$}
+
+{\defn{Consider the topologically enriched $1$-category $SX$ for $X$ 
+an arbitrary topological
+space defined as \[\xymatrix{0 \ar[r]^X&1.}\] It is a category for
+arbitrary $X$, because no non-trivial compositions need to be
+defined. The classifying space is the suspension of
+$X$, hence in particular we can realise spheres by $X=\S^n$, giving
+$BSX = \S^{n+1}$. Call it the \textbf{directed suspension}.\label{dirsusp}}}
+
+{\ex{Consider the categories $\V_\CC$ and $\MM_\CC$ and the 
+	directed suspension of the topological circle $S\S^1$. 
+	The functor $u\colon S\S^1\rightarrow \V_\CC\subset \MM_\CC$
+	with $u(0)=u(1)=1$ and the identity on morphisms realises
+	the Bott class on classifying spaces
+	\[\S^2\rightarrow \coprod_nBGL_n\CC \rightarrow 
+	\Omega B\left(\coprod_nBGL_n\CC\right) \simeq BU\times \Z,\]
+	since the Bott class can be represented as
+	\[\Sigma\S^1=\Sigma U(1)\rightarrow BU(1)\simeq \CC P^\infty\rightarrow BU_\otimes.\]
+
+	By the fact that the objects $0$ and $1$ are sent to the
+	same object we get a factorisation over the one-point suspension
+	$\Sigma\S^1,$ because $\S^1$ is an associative
+	monoid:\[\xymatrix{S\S^1 \ar[dr]\ar[r]& \V_\CC\\
+	&\Sigma\S^1,\ar[u]}\] which on 
+	classifying spaces realises:\[\xymatrix{\S^2 \ar[r]\ar[dr] & 
+	\coprod_nBGL_n\CC \ar@{-->}[r] & BU\times \Z\\& B\S^1 \simeq 
+	K(\Z,2).\ar[u]}\]}}
+
+We can suspend these categories to bicategories analogously. 
+Consider a $1$-category $\C$, and define its directed suspension 
+bicategory $S\C$ by \[\xymatrix{0\ar[r]^\C & 1,}\] where
+again we do not need a composition for $1$-cells, hence objects
+of $\C$. It realises the (unreduced) suspension on
+classifying spaces, i.e., $BS\C = \Sigma B\C.$
+
+In particular we get the following example.
+{\ex{We can suspend the category $S\S^1$ to the bicategory
+$SS\S^1=S^2\S^1$ realising $\S^3$ on classifying spaces. Thus we get a
+directed suspension of the ``Bott functor'' above
+\[Su\colon S^2\S^1 \rightarrow S\V_\CC.\]}}
+
+{In general the directed suspension of a bipermutative category includes
+into the bicategory of matrices $j\colon S\R\rightarrow \M$ by 
+the inclusion: on objects $j_0(0)=j_0(1)=2$, on $1$-cells:
+$j_1(r)= \left(\begin{array}{cc}1&r\\&1 \end{array}\right)$,
+and the identification $\M(j_1r,j_1s) \cong \R(1,1)^{\times 2}
+\times \R(0,0)\times \R(r,s),$ yields the inclusion 
+$j_2\colon \R(r,s)\rightarrow \{\id_1\}^{\times 2}\times\{\id_0\}
+\times \R(r,s) \subset \R(1,1)^{\times 2} \times \R(0,0)\times 
+\R(r,s).$}
+
+{\ex{For the suspended Bott functor we get 
+\[S^2\S^1\rightarrow S\V_\CC\rightarrow \MM(\V_\CC),\] 
+with the additional factorisation over the double one-point
+suspension $\Sigma^2\S^1,$ which is a bicategory because 
+$\Sigma\S^1$ is a monoidal category, because $\S^1$ is an 
+abelian group. So we get\[\xymatrix{S^2\S^1\ar[dr]\ar[r]&
+\MM(\V_\CC)\\& \Sigma^2\S^1\ar[u],}\] and thus on classifying 
+spaces:\[\xymatrix{\S^3\ar[dr]\ar[r] & B\MM(\V_\CC) \ar@{-->}[r] 
+& \Omega B \left(\coprod BGL_n\V_\CC\right)\\& B^2\S^1\simeq 
+K(\Z,3).\ar[u]}\]
+
+This is the class representing the \emph{Dirac Monopole} in $\RR^3$ 
+considered as a $2$ vector bundle as described in \cite{ADR}.}}
+
+We can simplify the discussion of the suspended Bott class
+as given in the following section. Since it is given by a class
+over the multiplicative unit $1$, its $1\times 1$-matrix is 
+weakly invertible, and we do not need to extend to $2\times 2$-matrices.
+
+\subsection{The Involution on the Monopole $\S^3\rightarrow \MM(\V_\CC)$}
+The examples above determine a class $a\in\pi_3H\MM(\V_\CC)=\pi_3K(ku),$
+the Dirac Monopole (cf. \cite{ADR}), thus we can understand the involution on it.
+
+{\lem{\label{funcmono}
+	Consider the class $\bar a\in\pi_3K(ku)=K_3(ku)$ represented by the
+	functor:
+	\[S_1u\colon S^2\S^1 \rightarrow \MM(\V_\CC)\]
+	with $S_1$ the functor which assigns matrix rank $1$ to the 
+	objects	$j(0)=j(1)=1$, and considers the $1$-cells of $S^2\S^1$ both
+	as the $1\times 1$-matrix $(1)$ in $\MM(\V_\CC)_1$
+	It obviously commutes with complex conjugation on 
+	$2$-cells, while transposition has no effect. 
+	So the diagram:
+	\[ \xymatrix{S^2\S^1\ar@{=}[r]\ar[d]^{S_1u} &S^2\S^1\ar[r]^{\overline{(\cdot)_2}}
+		\ar[d]^{S_1u}& S^2\S^1\ar[d]^{S_1u}\\
+		\MM(\V_\CC)\ar[r]^{(\cdot)^t}&\MM(\V_\CC)^{op_1}\ar[r]^{\overline{(\cdot)_2}}
+		&\MM(\V_\CC)^{op_1}}	\]
+	strictly commutes.}}
+
+Additionally observe that the functor $S_1$ is oblivious to opposition
+of $1$-cells, because in a directed suspension this only amounts to relabelling source
+and target object. In summary we find: 
+{\thm{On the class $a\in\pi_3K(ku)$ the internalised involution induced by $\MM(\V_\CC)$
+	is represented as the composite: \[\xymatrix{|NS^2\S^1|\ar[r]^{|N\overline{(\cdot)}_2|} 
+	& |NS^2\S^1| \ar[r]^-\cong & |N(S^2\S^1)^{op_1}|=|\widetilde{N(S^2\S^1)}| \ar[r]^-\Gamma
+	& |N(S^2\S^1)|.}\] In particular, the outer maps induce multiplication by $-1$ on $a$, 
+	thus the involution induces the identity $a\mapsto a$.\label{invonMono}
+	\begin{proof}As above we see that the double directed suspension of $\S^1$ realises 
+	to $\Sigma^2\S^1=\S^3$. The conjugation represents
+	a reflection along an equator, thus has degree $-1$. 
+
+	For $\Gamma$ consider non-degenerate simplices of maximal degree.
+	These are precisely given by functors $[0<1<2]\rightarrow S^2\S^1$ assigning
+	for example $01$ to the initial $1$-cell, $12$ to the identity $1$-cell, 
+	$02$ to the terminal $1$-cell, and choosing any $x\in\S^1$ as compositor $2$-cell.
+	Abusively call such a functor $x$ as well. Then the maximal cells are parametrised
+	as $[x,(t_0,t_1,t_2)]$. Here $\Gamma$ acts as: $[x,(t_0,t_1,t_2)]\mapsto[x,(t_2,t_1,t_0)].$
+	In particular it has degree given by the sign of the transposition $(02),$ which is
+	thus $-1$.\end{proof}}}
